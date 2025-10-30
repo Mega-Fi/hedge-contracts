@@ -1,5 +1,4 @@
 **/node_modules
-**/.*
 packages/*/typechain
 packages/*/cache
 packages/*/typechain

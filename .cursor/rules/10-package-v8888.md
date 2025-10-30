@@ -1,0 +1,633 @@
+# Package: v8888 - Complete Reference
+
+## Overview
+
+**v8888** is the original Hegic protocol implementation, released August 10, 2021. While newer versions (Herge) are recommended for new deployments, v8888 remains important for understanding the protocol's evolution and maintaining existing deployments.
+
+**Location**: `packages/v8888/`
+
+**Solidity Version**: 0.7.x → 0.8.x
+
+**Status**: Legacy/Maintained
+
+## Key Differences from Herge
+
+| Feature | v8888 | Herge |
+|---------|-------|-------|
+| **Liquidity Model** | HegicPool with tranches | CoverPool with epochs |
+| **Options Manager** | Separate OptionsManager | Integrated in Treasury |
+| **Staking** | HegicStaking for fees | CoverPool for coverage |
+| **Tranches** | Hedged/Unhedged | Single pool |
+| **Strategies** | Basic options | Basic + Inverse |
+| **Fee Distribution** | SettlementFeeDistributor | Built into CoverPool |
+
+## Architecture
+
+```
+v8888 Architecture:
+┌──────────────────────────────────────────┐
+│          User/Frontend                    │
+└────────────┬─────────────────────────────┘
+             │
+┌────────────▼─────────────────────────────┐
+│         OptionsManager                    │
+│  • Creates options                        │
+│  • ERC721 tokenization                   │
+└────────┬────────────────┬────────────────┘
+         │                │
+┌────────▼─────────┐  ┌──▼──────────────┐
+│   HegicPool      │  │  Strategy       │
+│  • Liquidity     │  │  Contracts      │
+│  • 2 Tranches    │  └─────────────────┘
+│  • Collateral    │
+└────────┬─────────┘
+         │
+┌────────▼─────────┐
+│  HegicStaking    │
+│  • Fee rewards   │
+└──────────────────┘
+```
+
+## Core Contracts
+
+### 1. HegicPool (Abstract Base)
+
+**File**: `contracts/Pool/HegicPool.sol`
+
+**Purpose**: Base liquidity pool managing funds and collateral
+
+**Key Features**:
+- Hedged and unhedged liquidity tranches
+- Dynamic collateralization
+- Lockup periods
+- Utilization rate management
+
+**Constructor**:
+```solidity
+constructor(
+    IERC20 _token,                          // Settlement token (USDC)
+    string memory name,                     // ERC721 name
+    string memory symbol,                   // ERC721 symbol
+    IOptionsManager manager,                // Options manager
+    IPriceCalculator _pricer,              // Premium calculator
+    ISettlementFeeRecipient _settlementFeeRecipient,  // Fee recipient
+    AggregatorV3Interface _priceProvider    // Chainlink oracle
+)
+```
+
+**Tranche System**:
+```solidity
+struct Tranche {
+    uint256 share;              // LP's share
+    uint256 amount;             // Token amount deposited
+    uint256 creationTimestamp;  // When created
+    Tranche.State state;        // Open/Closed
+    bool hedged;                // Hedged or unhedged
+}
+
+enum State {
+    Open,    // Active, can withdraw after lockup
+    Closed   // Position closed
+}
+```
+
+**Key State Variables**:
+```solidity
+uint256 public hedgedShare;          // Total hedged shares
+uint256 public unhedgedShare;        // Total unhedged shares
+uint256 public hedgedBalance;        // Hedged token balance
+uint256 public unhedgedBalance;      // Unhedged token balance
+uint256 public lockedAmount;         // Currently locked
+uint256 public collateralizationRatio = 50;  // 50%
+uint256 public maxUtilizationRate = 80;      // 80%
+```
+
+#### Hedged vs Unhedged Tranches
+
+**Hedged Tranche**:
+- Higher lockup period (60 days default)
+- Used for hedged positions
+- Premium includes hedge fee
+- Lower risk, longer commitment
+
+**Unhedged Tranche**:
+- Lower lockup period (30 days default)
+- Traditional options underwriting
+- Higher risk, higher potential returns
+- More flexible liquidity
+
+**Key Functions**:
+
+```solidity
+// Provide liquidity
+function provideFrom(
+    address account,
+    uint256 amount,
+    bool hedged,
+    uint256 minShare
+) external returns (uint256 trancheId);
+
+// Withdraw liquidity
+function withdraw(uint256 trancheId) external;
+
+// Lock collateral for option
+function lock(uint256 id, uint256 amount) external;
+
+// Unlock collateral
+function unlock(uint256 id) external;
+
+// Send profits
+function send(uint256 id, address account, uint256 amount) external;
+```
+
+### 2. Specific Pool Implementations
+
+#### HegicCall.sol
+```solidity
+contract HegicCall is HegicPool {
+    // ETH call options pool
+    // Uses ETH as collateral
+    // Settles in USDC
+}
+```
+
+#### HegicPut.sol
+```solidity
+contract HegicPut is HegicPool {
+    // ETH put options pool
+    // Uses USDC as collateral
+    // Settles in USDC
+}
+```
+
+#### HegicStraddle.sol, HegicStrap.sol, HegicStrip.sol
+Multi-leg strategy pools
+
+#### HegicOtmCall.sol, HegicOtmPut.sol
+Out-of-the-money options
+
+### 3. OptionsManager
+
+**File**: `contracts/OptionsManager/OptionsManager.sol`
+
+**Purpose**: Manage option lifecycle and ERC721 tokenization
+
+**Constructor**:
+```solidity
+constructor(
+    string memory name,    // "Hegic Options"
+    string memory symbol   // "HEGOP"
+)
+```
+
+**Key Functions**:
+
+```solidity
+// Create option
+function createOption(
+    address holder,
+    IHegicPool pool,
+    uint256 amount,
+    uint256 strike,
+    uint256 period,
+    OptionType optionType
+) external returns (uint256 optionID);
+
+// Exercise option
+function exercise(uint256 optionID) external;
+
+// Unlock expired option
+function unlock(uint256 optionID) external;
+```
+
+**Option Structure**:
+```solidity
+struct Option {
+    State state;          // Active/Exercised/Expired
+    uint256 strike;       // Strike price
+    uint256 amount;       // Option size
+    uint256 lockedAmount; // Locked collateral
+    uint256 premium;      // Premium paid
+    uint256 expiration;   // Expiration timestamp
+    OptionType optionType; // Call/Put
+}
+
+enum State {
+    Inactive,
+    Active,
+    Exercised,
+    Expired
+}
+
+enum OptionType {
+    Call,
+    Put
+}
+```
+
+### 4. HegicStaking
+
+**File**: `contracts/Staking/HegicStaking.sol`
+
+**Purpose**: Stake HEGIC tokens to earn settlement fees
+
+**Key Functions**:
+
+```solidity
+// Stake HEGIC
+function stake(uint256 amount) external;
+
+// Withdraw stake
+function withdraw(uint256 amount) external;
+
+// Claim accumulated fees
+function claimProfit() external returns (uint256 profit);
+
+// View claimable amount
+function profitOf(address account) external view returns (uint256);
+```
+
+**Staking Mechanism**:
+```solidity
+mapping(address => uint256) public stakeOf;
+mapping(address => uint256) public lastProofitOf;
+
+uint256 public totalStaked;
+uint256 public cumulativeProfit;  // Per-token profit accumulator
+```
+
+### 5. SettlementFeeDistributor
+
+**File**: `contracts/Staking/SettlementFeeDistributor.sol`
+
+**Purpose**: Distribute settlement fees to stakers
+
+**Functions**:
+```solidity
+// Distribute fees
+function distribute() external;
+
+// Set fee percentage
+function setFeePercentage(uint256 percentage) external;
+```
+
+### 6. Price Calculators
+
+v8888 includes multiple pricing models:
+
+#### BlackScholes.sol
+**Purpose**: Black-Scholes option pricing model
+
+**Key Function**:
+```solidity
+function calculate(
+    uint256 period,
+    uint256 amount,
+    uint256 strike,
+    uint256 currentPrice,
+    uint256 iv  // Implied volatility
+) external pure returns (uint256 premium);
+```
+
+#### AdaptivePriceCalculator.sol
+**Purpose**: Dynamic pricing based on pool utilization
+
+```solidity
+function calculatePremium(
+    uint256 period,
+    uint256 amount,
+    uint256 strike
+) external view returns (uint256 premium);
+```
+
+**Adapts to**:
+- Current pool utilization
+- Historical volatility
+- Supply/demand dynamics
+
+#### IVLPriceCalculator.sol
+**Purpose**: Implied volatility ladder pricing
+
+### 7. Bonding Curve
+
+**Location**: `contracts/BondingCurve/`
+
+**Purpose**: Price discovery for HEGIC token
+
+**Types**:
+- `ETHBondingCurve.sol`: Buy/sell HEGIC with ETH
+- `Erc20BondingCurve.sol`: Buy/sell HEGIC with ERC20
+
+**Key Functions**:
+```solidity
+// Buy HEGIC
+function buy(uint256 amountOut) external payable;
+
+// Sell HEGIC
+function sell(uint256 amountIn, uint256 minAmountOut) external;
+
+// Get current price
+function getCurrentPrice() external view returns (uint256);
+```
+
+## Deployment
+
+### Deployment Scripts
+
+**Location**: `deploy/`
+
+```
+00_tokens&priceFeeds.ts    # Deploy tokens and price feeds
+01_base.ts                 # Deploy base contracts
+02_uni.ts                  # Deploy Uniswap integration
+03_facade.ts               # Deploy facade contract
+04_HLTPs.ts               # Deploy HLTPs
+05_distributors.ts        # Deploy fee distributors
+06_AdaptivePricers.ts     # Deploy adaptive pricers
+07_HCP.ts                 # Deploy HCP
+08_exerciseTake.ts        # Deploy exercise helpers
+09_HegicBondingCurve.ts  # Deploy bonding curve
+10_GradualTokenSwap.ts   # Deploy token swap
+```
+
+### Deployment Example
+
+```bash
+cd packages/v8888
+
+# Compile
+yarn compile
+
+# Deploy to local network
+npx hardhat deploy --network localhost
+
+# Deploy to Arbitrum
+npx hardhat deploy --network arbitrum
+
+# Verify contracts
+npx hardhat etherscan-verify --network arbitrum
+```
+
+## Usage Examples
+
+### Buying an Option (v8888)
+
+```typescript
+// 1. Get contracts
+const optionsManager = await ethers.getContract("OptionsManager");
+const callPool = await ethers.getContract("HegicCall");
+const pricer = await ethers.getContract("AdaptivePriceCalculator");
+
+// 2. Calculate premium
+const amount = ethers.utils.parseEther("1");  // 1 ETH
+const period = 7 * 24 * 60 * 60;  // 7 days
+const currentPrice = await callPool.priceProvider().latestAnswer();
+const strike = currentPrice;  // ATM option
+
+const premium = await pricer.calculatePremium(period, amount, strike);
+
+// 3. Approve and create option
+const usdc = await ethers.getContract("USDC");
+await usdc.connect(alice).approve(callPool.address, premium);
+
+await optionsManager.connect(alice).createOption(
+    alice.address,
+    callPool.address,
+    amount,
+    strike,
+    period,
+    0  // 0 = Call, 1 = Put
+);
+
+// 4. Exercise when profitable
+const optionId = 1;
+const option = await optionsManager.options(optionId);
+
+if (block.timestamp < option.expiration && isITM) {
+    await optionsManager.connect(alice).exercise(optionId);
+}
+```
+
+### Providing Liquidity
+
+```typescript
+const callPool = await ethers.getContract("HegicCall");
+const usdc = await ethers.getContract("USDC");
+
+// Provide to unhedged tranche
+const amount = ethers.utils.parseUnits("10000", 6);  // 10k USDC
+await usdc.connect(bob).approve(callPool.address, amount);
+
+const trancheId = await callPool.connect(bob).provideFrom(
+    bob.address,
+    amount,
+    false,  // unhedged
+    0       // minShare
+);
+
+// Later, after lockup period
+await callPool.connect(bob).withdraw(trancheId);
+```
+
+### Staking for Fees
+
+```typescript
+const staking = await ethers.getContract("HegicStaking");
+const hegic = await ethers.getContract("HEGIC");
+
+// Stake HEGIC
+const stakeAmount = ethers.utils.parseEther("100000");
+await hegic.connect(alice).approve(staking.address, stakeAmount);
+await staking.connect(alice).stake(stakeAmount);
+
+// Check claimable profit
+const profit = await staking.profitOf(alice.address);
+
+// Claim fees
+if (profit.gt(0)) {
+    await staking.connect(alice).claimProfit();
+}
+```
+
+## Testing
+
+### Test Organization
+
+```
+test/
+├── integration/
+│   ├── call-pool.test.ts
+│   └── put-pool.test.ts
+└── unit/
+    ├── HegicPool.test.ts
+    ├── OptionsManager.test.ts
+    ├── HegicStaking.test.ts
+    ├── BlackScholes.test.ts
+    └── PriceCalculators.test.ts
+```
+
+### Running Tests
+
+```bash
+cd packages/v8888
+
+# Run all tests
+yarn test
+
+# Run specific test
+npx hardhat test test/unit/HegicPool.test.ts
+
+# Coverage
+yarn coverage
+
+# Gas report
+REPORT_GAS=1 yarn test
+```
+
+## Configuration
+
+### hardhat.config.ts
+
+```typescript
+export default {
+    solidity: {
+        version: "0.8.3",
+        settings: {
+            optimizer: {
+                enabled: true,
+                runs: 200
+            }
+        }
+    },
+    
+    networks: {
+        arbitrum: {
+            url: process.env.ARBITRUM_RPC_URL,
+            accounts: [process.env.PRIVATE_KEY]
+        }
+    },
+    
+    namedAccounts: {
+        deployer: {
+            default: 0,
+            42161: "0x..."  // Arbitrum deployer
+        }
+    }
+};
+```
+
+## Key Parameters
+
+| Parameter | Default Value | Description |
+|-----------|---------------|-------------|
+| Lockup Period (Hedged) | 60 days | Minimum lockup for hedged tranches |
+| Lockup Period (Unhedged) | 30 days | Minimum lockup for unhedged tranches |
+| Hedge Fee Rate | 80% | Percentage of premium for hedge |
+| Max Utilization Rate | 80% | Maximum pool utilization |
+| Collateralization Ratio | 50% | Collateral requirement percentage |
+
+## Utilities
+
+### Facade.sol
+
+**Purpose**: Simplified interface for option purchases
+
+**Functions**:
+```solidity
+// Buy option with simple interface
+function buyOption(
+    address pool,
+    uint256 period,
+    uint256 amount,
+    uint256 strike
+) external returns (uint256 optionID);
+```
+
+### TakeProfit.sol
+
+**Purpose**: Automated option exercise at target profit
+
+**Functions**:
+```solidity
+// Set take-profit level
+function setTakeProfit(uint256 optionID, uint256 targetProfit) external;
+
+// Execute take-profit
+function executeTakeProfit(uint256 optionID) external;
+```
+
+### Exerciser.sol
+
+**Purpose**: Batch exercise options
+
+**Functions**:
+```solidity
+// Exercise multiple options
+function exerciseMultiple(uint256[] calldata optionIDs) external;
+```
+
+## Migration from v8888 to Herge
+
+### Key Changes
+
+1. **Replace HegicPool with CoverPool**
+   - Different liquidity model
+   - Epoch-based instead of tranches
+
+2. **Replace OptionsManager with OperationalTreasury**
+   - Integrated option management
+   - Direct strategy interaction
+
+3. **Update Strategy Interactions**
+   - New strategy interface
+   - Different create/exercise flow
+
+4. **Remove Staking Contract**
+   - Staking now through CoverPool
+   - Different reward mechanism
+
+### Migration Steps
+
+1. Deploy Herge contracts
+2. Pause v8888 contract operations
+3. Allow users to close positions
+4. Migrate liquidity to new pools
+5. Update frontend to use new contracts
+6. Sunset v8888 contracts
+
+## Known Limitations
+
+1. **Fixed Tranches**: Cannot dynamically adjust tranche parameters
+2. **Manual Fee Distribution**: Requires admin to distribute fees
+3. **Limited Strategy Types**: No inverse strategies
+4. **Separate Contracts**: More complex integration
+5. **Gas Costs**: Higher than Herge due to architecture
+
+## Troubleshooting
+
+### Common Issues
+
+**Issue**: "Lockup period not expired"
+**Solution**: Wait for tranche lockup period to complete
+
+**Issue**: "Insufficient hedged/unhedged balance"
+**Solution**: Check pool has liquidity in correct tranche type
+
+**Issue**: "Option expired"
+**Solution**: Exercise before expiration or unlock after
+
+**Issue**: "Collateralization ratio too low"
+**Solution**: Wait for pool to rebalance or provide more liquidity
+
+## Documentation
+
+**Location**: `packages/v8888/docs/`
+
+**Diagram**: See `docs/Hegic Protocol v8888 Contracts.png` for architecture
+
+## Additional Resources
+
+- **Changelog**: `CHANGELOG.md`
+- **README**: `README.md`
+- **License**: `LICENSE`
+

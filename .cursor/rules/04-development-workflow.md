@@ -1,0 +1,613 @@
+# Hegic Protocol - Development Workflow
+
+## Prerequisites
+
+### Required Software
+- **Node.js**: v14.x or higher
+- **Yarn**: v1.22.x or higher (package manager)
+- **Git**: For version control
+
+### Environment Setup
+```bash
+# Install dependencies (from root)
+yarn install
+
+# This installs:
+# - Lerna (monorepo management)
+# - All package dependencies
+# - Links workspace packages
+```
+
+## Project Structure
+
+```
+hegic-contracts/
+├── packages/
+│   ├── v8888/
+│   │   ├── contracts/           # Solidity contracts
+│   │   ├── test/                # Test files
+│   │   ├── deploy/              # Deployment scripts
+│   │   ├── scripts/             # Utility scripts
+│   │   ├── hardhat.config.ts    # Hardhat configuration
+│   │   └── package.json         # Package dependencies
+│   ├── herge/                   # Same structure
+│   ├── hardcore-beta/           # Same structure
+│   └── utils/                   # Shared utilities
+├── lerna.json                   # Lerna configuration
+├── package.json                 # Root package
+└── tsconfig.json                # TypeScript config
+```
+
+## Working with Packages
+
+### Navigate to Specific Package
+```bash
+# Work on herge
+cd packages/herge
+
+# Work on v8888
+cd packages/v8888
+
+# Work on hardcore-beta
+cd packages/hardcore-beta
+```
+
+### Run Commands in All Packages
+```bash
+# From root - runs test in all packages
+yarn test
+
+# Or using Lerna directly
+lerna run test
+lerna run compile
+lerna run build
+```
+
+### Run Commands in Specific Package
+```bash
+# From root
+yarn workspace @hegic/herge test
+yarn workspace @hegic/v8888 compile
+
+# Or from package directory
+cd packages/herge
+yarn test
+```
+
+## Development Commands
+
+### Compilation
+
+```bash
+# Compile all packages
+yarn workspace @hegic/herge compile
+yarn workspace @hegic/v8888 compile
+
+# Clean and recompile
+yarn workspace @hegic/herge build
+```
+
+**What compilation does**:
+- Compiles `.sol` files → bytecode + ABI
+- Generates TypeScript types (via TypeChain)
+- Creates `artifacts/` and `typechain/` directories
+- Validates Solidity syntax and imports
+
+### Testing
+
+```bash
+# Run all tests
+yarn workspace @hegic/herge test
+
+# Run specific test file
+cd packages/herge
+npx hardhat test test/contracts/OperationalTreasury.test.ts
+
+# Run with gas reporting
+REPORT_GAS=1 npx hardhat test
+
+# Run with coverage
+npx hardhat coverage
+```
+
+**Test Structure**:
+```typescript
+// Example test structure
+describe("OperationalTreasury", () => {
+    let treasury: OperationalTreasury;
+    let coverPool: CoverPool;
+    
+    beforeEach(async () => {
+        // Setup contracts
+    });
+    
+    describe("buy()", () => {
+        it("should create option successfully", async () => {
+            // Test logic
+        });
+        
+        it("should revert if strategy not accepted", async () => {
+            // Test logic
+        });
+    });
+});
+```
+
+### Code Formatting
+
+```bash
+# Check formatting
+yarn prettier
+
+# Auto-fix formatting
+yarn prettier:write
+
+# Format specific package
+cd packages/herge
+yarn format
+yarn prettier:write
+```
+
+**Formatted Files**:
+- `contracts/**/*.sol`
+- `test/**/*.ts`
+- `**/*.md`
+- `**/*.yml`
+
+### Linting
+
+```bash
+# Lint Solidity
+cd packages/v8888
+npx solhint contracts/**/*.sol
+
+# Lint TypeScript
+npx eslint .
+
+# Lint Markdown
+npx markdownlint **/*.md
+```
+
+## Making Changes
+
+### 1. Creating New Contract
+
+```bash
+cd packages/herge/contracts/Strategies
+
+# Create new strategy file
+touch HegicStrategyNewStrategy.sol
+```
+
+**Template**:
+```solidity
+pragma solidity ^0.8.3;
+
+/**
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * Hegic
+ * Copyright (C) 2022 Hegic Protocol
+ **/
+
+import "./HegicStrategy.sol";
+
+contract HegicStrategyNewStrategy is HegicStrategy {
+    constructor(
+        AggregatorV3Interface _priceProvider,
+        IPremiumCalculator _pricer,
+        uint256 _limit,
+        uint8 _spotDecimals,
+        uint48[2] memory periodLimits,
+        uint48 _exerciseWindowDuration,
+        LimitController _limitController
+    ) HegicStrategy(
+        _priceProvider,
+        _pricer,
+        _limit,
+        _spotDecimals,
+        periodLimits,
+        _exerciseWindowDuration,
+        _limitController
+    ) {}
+    
+    function _calculateStrategyPayOff(uint256 optionID)
+        internal view override returns (uint256)
+    {
+        // Implement payoff logic
+    }
+}
+```
+
+### 2. Creating Test File
+
+```bash
+cd packages/herge/test/contracts
+
+# Create test file
+touch NewStrategy.test.ts
+```
+
+**Template**:
+```typescript
+import { ethers, deployments } from "hardhat";
+import { expect } from "chai";
+import { HegicStrategyNewStrategy } from "../../typechain";
+
+describe("HegicStrategyNewStrategy", () => {
+    let strategy: HegicStrategyNewStrategy;
+    
+    beforeEach(async () => {
+        await deployments.fixture();
+        strategy = await ethers.getContract("HegicStrategyNewStrategy");
+    });
+    
+    describe("create()", () => {
+        it("should create option", async () => {
+            // Test implementation
+        });
+    });
+});
+```
+
+### 3. Creating Deployment Script
+
+```bash
+cd packages/herge/deploy
+
+# Create deployment file (numbered)
+touch 10_new_strategy.ts
+```
+
+**Template**:
+```typescript
+import { HardhatRuntimeEnvironment } from "hardhat/types";
+import { DeployFunction } from "hardhat-deploy/types";
+
+const func: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
+    const { deployments, getNamedAccounts } = hre;
+    const { deploy } = deployments;
+    const { deployer } = await getNamedAccounts();
+    
+    // Get dependencies
+    const priceProvider = await deployments.get("PriceProvider");
+    const pricer = await deployments.get("PremiumCalculator");
+    const limitController = await deployments.get("LimitController");
+    
+    await deploy("HegicStrategyNewStrategy", {
+        from: deployer,
+        args: [
+            priceProvider.address,
+            pricer.address,
+            ethers.utils.parseEther("1000000"), // limit
+            18, // spotDecimals
+            [86400, 86400 * 30], // period limits [1 day, 30 days]
+            86400, // exercise window
+            limitController.address
+        ],
+        log: true,
+    });
+};
+
+export default func;
+func.tags = ["NewStrategy"];
+func.dependencies = ["PriceProvider", "PremiumCalculator", "LimitController"];
+```
+
+### 4. Workflow Checklist
+
+- [ ] Write contract code
+- [ ] Compile: `yarn compile`
+- [ ] Write tests
+- [ ] Run tests: `yarn test`
+- [ ] Check coverage: `yarn coverage`
+- [ ] Format code: `yarn prettier:write`
+- [ ] Lint code: `yarn lint`
+- [ ] Create deployment script
+- [ ] Test deployment on localhost
+- [ ] Document changes
+- [ ] Commit changes
+
+## Testing Workflow
+
+### Local Testing
+
+```bash
+# Start local Hardhat node
+npx hardhat node
+
+# In another terminal, deploy
+npx hardhat deploy --network localhost
+
+# Run tests against local node
+npx hardhat test --network localhost
+```
+
+### Forking Mainnet
+
+**hardhat.config.ts**:
+```typescript
+networks: {
+    hardhat: {
+        forking: {
+            url: process.env.MAINNET_RPC_URL,
+            blockNumber: 15000000 // Optional: pin to block
+        }
+    }
+}
+```
+
+```bash
+# Run tests on mainnet fork
+npx hardhat test --network hardhat
+```
+
+**Benefits**:
+- Test with real contract state
+- Test integrations with live protocols
+- Test with actual Chainlink prices
+
+### Gas Optimization Testing
+
+```bash
+# Enable gas reporter
+REPORT_GAS=1 npx hardhat test
+
+# Output shows:
+# - Gas used per function
+# - Average gas cost
+# - Method call count
+```
+
+**Analyze Results**:
+- Look for high gas functions
+- Optimize storage access
+- Reduce external calls
+- Use events instead of storage when possible
+
+### Coverage Analysis
+
+```bash
+cd packages/herge
+npx hardhat coverage
+
+# Opens coverage/index.html
+# Shows:
+# - Line coverage
+# - Branch coverage
+# - Function coverage
+# - Statement coverage
+```
+
+**Target Coverage**:
+- Statements: >95%
+- Branches: >90%
+- Functions: >95%
+- Lines: >95%
+
+## Debugging
+
+### Console Logging in Contracts
+
+```solidity
+import "hardhat/console.sol";
+
+contract MyContract {
+    function myFunction() public {
+        console.log("Debug value:", someValue);
+        console.log("Address:", msg.sender);
+    }
+}
+```
+
+### Hardhat Console
+
+```bash
+npx hardhat console --network localhost
+```
+
+```javascript
+// Interact with contracts
+const Treasury = await ethers.getContractFactory("OperationalTreasury");
+const treasury = await Treasury.attach("0x...");
+const result = await treasury.totalLocked();
+console.log(result.toString());
+```
+
+### Debugging Failed Transactions
+
+```typescript
+// In tests
+await expect(
+    treasury.buy(...)
+).to.be.revertedWith("Expected error message");
+
+// Or catch and inspect
+try {
+    await treasury.buy(...);
+} catch (error) {
+    console.log(error.message);
+}
+```
+
+### Time Manipulation (Testing)
+
+```typescript
+import { time } from "@nomicfoundation/hardhat-network-helpers";
+
+// Increase time by 7 days
+await time.increase(7 * 24 * 60 * 60);
+
+// Set to specific timestamp
+await time.increaseTo(specificTimestamp);
+
+// Get current block timestamp
+const currentTime = await time.latest();
+```
+
+## Environment Variables
+
+### Setup .env File
+
+```bash
+cd packages/herge
+
+# Create .env file
+cat > .env << EOF
+# Network RPCs
+MAINNET_RPC_URL=https://mainnet.infura.io/v3/YOUR_KEY
+ARBITRUM_RPC_URL=https://arb1.arbitrum.io/rpc
+
+# Deployer Account
+PRIVATE_KEY=0x...
+
+# Etherscan API Keys
+ETHERSCAN_API_KEY=YOUR_KEY
+ARBISCAN_API_KEY=YOUR_KEY
+
+# Optional
+REPORT_GAS=false
+COINMARKETCAP_API_KEY=YOUR_KEY
+EOF
+```
+
+### Load in hardhat.config.ts
+
+```typescript
+import * as dotenv from "dotenv";
+dotenv.config();
+
+export default {
+    networks: {
+        mainnet: {
+            url: process.env.MAINNET_RPC_URL,
+            accounts: [process.env.PRIVATE_KEY]
+        }
+    }
+};
+```
+
+## Common Issues & Solutions
+
+### Issue: "Cannot find module"
+**Solution**:
+```bash
+# Reinstall dependencies
+rm -rf node_modules
+yarn install
+```
+
+### Issue: "Contract size exceeds limit"
+**Solution**:
+```typescript
+// In hardhat.config.ts
+export default {
+    solidity: {
+        version: "0.8.3",
+        settings: {
+            optimizer: {
+                enabled: true,
+                runs: 200
+            }
+        }
+    }
+};
+```
+
+### Issue: TypeChain types not generated
+**Solution**:
+```bash
+# Recompile
+yarn clean
+yarn compile
+```
+
+### Issue: Test failures after changes
+**Solution**:
+```bash
+# Clean and rebuild
+yarn clean
+yarn compile
+yarn test
+```
+
+## Git Workflow
+
+### Branch Strategy
+```bash
+# Create feature branch
+git checkout -b feature/new-strategy
+
+# Make changes and commit
+git add .
+git commit -m "feat: add new strategy implementation"
+
+# Push and create PR
+git push origin feature/new-strategy
+```
+
+### Commit Message Convention
+```
+feat: Add new feature
+fix: Fix bug
+docs: Update documentation
+test: Add tests
+refactor: Refactor code
+style: Format code
+chore: Update dependencies
+```
+
+## CI/CD Integration
+
+### GitHub Actions (Example)
+```yaml
+# .github/workflows/ci.yaml
+name: CI
+
+on: [push, pull_request]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+      - run: yarn install
+      - run: yarn compile
+      - run: yarn test
+      - run: yarn prettier
+```
+
+## Package Dependencies
+
+### Adding Dependencies
+
+```bash
+# Add to specific package
+cd packages/herge
+yarn add --dev @package-name
+
+# Add to root (dev tools)
+cd ../..
+yarn add --dev -W package-name
+```
+
+### Updating Dependencies
+
+```bash
+# Update all packages
+yarn upgrade-interactive
+
+# Update specific package
+yarn upgrade package-name
+```
+
+## Performance Tips
+
+1. **Use Local Node**: Faster than remote RPC
+2. **Cache Compilation**: Don't clean unnecessarily
+3. **Parallel Tests**: Use `--parallel` flag
+4. **Selective Testing**: Test only changed files
+5. **Skip Type Generation**: Use `--no-typechain` for quick compiles
+

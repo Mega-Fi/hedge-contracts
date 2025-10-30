@@ -1,0 +1,758 @@
+# Package: Herge - Complete Reference
+
+## Overview
+
+**Herge** is the latest version of the Hegic protocol, featuring enhanced risk management, improved liquidity mechanisms, and advanced options strategies including inverse strategies.
+
+**Location**: `packages/herge/`
+
+**Solidity Version**: 0.8.3
+
+**Status**: Production-ready, audited by PeckShield
+
+## Architecture
+
+### Core Components
+
+```
+Herge Architecture:
+┌─────────────────────────────────────────────────────────────┐
+│                     User Interface                           │
+└───────────┬─────────────────────────────────────────────────┘
+            │
+┌───────────▼──────────────────────────────────────────────────┐
+│                  OperationalTreasury                          │
+│  • Creates options via strategies                             │
+│  • Locks liquidity (negativePNL/positivePNL)                 │
+│  • Handles settlements                                        │
+└───────┬──────────────────────────┬───────────────────────────┘
+        │                          │
+┌───────▼─────────┐       ┌────────▼──────────┐
+│  PositionsManager│       │   Strategy        │
+│  (ERC721 NFTs)  │       │   Contracts       │
+└─────────────────┘       └───────────────────┘
+        │
+┌───────▼──────────────────────────────────────────────────────┐
+│                       CoverPool                               │
+│  • HEGIC staking for backstop coverage                       │
+│  • Epoch-based profit distribution                           │
+│  • Converts HEGIC ↔ USDC                                     │
+└───────────────────────────────────────────────────────────────┘
+```
+
+## Contract Details
+
+### 1. OperationalTreasury
+
+**File**: `contracts/OperationalTreasury.sol`
+
+**Purpose**: Central hub for option lifecycle management
+
+**Key Features**:
+- Option creation and settlement
+- Liquidity locking mechanism
+- Strategy management
+- Cover Pool integration
+
+**Constructor Parameters**:
+```solidity
+constructor(
+    IERC20 _token,              // USDC (settlement token)
+    IPositionsManager _manager,  // NFT manager
+    uint256 _maxLockupPeriod,   // Max option duration (e.g., 30 days)
+    ICoverPool _coverPool,      // Coverage provider
+    uint256 _benchmark,         // Risk benchmark (e.g., 50 = 50%)
+    IHegicStrategy[] memory initialStrategies  // Initial strategies
+)
+```
+
+**Core State**:
+```solidity
+struct LockedLiquidity {
+    LockedLiquidityState state;  // Unlocked=0, Locked=1
+    IHegicStrategy strategy;
+    uint128 negativepnl;         // Max potential loss
+    uint128 positivepnl;         // Max potential profit
+    uint32 expiration;
+}
+
+mapping(uint256 => LockedLiquidity) public lockedLiquidity;
+mapping(IHegicStrategy => uint256) public lockedByStrategy;
+uint256 public totalLocked;
+```
+
+**Critical Functions**:
+
+#### buy()
+```solidity
+function buy(
+    IHegicStrategy strategy,
+    address holder,
+    uint256 amount,
+    uint256 period,
+    bytes[] calldata additional
+) external nonReentrant
+```
+
+**Flow**:
+1. Validates strategy is accepted
+2. Calls `strategy.create()` to get PNL bounds
+3. Locks liquidity based on negativePNL
+4. Mints NFT via PositionsManager
+5. Emits events
+
+**Example**:
+```typescript
+// Buy 1 ETH call option for 7 days
+await usdc.approve(treasury.address, premium);
+await treasury.buy(
+    callStrategy.address,
+    alice.address,
+    ethers.utils.parseEther("1"),
+    7 * 24 * 60 * 60,
+    [] // No additional data
+);
+```
+
+#### payOff()
+```solidity
+function payOff(uint256 positionID, address account) external nonReentrant
+```
+
+**Flow**:
+1. Gets strategy for position
+2. Calls `strategy.payOffAmount()` to calculate profit
+3. Unlocks liquidity
+4. Transfers profit from treasury or pulls from CoverPool
+5. Burns NFT
+
+**Example**:
+```typescript
+// Exercise option when profitable
+await treasury.payOff(1, alice.address);
+```
+
+#### connect()
+```solidity
+function connect(IHegicStrategy strategy) external onlyRole(DEFAULT_ADMIN_ROLE)
+```
+
+**Purpose**: Register new strategy with treasury
+
+**Example**:
+```typescript
+await treasury.connect(newStrategy.address);
+```
+
+### 2. CoverPool
+
+**File**: `contracts/CoverPool.sol`
+
+**Purpose**: Backstop liquidity pool funded by HEGIC stakers
+
+**Key Features**:
+- HEGIC token staking
+- Epoch-based profit distribution
+- HEGIC ↔ USDC conversion
+- ERC721 positions for stakers
+
+**Constructor Parameters**:
+```solidity
+constructor(
+    IERC20 _coverToken,          // HEGIC token
+    IERC20 _profitToken,         // USDC token
+    address _payoffPool,         // Source for USDC coverage
+    uint256 initialEpochChangingPrice  // Initial HEGIC/USDC rate
+)
+```
+
+**Epoch System**:
+```solidity
+struct Epoch {
+    uint256 start;              // Epoch start timestamp
+    uint256 changingPrice;      // HEGIC/USDC conversion rate (1e30 decimals)
+    uint256 cumulativePoint;    // Cumulative profit checkpoint
+    uint256 totalShareOut;      // Total shares marked for withdrawal
+    uint256 coverTokenOut;      // HEGIC marked for withdrawal
+    uint256 profitTokenOut;     // USDC profits for epoch
+    mapping(uint256 => uint256) outShare;  // Per-position withdrawal shares
+}
+
+uint256 public currentEpoch;
+uint32 public windowSize = 5 days;  // Entry/exit window duration
+```
+
+**Core Functions**:
+
+#### provide()
+```solidity
+function provide(uint256 amount, uint256 positionId) 
+    external returns (uint256)
+```
+
+**Purpose**: Stake HEGIC to provide coverage
+
+**Requirements**:
+- Within epoch window (first 5 days of epoch)
+- Amount > 0
+
+**Flow**:
+1. Transfers HEGIC from user
+2. Calculates share based on pool ratio
+3. Mints NFT or updates existing position
+4. Returns position ID
+
+**Example**:
+```typescript
+await hegic.approve(coverPool.address, amount);
+const positionId = await coverPool.provide(
+    ethers.utils.parseEther("10000"),
+    0  // 0 = create new position
+);
+```
+
+#### withdraw()
+```solidity
+function withdraw(uint256 positionId, uint256 amount) external
+```
+
+**Purpose**: Mark amount for withdrawal (actual withdrawal at epoch end)
+
+**Example**:
+```typescript
+await coverPool.withdraw(positionId, ethers.utils.parseEther("5000"));
+```
+
+#### claim()
+```solidity
+function claim(uint256 positionId) external returns (uint256)
+```
+
+**Purpose**: Claim accumulated USDC profits
+
+**Returns**: Amount of USDC claimed
+
+**Example**:
+```typescript
+const profit = await coverPool.claim(positionId);
+```
+
+#### withdrawEpoch()
+```solidity
+function withdrawEpoch(uint256 positionId, uint256[] calldata outFrom) external
+```
+
+**Purpose**: Withdraw HEGIC + profits from closed epochs
+
+**Example**:
+```typescript
+// Withdraw from epochs 1, 2, and 3
+await coverPool.withdrawEpoch(positionId, [1, 2, 3]);
+```
+
+#### fixProfit()
+```solidity
+function fixProfit() external onlyRole(DEFAULT_ADMIN_ROLE)
+```
+
+**Purpose**: Distribute profits and start next epoch
+
+**Flow**:
+1. Calculates profits since last epoch
+2. Updates `cumulativeProfit` per share
+3. Closes current epoch
+4. Starts next epoch
+
+**Example**:
+```typescript
+// Admin distributes profits weekly
+await coverPool.fixProfit();
+```
+
+#### payOut()
+```solidity
+function payOut(uint256 amount) 
+    external onlyRole(OPERATIONAL_TRESUARY_ROLE)
+```
+
+**Purpose**: Provide USDC coverage when OperationalTreasury insufficient
+
+**Flow**:
+1. Calculates HEGIC amount needed based on `changingPrice`
+2. Transfers HEGIC to payoff pool
+3. Pulls USDC from payoff pool to treasury
+
+**Called By**: OperationalTreasury when settling large payouts
+
+### 3. Strategies
+
+**Base Location**: `contracts/Strategies/`
+
+#### Strategy Hierarchy
+
+```
+HegicStrategy (abstract base)
+├── HegicStrategyCall
+├── HegicStrategyPut
+├── HegicStrategyStraddle
+├── HegicStrategyStrangle
+├── HegicStrategyStrap
+├── HegicStrategyStrip
+├── HegicStrategySpreadCall
+├── HegicStrategySpreadPut
+└── HegicInverseStrategy (abstract)
+    ├── HegicStrategyInverseBearCallSpread
+    ├── HegicStrategyInverseBullPutSpread
+    ├── HegicStrategyInverseLongButterfly
+    └── HegicStrategyInverseLongCondor
+```
+
+#### Strategy Interface
+
+```solidity
+interface IHegicStrategy {
+    struct StrategyData {
+        uint128 amount;
+        uint128 strike;
+    }
+    
+    function create(
+        uint256 id,
+        address holder,
+        uint256 amount,
+        uint256 period,
+        bytes[] calldata additional
+    ) external returns (uint32 expiration, uint256 positivePNL, uint256 negativePNL);
+    
+    function payOffAmount(uint256 optionID) external view returns (uint256);
+    
+    function isPayoffAvailable(uint256 optID, address caller, address recipient) 
+        external view returns (bool);
+}
+```
+
+#### Strategy Construction
+
+```solidity
+constructor(
+    AggregatorV3Interface _priceProvider,  // Chainlink price feed
+    IPremiumCalculator _pricer,           // Premium calculation
+    uint256 _limit,                        // Max liquidity lock
+    uint8 _spotDecimals,                   // Underlying decimals
+    uint48[2] memory periodLimits,         // [minPeriod, maxPeriod]
+    uint48 _exerciseWindowDuration,        // Window before expiry
+    LimitController _limitController       // Limit management
+)
+```
+
+#### Strategy Examples
+
+**Call Option**:
+```typescript
+// Buy 1 ETH call at current price
+await treasury.buy(
+    callStrategy.address,
+    alice.address,
+    ethers.utils.parseEther("1"),     // 1 ETH
+    7 * 24 * 60 * 60,                 // 7 days
+    []
+);
+```
+
+**Put Option**:
+```typescript
+// Buy 1 ETH put at current price
+await treasury.buy(
+    putStrategy.address,
+    alice.address,
+    ethers.utils.parseEther("1"),
+    7 * 24 * 60 * 60,
+    []
+);
+```
+
+**Straddle** (Call + Put at same strike):
+```typescript
+await treasury.buy(
+    straddleStrategy.address,
+    alice.address,
+    ethers.utils.parseEther("1"),
+    7 * 24 * 60 * 60,
+    []
+);
+```
+
+**Strangle** (Call + Put at different strikes):
+```typescript
+const spreadPercent = 10;  // 10% spread
+await treasury.buy(
+    strangleStrategy.address,
+    alice.address,
+    ethers.utils.parseEther("1"),
+    7 * 24 * 60 * 60,
+    [ethers.utils.defaultAbiCoder.encode(["uint256"], [spreadPercent])]
+);
+```
+
+**Inverse Bear Call Spread**:
+```typescript
+await treasury.buy(
+    inverseBearCallSpreadStrategy.address,
+    alice.address,
+    ethers.utils.parseEther("1"),
+    7 * 24 * 60 * 60,
+    []
+);
+```
+
+### 4. ProfitCalculator
+
+**File**: `contracts/Strategies/ProfitCalculator.sol`
+
+**Purpose**: Calculate option payoffs with proper decimal handling
+
+**Key Functions**:
+
+```solidity
+library ProfitCalculator {
+    function calculateCallProfit(
+        uint256 strike,
+        uint256 currentPrice,
+        uint256 amount,
+        uint8 tokenDecimals,
+        uint8 spotDecimals,
+        uint256 priceDecimals
+    ) internal pure returns (uint256);
+    
+    function calculatePutProfit(
+        uint256 strike,
+        uint256 currentPrice,
+        uint256 amount,
+        uint8 tokenDecimals,
+        uint8 spotDecimals,
+        uint256 priceDecimals
+    ) internal pure returns (uint256);
+}
+```
+
+**Example**:
+```solidity
+// ETH at $2100, strike at $2000, 1 ETH option
+uint256 profit = ProfitCalculator.calculateCallProfit(
+    2000e8,      // Strike (Chainlink decimals)
+    2100e8,      // Current price (Chainlink decimals)
+    1e18,        // Amount (18 decimals for ETH)
+    6,           // USDC decimals
+    18,          // ETH decimals
+    8            // Chainlink decimals
+);
+// Returns: 100e6 (100 USDC)
+```
+
+### 5. LimitController
+
+**File**: `contracts/Strategies/LimitController.sol`
+
+**Purpose**: Manage per-strategy exposure limits
+
+**Functions**:
+```solidity
+function setLimit(IHegicStrategy strategy, uint256 value) external;
+function getLimit(IHegicStrategy strategy) external view returns (uint256);
+```
+
+## Deployment
+
+### Deployment Order
+
+1. **Tokens** (00_tokens.ts)
+   - Deploy mock USDC and HEGIC (testnet only)
+
+2. **Price Providers** (01_price_providers.ts)
+   - Deploy/configure Chainlink price feeds
+
+3. **Cover Pool** (02_cover_pool.ts)
+   ```typescript
+   await deploy("CoverPool", {
+       args: [
+           hegicToken.address,
+           usdcToken.address,
+           payoffPoolAddress,
+           ethers.utils.parseUnits("0.01", 30)  // Initial changing price
+       ]
+   });
+   ```
+
+4. **Profit Distributor** (03_distributor.ts)
+
+5. **Positions Manager** (04_positions_manager.ts)
+   ```typescript
+   await deploy("PositionsManager", {
+       args: ["Hegic Options", "HEGOP"]
+   });
+   ```
+
+6. **Profit Calculator** (05_profit_calculator.ts)
+   ```typescript
+   await deploy("ProfitCalculator");
+   ```
+
+7. **Strategies** (06_strategies/)
+   - Deploy each strategy contract
+   
+8. **Operational Treasury** (07_operational_treasury.ts)
+   ```typescript
+   await deploy("OperationalTreasury", {
+       args: [
+           usdc.address,
+           positionsManager.address,
+           30 * 24 * 60 * 60,  // 30 days max lockup
+           coverPool.address,
+           50,                  // 50% benchmark
+           strategyAddresses    // Initial strategies
+       ]
+   });
+   ```
+
+9. **Initialize Pools** (08_init_pools.ts)
+   - Grant roles
+   - Connect strategies
+   - Set limits
+
+### Configuration
+
+**hardhat.config.ts**:
+```typescript
+export default {
+    solidity: {
+        version: "0.8.3",
+        settings: {
+            optimizer: {
+                enabled: true,
+                runs: 200
+            }
+        }
+    },
+    
+    networks: {
+        arbitrum: {
+            url: process.env.ARBITRUM_RPC_URL,
+            accounts: [process.env.DEPLOYER_PRIVATE_KEY],
+            chainId: 42161
+        }
+    },
+    
+    namedAccounts: {
+        deployer: {
+            default: 0,
+            42161: "0x..."  // Arbitrum deployer
+        }
+    }
+};
+```
+
+## Testing
+
+### Test Organization
+
+```
+test/
+├── contracts/
+│   ├── OperationalTreasury.test.ts
+│   ├── CoverPool.test.ts
+│   ├── PositionsManager.test.ts
+│   └── strategies/
+│       ├── Call.test.ts
+│       ├── Put.test.ts
+│       ├── Straddle.test.ts
+│       └── ...
+├── library/
+│   ├── payoff.test.ts
+│   └── pnlZone.test.ts
+└── utils/
+    ├── fixtures.ts
+    └── helpers.ts
+```
+
+### Running Tests
+
+```bash
+cd packages/herge
+
+# All tests
+yarn test
+
+# Specific test file
+npx hardhat test test/contracts/OperationalTreasury.test.ts
+
+# With coverage
+yarn coverage
+
+# With gas reporting
+REPORT_GAS=1 yarn test
+```
+
+### Example Test
+
+```typescript
+describe("OperationalTreasury", () => {
+    let treasury: OperationalTreasury;
+    let coverPool: CoverPool;
+    let strategy: HegicStrategyCall;
+    
+    beforeEach(async () => {
+        await deployments.fixture();
+        treasury = await ethers.getContract("OperationalTreasury");
+        coverPool = await ethers.getContract("CoverPool");
+        strategy = await ethers.getContract("HegicStrategyCall");
+    });
+    
+    it("should create option successfully", async () => {
+        const amount = ethers.utils.parseEther("1");
+        const period = 7 * 24 * 60 * 60;
+        
+        await expect(
+            treasury.buy(strategy.address, alice.address, amount, period, [])
+        ).to.emit(treasury, "LockedLiquidity");
+    });
+});
+```
+
+## Usage Examples
+
+### Complete Option Flow
+
+```typescript
+// 1. Setup
+const [deployer, alice] = await ethers.getSigners();
+const treasury = await ethers.getContract("OperationalTreasury");
+const strategy = await ethers.getContract("HegicStrategyCall");
+const usdc = await ethers.getContract("USDC");
+
+// 2. Get premium quote
+const amount = ethers.utils.parseEther("1");
+const period = 7 * 24 * 60 * 60;
+const [negativePNL, positivePNL] = await strategy
+    .calculateNegativepnlAndPositivepnl(amount, period, []);
+const premium = negativePNL; // Premium equals max loss
+
+// 3. Approve and buy
+await usdc.connect(alice).approve(treasury.address, premium);
+await treasury.connect(alice).buy(
+    strategy.address,
+    alice.address,
+    amount,
+    period,
+    []
+);
+
+// 4. Check position
+const optionId = 1;
+const [state, , negPNL, posPNL, expiration] = 
+    await treasury.lockedLiquidity(optionId);
+console.log("Option created:", {
+    state: state === 1 ? "Locked" : "Unlocked",
+    maxLoss: ethers.utils.formatUnits(negPNL, 6),
+    maxProfit: ethers.utils.formatUnits(posPNL, 6),
+    expiration: new Date(expiration * 1000)
+});
+
+// 5. Exercise when profitable
+await time.increaseTo(expiration - 3600); // 1 hour before expiry
+const profit = await strategy.payOffAmount(optionId);
+if (profit.gt(0)) {
+    await treasury.connect(alice).payOff(optionId, alice.address);
+    console.log("Profit:", ethers.utils.formatUnits(profit, 6), "USDC");
+}
+```
+
+### Liquidity Provider Flow
+
+```typescript
+// 1. Provide HEGIC to Cover Pool
+const hegic = await ethers.getContract("HEGIC");
+const coverPool = await ethers.getContract("CoverPool");
+
+const stakeAmount = ethers.utils.parseEther("100000");
+await hegic.connect(alice).approve(coverPool.address, stakeAmount);
+const positionId = await coverPool.connect(alice).provide(stakeAmount, 0);
+
+// 2. Check share
+const share = await coverPool.shareOf(positionId);
+const totalShare = await coverPool.totalShare();
+console.log("Ownership:", share.mul(100).div(totalShare).toString(), "%");
+
+// 3. Wait for epoch and claim profits
+await time.increase(7 * 24 * 60 * 60);
+await coverPool.fixProfit(); // Admin distributes
+
+const availableProfit = await coverPool.availableToClaim(positionId);
+if (availableProfit.gt(0)) {
+    await coverPool.connect(alice).claim(positionId);
+    console.log("Claimed:", ethers.utils.formatUnits(availableProfit, 6), "USDC");
+}
+```
+
+## Configuration Values
+
+### Recommended Parameters
+
+| Parameter | Value | Notes |
+|-----------|-------|-------|
+| Max Lockup Period | 30 days | `OperationalTreasury` |
+| Benchmark | 50% | Risk multiplier for coverage |
+| Window Size | 5 days | `CoverPool` entry/exit window |
+| Epoch Duration | 7-30 days | Minimum 7 days enforced |
+| Exercise Window | 1-24 hours | Before expiration |
+| Min Period | 1 day | Strategy minimum |
+| Max Period | 30 days | Strategy maximum |
+
+### Decimal Handling
+
+| Asset | Decimals | Example |
+|-------|----------|---------|
+| USDC | 6 | 1000000 = 1 USDC |
+| HEGIC | 18 | 1e18 = 1 HEGIC |
+| ETH | 18 | 1e18 = 1 ETH |
+| Chainlink Price | 8 | 200000000000 = $2000 |
+| Internal Calculations | 30 | 1e30 |
+
+## Audit Report
+
+**Auditor**: PeckShield  
+**Date**: [See docs/PeckShield-Audit-Report-Hegic-Herge-Protocol-Upgrade-v1.0.pdf]
+
+**Findings**: [Refer to audit PDF]
+
+**Status**: All critical and high severity findings resolved
+
+## Documentation
+
+**Location**: `packages/herge/docs/`
+
+**Generated**: Via hardhat-dodoc plugin
+
+```bash
+# Generate documentation
+npx hardhat dodoc
+
+# View documentation
+open docs/index.html
+```
+
+## Troubleshooting
+
+### Common Issues
+
+**Issue**: "Strategy not accepted"
+**Solution**: Call `treasury.connect(strategy.address)` as admin
+
+**Issue**: "Enterence window is closed"
+**Solution**: Wait for next epoch or use `provide()` in first 5 days
+
+**Issue**: "Period out of bounds"
+**Solution**: Check `strategy.periodLimits()` for min/max periods
+
+**Issue**: "Insufficient balance"
+**Solution**: Ensure user has approved enough USDC/HEGIC
+
