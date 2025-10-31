@@ -1,0 +1,467 @@
+---
+alwaysApply: true
+---
+## 📦 Package Overview
+
+### Production Packages
+
+| Package | Status | Purpose |
+|---------|--------|---------|
+| **herge** | ✅ Production | Current protocol version with advanced features |
+| **v8888** | ⚠️ Legacy | Original protocol, maintained for compatibility |
+
+### Development Packages
+
+| Package | Status | Purpose |
+|---------|--------|---------|
+| **hardcore-beta** | 🧪 Experimental | Testing ground for new features |
+| **utils** | 🛠️ Shared Library | Common utilities used across packages |
+
+---
+
+## 🏗️ Architecture At a Glance
+
+### Herge (Current)
+
+```
+User
+  ↓
+OperationalTreasury ←→ Strategies (Call, Put, Straddle, etc.)
+  ↓
+CoverPool (HEGIC staking)
+  ↓
+Payoff Pool (USDC)
+```
+
+**Key Components**:
+- **OperationalTreasury**: Creates/settles options, manages liquidity
+- **CoverPool**: HEGIC staking for backstop coverage
+- **Strategies**: Individual option strategy implementations
+- **PositionsManager**: ERC721 NFTs for options
+
+### v8888 (Legacy)
+
+```
+User
+  ↓
+OptionsManager
+  ↓
+HegicPool (Hedged/Unhedged tranches)
+  ↓
+HegicStaking (HEGIC staking for fees)
+```
+
+---
+
+## 🔑 Key Concepts
+
+### Options Lifecycle (Herge)
+
+1. **Purchase**: User calls `treasury.buy()` with strategy
+2. **Creation**: Strategy calculates PNL bounds, treasury locks liquidity
+3. **NFT Minted**: PositionsManager creates ERC721 token
+4. **Exercise**: User calls `treasury.payOff()` during exercise window
+5. **Settlement**: Profit calculated and paid, liquidity unlocked
+
+### Liquidity Provision (Herge)
+
+1. **Stake**: LP calls `coverPool.provide()` with HEGIC
+2. **Earn**: Accumulates USDC profits from option premiums
+3. **Claim**: LP calls `coverPool.claim()` to withdraw profits
+4. **Withdraw**: LP calls `coverPool.withdraw()` then `withdrawEpoch()`
+
+### Coverage Mechanism
+
+- OperationalTreasury holds USDC for settlements
+- If insufficient, calls `coverPool.payOut()`
+- CoverPool converts HEGIC → USDC at epoch rate
+- HEGIC sent to payoff pool in exchange for USDC
+
+---
+
+## 📝 Common Tasks
+
+### Adding New Strategy
+
+```solidity
+// 1. Create strategy contract
+contract MyNewStrategy is HegicStrategy {
+    function _calculateStrategyPayOff(uint256 optionID)
+        internal view override returns (uint256)
+    {
+        // Implement payoff logic
+    }
+}
+
+// 2. Create deployment script
+// deploy/10_my_strategy.ts
+
+// 3. Write tests
+// test/contracts/strategies/MyStrategy.test.ts
+
+// 4. Deploy and connect
+await treasury.connect(myStrategy.address);
+```
+
+### Testing Pattern
+
+```typescript
+describe("Contract", () => {
+    beforeEach(async () => {
+        await deployments.fixture();
+        // Get contracts
+    });
+    
+    it("should do something", async () => {
+        // Arrange
+        const amount = ethers.utils.parseEther("1");
+        
+        // Act
+        await contract.someFunction(amount);
+        
+        // Assert
+        expect(await contract.someValue()).to.equal(expected);
+    });
+});
+```
+
+### Deployment Pattern
+
+```typescript
+const func: DeployFunction = async (hre) => {
+    const { deploy } = deployments;
+    const { deployer } = await getNamedAccounts();
+    
+    await deploy("ContractName", {
+        from: deployer,
+        args: [constructor, args],
+        log: true,
+    });
+};
+
+export default func;
+func.tags = ["Tag"];
+func.dependencies = ["Dependencies"];
+```
+
+---
+
+## 🔒 Security Checklist
+
+Before deploying:
+- [ ] All tests passing
+- [ ] Code coverage >95%
+- [ ] Access control implemented
+- [ ] ReentrancyGuard on external functions
+- [ ] Input validation
+- [ ] Events emitted
+- [ ] NatSpec documentation
+- [ ] Audit completed (mainnet only)
+- [ ] Verified on Etherscan
+- [ ] Admin transferred to multisig
+
+---
+
+## 🐛 Common Issues & Solutions
+
+### "Cannot find module" Error
+```bash
+rm -rf node_modules
+yarn install
+```
+
+### "Contract too large" Error
+```typescript
+// hardhat.config.ts
+optimizer: {
+    enabled: true,
+    runs: 200  // Increase for smaller contracts
+}
+```
+
+### "Nonce too low" Error
+```bash
+npx hardhat clean
+rm -rf deployments/network-name
+```
+
+### Test Failures After Changes
+```bash
+yarn clean
+yarn compile
+yarn test
+```
+
+---
+
+## 📊 Important Constants
+
+### Herge
+
+| Constant | Value | Purpose |
+|----------|-------|---------|
+| `CHANGING_PRICE_DECIMALS` | 1e30 | HEGIC/USDC conversion |
+| `ADDITIONAL_DECIMALS` | 1e30 | Profit calculations |
+| `MINIMAL_EPOCH_DURATION` | 7 days | Minimum epoch length |
+| `DEFAULT_WINDOW_SIZE` | 5 days | Entry/exit window |
+| `TOKEN_DECIMALS` | 6 | USDC decimals |
+| `HEGIC_DECIMALS` | 18 | HEGIC decimals |
+| `PRICE_DECIMALS` | 8 | Chainlink decimals |
+
+### Recommended Settings
+
+| Parameter | Testnet | Mainnet |
+|-----------|---------|---------|
+| Max Lockup Period | 7 days | 30 days |
+| Benchmark | 30% | 50% |
+| Exercise Window | 1 hour | 4 hours |
+| Strategy Limit | 100K USDC | 1M USDC |
+
+---
+
+## 🛠️ Development Commands
+
+### Compilation
+```bash
+yarn compile          # Compile contracts
+yarn clean           # Clean artifacts
+yarn build           # Clean + compile
+```
+
+### Testing
+```bash
+yarn test            # Run all tests
+yarn test:specific   # Run specific test
+yarn coverage        # Generate coverage
+REPORT_GAS=1 yarn test  # Gas report
+```
+
+### Deployment
+```bash
+npx hardhat deploy --network [network]
+npx hardhat deploy --tags [tag]
+npx hardhat deploy --reset  # Fresh deployment
+```
+
+### Verification
+```bash
+npx hardhat etherscan-verify --network [network]
+npx hardhat verify --network [network] [address] [args]
+```
+
+### Utilities
+```bash
+npx hardhat node             # Local network
+npx hardhat console          # Interactive console
+npx hardhat flatten [file]   # Flatten contract
+```
+
+---
+
+## 📞 Getting Help
+
+### Documentation Order
+
+1. **Start**: `01-project-overview.md`
+2. **Understand**: `02-architecture.md`
+3. **Reference**: `03-smart-contracts-reference.md`
+4. **Develop**: `04-development-workflow.md`
+5. **Test**: `05-testing-guidelines.md`
+6. **Deploy**: `06-deployment-guide.md`
+7. **Secure**: `07-security-considerations.md`
+8. **Package-specific**: `09-package-herge.md` or `10-package-v8888.md`
+
+### Code Examples
+
+Most documentation files include:
+- ✅ Solidity code examples
+- ✅ TypeScript test examples
+- ✅ Deployment script examples
+- ✅ Configuration examples
+
+### Search Tips
+
+Use your editor's search (Ctrl+Shift+F or Cmd+Shift+F) to find:
+- Function names: `function buy(`
+- Contract names: `contract OperationalTreasury`
+- Concepts: `"epoch"`, `"liquidity"`, `"premium"`
+- Error messages: Paste error text
+
+---
+
+## 🎯 Project Goals
+
+### Primary Goals
+1. **Decentralized Options**: On-chain, permissionless options trading
+2. **Fair Pricing**: Transparent, algorithm-based pricing
+3. **Liquidity Incentives**: Profitable opportunities for LPs
+4. **Risk Management**: Multi-layered coverage and limits
+5. **Composability**: Integrate with other DeFi protocols
+
+### Technical Goals
+1. **Security First**: Audited, tested, battle-hardened
+2. **Gas Efficient**: Optimized for L2 deployment
+3. **Upgradeable**: Safe upgrade paths when needed
+4. **Modular**: Easy to add new strategies
+5. **Well-Documented**: Comprehensive docs and examples
+
+---
+
+## 📈 Version History
+
+| Version | Release | Status | Key Features |
+|---------|---------|--------|--------------|
+| **v8888** | Aug 2021 | Legacy | Original protocol, dual tranches |
+| **Herge** | 2022 | Current | Epoch system, inverse strategies |
+| **hardcore-beta** | Ongoing | Experimental | Testing ground |
+
+---
+
+## 💡 Best Practices
+
+### Code Quality
+- ✅ Write tests first (TDD)
+- ✅ Follow coding standards (see `08-coding-standards.md`)
+- ✅ Document with NatSpec
+- ✅ Use linters and formatters
+- ✅ Review security checklist
+
+### Testing
+- ✅ Unit tests for all functions
+- ✅ Integration tests for workflows
+- ✅ Edge case testing
+- ✅ Gas optimization testing
+- ✅ Coverage >95%
+
+### Deployment
+- ✅ Test on testnet first
+- ✅ Use hardware wallet for mainnet
+- ✅ Verify on Etherscan
+- ✅ Transfer admin to multisig
+- ✅ Monitor after deployment
+
+### Security
+- ✅ Professional audit before mainnet
+- ✅ Bug bounty program
+- ✅ Emergency pause mechanism
+- ✅ Timelock on critical functions
+- ✅ Multi-sig for admin operations
+
+---
+
+## 🔗 Quick Links
+
+### Within This Documentation
+- [Project Overview](./01-project-overview.md)
+- [Architecture](./02-architecture.md)
+- [Contract Reference](./03-smart-contracts-reference.md)
+- [Development Workflow](./04-development-workflow.md)
+- [Security](./07-security-considerations.md)
+- [Herge Package](./09-package-herge.md)
+
+### External Resources
+- **GitHub**: Repository root
+- **Audit Reports**: `packages/herge/docs/`
+- **Generated Docs**: `packages/herge/docs/index.html`
+- **Test Coverage**: `packages/herge/coverage/index.html`
+
+---
+
+## 📋 Cheatsheet
+
+### Common Imports
+
+```solidity
+// OpenZeppelin
+import "@openzeppelin/contracts/access/AccessControl.sol";
+import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
+import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
+
+// Hegic Utils
+import "@hegic/utils/contracts/Math.sol";
+import "@hegic/utils/contracts/ERC721WithURIBuilder.sol";
+
+// Chainlink
+import "@chainlink/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol";
+```
+
+### Common Test Setup
+
+```typescript
+import { ethers, deployments } from "hardhat";
+import { expect } from "chai";
+import { loadFixture } from "@nomicfoundation/hardhat-network-helpers";
+
+describe("Test", () => {
+    async function fixture() {
+        await deployments.fixture();
+        return {
+            contract: await ethers.getContract("Contract"),
+            // ...
+        };
+    }
+    
+    it("should work", async () => {
+        const { contract } = await loadFixture(fixture);
+        // Test logic
+    });
+});
+```
+
+### Common Assertions
+
+```typescript
+// Equality
+expect(value).to.equal(expected);
+
+// Events
+expect(tx).to.emit(contract, "EventName").withArgs(arg1, arg2);
+
+// Reverts
+expect(contract.function()).to.be.revertedWith("Error");
+
+// BigNumber comparisons
+expect(balance).to.be.gt(threshold);  // greater than
+expect(balance).to.be.gte(threshold); // greater than or equal
+expect(balance).to.be.lt(threshold);  // less than
+```
+
+---
+
+## 🎓 Learning Path
+
+### Beginner
+1. Read `01-project-overview.md`
+2. Set up development environment (`04-development-workflow.md`)
+3. Run existing tests
+4. Read `09-package-herge.md` for current implementation
+
+### Intermediate
+1. Study `02-architecture.md`
+2. Read through contract code
+3. Write tests for a new scenario
+4. Try local deployment
+
+### Advanced
+1. Study `03-smart-contracts-reference.md` in detail
+2. Implement a new strategy
+3. Review `07-security-considerations.md`
+4. Deploy to testnet
+
+---
+
+## 📮 Updates
+
+This documentation is maintained alongside the codebase. When making changes:
+
+1. Update relevant documentation file(s)
+2. Update this quick reference if needed
+3. Ensure examples still work
+4. Keep version information current
+
+**Last Updated**: [Auto-generated at documentation creation]
+
+**Documentation Version**: 1.0.0
+
+**Codebase Version**: See individual package.json files
+

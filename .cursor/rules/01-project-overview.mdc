@@ -1,0 +1,87 @@
+---
+alwaysApply: true
+---
+
+# Hegic Protocol - Project Overview
+
+## What is Hegic?
+
+Hegic is a decentralized, on-chain options trading protocol built on Ethereum and Arbitrum. It allows users to:
+- **Buy options**: Purchase call/put options and complex strategies without KYC
+- **Provide liquidity**: Earn premiums by providing capital to underwrite options
+- **Stake tokens**: Provide backstop coverage through the Cover Pool
+
+## Project Type
+
+- **Lerna Monorepo**: Multiple packages managed with Lerna and Yarn workspaces
+- **Smart Contract Protocol**: Written in Solidity for EVM-compatible blockchains
+- **DeFi Options Platform**: Decentralized financial derivatives
+
+## Repository Structure
+
+```
+hegic-contracts/
+├── packages/
+│   ├── v8888/              # Original protocol (v8888)
+│   ├── herge/              # Upgraded protocol (Herge)
+│   ├── hardcore-beta/      # Experimental/testing version
+│   └── utils/              # Shared utility contracts
+├── lerna.json              # Lerna configuration
+├── package.json            # Root package configuration
+└── tsconfig.json           # TypeScript configuration
+```
+
+## Package Purposes
+
+### 1. **v8888** (Legacy/Original)
+- Released: August 10, 2021
+- Original Hegic protocol implementation
+- Features: Basic options, liquidity pools, staking
+- Status: Maintained for backwards compatibility
+
+### 2. **herge** (Current Version)
+- Latest protocol upgrade
+- Enhanced features: Inverse strategies, improved treasury
+- Better risk management with Cover Pool
+- Audited by PeckShield
+
+### 3. **hardcore-beta** (Experimental)
+- Testing ground for new features
+- Depends on v8888 and utils
+- Used for deployment testing
+- Not for production use
+
+### 4. **utils** (Shared Library)
+- Common contracts used across packages
+- Math libraries, ERC standards, mocks
+- No deployment scripts
+
+## Key Innovation
+
+Unlike traditional options exchanges with order books:
+- **Instant execution**: No waiting for counterparty
+- **Pool-based**: Liquidity providers collectively underwrite options
+- **On-chain settlement**: Automatic payoffs via smart contracts
+- **Tokenized positions**: Options and LP positions as NFTs
+
+## Target Networks
+
+- **Ethereum Mainnet**: Primary deployment
+- **Arbitrum**: L2 deployment for lower gas costs
+- **Ropsten**: Historical testnet (deprecated)
+
+## License
+
+GPL-3.0-or-later - Open source under GNU General Public License
+
+## Author
+
+0mllwntrmt3 (Hegic Protocol Team)
+
+## Development Status
+
+- ✅ v8888: Production (legacy)
+- ✅ Herge: Production (current)
+- ⚠️ Hardcore-beta: Experimental
+- 📝 Active development and upgrades ongoing
+

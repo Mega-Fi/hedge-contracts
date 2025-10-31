@@ -1,0 +1,410 @@
+---
+alwaysApply: true
+---
+#### PositionsManager.sol
+**Location**: `packages/herge/contracts/PositionsManager/PositionsManager.sol`
+
+**Purpose**: ERC721 manager for option positions
+
+**Interface**: `IPositionsManager`
+
+**Key Functions**:
+```solidity
+function createOptionFor(address holder) external returns (uint256);
+function tokenPool(uint256 tokenId) external returns (address pool);
+```
+
+**Features**:
+- Each option is unique NFT
+- Transferable (allows secondary market)
+- URI builder for metadata
+- Links token to pool/strategy
+
+---
+
+### 2. Strategy Contracts (Herge)
+
+All strategies inherit from base classes and implement `IHegicStrategy`.
+
+#### Base Strategy: HegicStrategy.sol
+**Location**: `packages/herge/contracts/Strategies/HegicStrategy.sol`
+
+**Inheritance**: `IHegicStrategy`, `AccessControl`
+
+**Key Variables**:
+```solidity
+AggregatorV3Interface public immutable priceProvider;
+IPremiumCalculator public immutable pricer;
+uint256 public immutable lockedLimit;
+uint8 public immutable spotDecimals;
+uint48[2] public periodLimits;  // [min, max]
+uint48 public exerciseWindowDuration;
+```
+
+**Core Functions**:
+
+1. **create()** - Create option
+```solidity
+function create(
+    uint256 id,
+    address holder,
+    uint256 amount,
+    uint256 period,
+    bytes[] calldata additional
+) external returns (uint32 expiration, uint256 positivePNL, uint256 negativePNL)
+```
+- Validates parameters
+- Calculates strike price
+- Calculates premium
+- Stores strategy data
+- Returns expiration and PNL bounds
+
+2. **payOffAmount()** - Calculate profit
+```solidity
+function payOffAmount(uint256 optionID) 
+    external view returns (uint256 profit)
+```
+- Gets current price
+- Calculates P&L
+- Returns 0 if out-of-the-money
+- Only callable during exercise window
+
+3. **isPayoffAvailable()** - Check exercisability
+```solidity
+function isPayoffAvailable(uint256 optID, address caller, address recipient) 
+    external view returns (bool)
+```
+- Checks if option expired
+- Checks if within exercise window
+- Validates caller permissions
+
+**Premium Calculation**:
+```solidity
+function _calculateStrategyPremium(uint256 amount, uint256 period)
+    internal view virtual returns (uint256 premium)
+```
+- Calls `pricer.calculatePremium()`
+- Returns premium in settlement token
+
+**Strike Calculation**:
+```solidity
+function _calculateStrategyStrike(bytes[] calldata) 
+    internal view virtual returns (uint128 strike)
+```
+- Typically uses current price
+- Override for ATM/OTM strategies
+
+---
+
+#### HegicStrategyCall.sol
+**Location**: `packages/herge/contracts/Strategies/HegicStrategyCall.sol`
+
+**Inherits**: `HegicStrategy`
+
+**Special Features**:
+- Price scaling via `PRICE_SCALE_NUMERATOR/DENOMINATOR`
+- Allows slightly adjusted strikes
+
+**Payoff Calculation**:
+```solidity
+function _calculateStrategyPayOff(uint256 optionID) 
+    internal view override returns (uint256 amount)
+{
+    StrategyData memory data = strategyData[optionID];
+    return ProfitCalculator.calculateCallProfit(
+        (data.strike * PRICE_SCALE_NUMERATOR) / PRICE_SCALE_DENOMINATOR,
+        _currentPrice(),
+        data.amount,
+        TOKEN_DECIMALS,
+        spotDecimals,
+        10**priceProvider.decimals()
+    );
+}
+```
+
+**Call Option Formula**:
+```
+Profit = max(0, currentPrice - strike) * amount
+```
+
+---
+
+#### HegicStrategyPut.sol
+**Location**: `packages/herge/contracts/Strategies/HegicStrategyPut.sol`
+
+**Inherits**: `HegicStrategy`
+
+**Payoff Calculation**:
+Uses `ProfitCalculator.calculatePutProfit()`
+
+**Put Option Formula**:
+```
+Profit = max(0, strike - currentPrice) * amount
+```
+
+---
+
+#### HegicStrategyStraddle.sol
+**Location**: `packages/herge/contracts/Strategies/HegicStrategyStraddle.sol`
+
+**Strategy**: Long Call + Long Put at same strike
+
+**Payoff**: 
+```
+Profit = Call Payoff + Put Payoff
+       = max(0, currentPrice - strike) + max(0, strike - currentPrice)
+       = |currentPrice - strike| * amount
+```
+
+**Use Case**: Profit from large price movements in either direction
+
+---
+
+#### HegicStrategyStrangle.sol
+**Location**: `packages/herge/contracts/Strategies/HegicStrategyStrangle.sol`
+
+**Strategy**: Long Call (higher strike) + Long Put (lower strike)
+
+**Additional Data Required**:
+```solidity
+bytes[] additional = [abi.encode(uint256 spreadPercent)]
+```
+
+**Strikes**:
+- Put Strike: `currentPrice * (100 - spreadPercent) / 100`
+- Call Strike: `currentPrice * (100 + spreadPercent) / 100`
+
+**Use Case**: Profit from very large movements, cheaper than straddle
+
+---
+
+#### HegicStrategySpreadCall.sol / HegicStrategySpreadPut.sol
+**Location**: `packages/herge/contracts/Strategies/`
+
+**Strategy**: Bull Call Spread or Bear Put Spread
+
+**Structure**:
+- Long option at lower strike (call) or higher strike (put)
+- Short option at higher strike (call) or lower strike (put)
+- Limited profit, limited loss
+
+**Additional Data**:
+```solidity
+bytes[] additional = [abi.encode(uint256 spreadPercent)]
+```
+
+---
+
+#### Inverse Strategies
+
+##### HegicStrategyInverseBearCallSpread.sol
+**Strategy**: Short call spread (profit from moderate decline/stability)
+
+**Inherits**: `HegicInverseStrategy`
+
+**Payoff**: Inverse of bull call spread
+
+##### HegicStrategyInverseBullPutSpread.sol
+**Strategy**: Short put spread (profit from moderate rise/stability)
+
+##### HegicStrategyInverseLongButterfly.sol
+**Strategy**: Short butterfly (profit when price stays at specific level)
+
+**Structure**: 
+- Long 1 call at low strike
+- Short 2 calls at middle strike  
+- Long 1 call at high strike
+
+##### HegicStrategyInverseLongCondor.sol
+**Strategy**: Short condor (profit when price stays in range)
+
+**Structure**: Similar to butterfly but with wider body
+
+---
+
+### 3. Utility Contracts
+
+#### ProfitCalculator.sol
+**Location**: `packages/herge/contracts/Strategies/ProfitCalculator.sol`
+
+**Purpose**: Calculate option payoffs with proper decimal handling
+
+**Key Functions**:
+
+```solidity
+function calculateCallProfit(
+    uint256 strike,
+    uint256 currentPrice,
+    uint256 amount,
+    uint8 tokenDecimals,
+    uint8 spotDecimals,
+    uint256 priceDecimals
+) internal pure returns (uint256)
+```
+
+```solidity
+function calculatePutProfit(
+    uint256 strike,
+    uint256 currentPrice,
+    uint256 amount,
+    uint8 tokenDecimals,
+    uint8 spotDecimals,
+    uint256 priceDecimals
+) internal pure returns (uint256)
+```
+
+**Features**:
+- Handles different decimal precisions
+- Prevents overflow/underflow
+- Returns 0 for OTM options
+
+---
+
+#### LimitController.sol
+**Location**: `packages/herge/contracts/Strategies/LimitController.sol`
+
+**Purpose**: Manage strategy exposure limits
+
+**Key Functions**:
+```solidity
+function setLimit(IHegicStrategy strategy, uint256 value) external
+function getLimit(IHegicStrategy strategy) external view returns (uint256)
+```
+
+---
+
+#### Math.sol (Utils Package)
+**Location**: `packages/utils/contracts/Math.sol`
+
+**Purpose**: Mathematical operations library
+
+**Key Functions**:
+```solidity
+library HegicMath {
+    function ceilDiv(uint256 a, uint256 b) 
+        internal pure returns (uint256)
+}
+```
+
+---
+
+### 4. v8888 Contracts (Legacy)
+
+#### HegicPool.sol
+**Location**: `packages/v8888/contracts/Pool/HegicPool.sol`
+
+**Purpose**: Original liquidity pool implementation
+
+**Key Differences from Herge**:
+1. Hedged vs Unhedged tranches
+2. Direct collateralization
+3. Different profit distribution
+4. Options Manager integration
+
+**Tranche Types**:
+- **Hedged**: Higher lockup, lower risk
+- **Unhedged**: Lower lockup, higher risk
+
+---
+
+#### OptionsManager.sol
+**Location**: `packages/v8888/contracts/OptionsManager/OptionsManager.sol`
+
+**Purpose**: Manage option lifecycle (v8888 version)
+
+**Key Differences**:
+- No separate treasury
+- Direct pool interaction
+- Different fee structure
+
+---
+
+#### HegicStaking.sol
+**Location**: `packages/v8888/contracts/Staking/HegicStaking.sol`
+
+**Purpose**: Stake HEGIC to earn settlement fees
+
+**Key Functions**:
+```solidity
+function stake(uint256 amount) external
+function withdraw(uint256 amount) external
+function claimRewards() external
+```
+
+---
+
+## Interface Contracts
+
+### IHegicStrategy.sol
+```solidity
+interface IHegicStrategy {
+    struct StrategyData {
+        uint128 amount;
+        uint128 strike;
+    }
+    
+    function create(...) external returns (uint32, uint256, uint256);
+    function payOffAmount(uint256) external view returns (uint256);
+    function isPayoffAvailable(...) external view returns (bool);
+    function calculateNegativepnlAndPositivepnl(...) 
+        external view returns (uint128, uint128);
+}
+```
+
+### ICoverPool.sol
+```solidity
+interface ICoverPool {
+    function provide(uint256, uint256) external returns (uint256);
+    function withdraw(uint256, uint256) external;
+    function claim(uint256) external returns (uint256);
+    function payOut(uint256) external;
+    function availableForPayment() external view returns (uint256);
+}
+```
+
+### IOperationalTreasury.sol
+```solidity
+interface IOperationalTreasury {
+    enum LockedLiquidityState { Unlocked, Locked }
+    
+    struct LockedLiquidity {
+        LockedLiquidityState state;
+        IHegicStrategy strategy;
+        uint128 negativepnl;
+        uint128 positivepnl;
+        uint32 expiration;
+    }
+    
+    function buy(...) external;
+    function payOff(uint256, address) external;
+    function unlock(uint256) external;
+}
+```
+
+## Contract Interactions Summary
+
+```
+User Purchase:
+User → OperationalTreasury.buy()
+     → Strategy.create()
+     → PositionsManager.createOptionFor()
+     → User receives NFT
+
+User Exercise:
+User → OperationalTreasury.payOff()
+     → Strategy.payOffAmount()
+     → CoverPool.payOut() [if needed]
+     → User receives USDC
+
+LP Provide:
+LP → CoverPool.provide()
+   → CoverPool mints NFT
+   → LP tracks share
+
+LP Profit:
+Admin → CoverPool.fixProfit()
+      → Updates cumulative profit
+LP → CoverPool.claim()
+   → LP receives USDC
+```
+

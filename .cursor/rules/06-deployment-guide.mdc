@@ -1,0 +1,658 @@
+---
+alwaysApply: false
+---
+# Hegic Protocol - Deployment Guide
+
+## Deployment Overview
+
+The Hegic protocol uses **hardhat-deploy** for managing deployments across different networks. Each deployment is tracked, versioned, and can be upgraded or verified on Etherscan.
+
+## Deployment Structure
+
+```
+packages/herge/
+├── deploy/                    # Deployment scripts
+│   ├── 00_tokens.ts          # Deploy mock tokens
+│   ├── 01_price_providers.ts # Deploy price oracles
+│   ├── 02_cover_pool.ts      # Deploy CoverPool
+│   ├── 03_distributor.ts     # Deploy profit distributor
+│   ├── 04_positions_manager.ts # Deploy PositionsManager
+│   ├── 05_profit_calculator.ts # Deploy ProfitCalculator
+│   ├── 06_strategies/        # Deploy strategies
+│   │   ├── 00_call.ts
+│   │   ├── 01_put.ts
+│   │   └── ...
+│   ├── 07_operational_treasury.ts # Deploy OperationalTreasury
+│   └── 08_init_pools.ts      # Initialize contracts
+└── deployments/              # Deployment artifacts
+    ├── arbitrum/
+    │   ├── OperationalTreasury.json
+    │   ├── CoverPool.json
+    │   └── .chainId
+    └── mainnet/
+        └── ...
+```
+
+## Pre-Deployment Checklist
+
+### 1. Environment Setup
+
+```bash
+cd packages/herge
+
+# Create .env file
+cat > .env << 'EOF'
+# Network RPC URLs
+MAINNET_RPC_URL=https://mainnet.infura.io/v3/YOUR_INFURA_KEY
+ARBITRUM_RPC_URL=https://arb1.arbitrum.io/rpc
+
+# Private keys (NEVER commit these!)
+DEPLOYER_PRIVATE_KEY=0x...
+ADMIN_PRIVATE_KEY=0x...
+
+# Etherscan API keys for verification
+ETHERSCAN_API_KEY=your_etherscan_key
+ARBISCAN_API_KEY=your_arbiscan_key
+
+# Gas settings (optional)
+GAS_PRICE=50  # in gwei
+GAS_LIMIT=8000000
+EOF
+```
+
+### 2. Configuration Review
+
+**hardhat.config.ts**:
+```typescript
+import * as dotenv from "dotenv";
+dotenv.config();
+
+export default {
+    solidity: {
+        version: "0.8.3",
+        settings: {
+            optimizer: {
+                enabled: true,
+                runs: 200  // Balance between deploy and runtime costs
+            }
+        }
+    },
+    
+    networks: {
+        hardhat: {
+            // Local testing network
+        },
+        
+        localhost: {
+            url: "http://127.0.0.1:8545",
+        },
+        
+        arbitrum: {
+            url: process.env.ARBITRUM_RPC_URL,
+            accounts: [process.env.DEPLOYER_PRIVATE_KEY],
+            chainId: 42161,
+            gasPrice: "auto",
+        },
+        
+        mainnet: {
+            url: process.env.MAINNET_RPC_URL,
+            accounts: [process.env.DEPLOYER_PRIVATE_KEY],
+            chainId: 1,
+            gasPrice: "auto",
+        }
+    },
+    
+    namedAccounts: {
+        deployer: {
+            default: 0, // First account is deployer
+            1: "0x...", // Mainnet deployer address
+            42161: "0x..." // Arbitrum deployer address
+        }
+    },
+    
+    etherscan: {
+        apiKey: {
+            mainnet: process.env.ETHERSCAN_API_KEY,
+            arbitrumOne: process.env.ARBISCAN_API_KEY,
+        }
+    }
+};
+```
+
+### 3. Compilation
+
+```bash
+# Clean previous artifacts
+yarn clean
+
+# Compile contracts
+yarn compile
+
+# Verify no errors
+# Check artifacts/ and typechain/ directories created
+```
+
+### 4. Test Before Deploy
+
+```bash
+# Run full test suite
+yarn test
+
+# Run specific integration tests
+npx hardhat test test/integration/
+
+# Check coverage
+yarn coverage
+```
+
+## Deployment Scripts
+
+### Script Structure
+
+```typescript
+// deploy/00_example.ts
+import { HardhatRuntimeEnvironment } from "hardhat/types";
+import { DeployFunction } from "hardhat-deploy/types";
+
+const func: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
+    const { deployments, getNamedAccounts, ethers } = hre;
+    const { deploy, get, execute } = deployments;
+    const { deployer } = await getNamedAccounts();
+    
+    // Get previously deployed contracts
+    const token = await get("USDC");
+    const priceProvider = await get("PriceProvider");
+    
+    // Deploy new contract
+    const deployment = await deploy("OperationalTreasury", {
+        from: deployer,
+        args: [
+            token.address,
+            priceProvider.address,
+            // ... other constructor args
+        ],
+        log: true,  // Log deployment info
+        autoMine: true,  // Auto-mine on local networks
+        waitConfirmations: 1,  // Wait for confirmations
+    });
+    
+    if (deployment.newlyDeployed) {
+        console.log(`OperationalTreasury deployed at ${deployment.address}`);
+        
+        // Post-deployment setup
+        await execute(
+            "OperationalTreasury",
+            { from: deployer, log: true },
+            "connect",
+            strategyAddress
+        );
+    }
+};
+
+export default func;
+
+// Tags for selective deployment
+func.tags = ["Treasury", "Core"];
+
+// Dependencies - ensure these deploy first
+func.dependencies = ["Tokens", "PriceProviders"];
+
+// Skip on certain networks
+func.skip = async (hre) => {
+    return hre.network.name === "mainnet"; // Skip on mainnet for now
+};
+```
+
+### Key Deployment Patterns
+
+#### 1. Deploy with Verification
+
+```typescript
+await deploy("OperationalTreasury", {
+    from: deployer,
+    args: constructorArgs,
+    log: true,
+    // Auto-verify on Etherscan
+    // Requires ETHERSCAN_API_KEY in .env
+});
+```
+
+#### 2. Deploy Only If New
+
+```typescript
+const existing = await deployments.getOrNull("OperationalTreasury");
+if (!existing) {
+    await deploy("OperationalTreasury", { ... });
+} else {
+    console.log("OperationalTreasury already deployed");
+}
+```
+
+#### 3. Deploy with Proxy
+
+```typescript
+await deploy("OperationalTreasury", {
+    from: deployer,
+    proxy: {
+        proxyContract: "OpenZeppelinTransparentProxy",
+        execute: {
+            init: {
+                methodName: "initialize",
+                args: [initArg1, initArg2]
+            }
+        }
+    },
+    log: true
+});
+```
+
+#### 4. Deploy and Initialize
+
+```typescript
+const deployment = await deploy("CoverPool", {
+    from: deployer,
+    args: [hegicToken, usdcToken, payoffPool, initialPrice],
+    log: true
+});
+
+if (deployment.newlyDeployed) {
+    // Grant roles
+    await execute(
+        "CoverPool",
+        { from: deployer },
+        "grantRole",
+        OPERATIONAL_TREASURY_ROLE,
+        treasuryAddress
+    );
+    
+    // Start first epoch
+    await execute(
+        "CoverPool",
+        { from: deployer },
+        "setNextEpochChangingPrice",
+        ethers.utils.parseUnits("1", 30)
+    );
+}
+```
+
+## Deployment Commands
+
+### Local Deployment
+
+```bash
+# Start local node
+npx hardhat node
+
+# In another terminal, deploy to local
+npx hardhat deploy --network localhost
+
+# Deploy specific tags only
+npx hardhat deploy --network localhost --tags Treasury
+
+# Reset and redeploy
+npx hardhat deploy --network localhost --reset
+```
+
+### Testnet Deployment
+
+```bash
+# Deploy to Arbitrum Goerli testnet
+npx hardhat deploy --network arbitrumGoerli
+
+# Watch the output for:
+# - Deployment addresses
+# - Gas used
+# - Transaction hashes
+# - Verification status
+```
+
+### Mainnet Deployment
+
+```bash
+# DRY RUN - Estimate gas without deploying
+npx hardhat deploy --network mainnet --dry-run
+
+# ACTUAL DEPLOYMENT
+npx hardhat deploy --network mainnet
+
+# Deploy only specific tags
+npx hardhat deploy --network mainnet --tags Treasury,Strategies
+
+# Continue from where it failed
+npx hardhat deploy --network mainnet --reset-on-error false
+```
+
+## Post-Deployment Tasks
+
+### 1. Verify Contracts on Etherscan
+
+```bash
+# Verify all contracts
+npx hardhat etherscan-verify --network arbitrum
+
+# Verify specific contract
+npx hardhat verify --network arbitrum \
+    0xContractAddress \
+    "Constructor Arg 1" \
+    "Constructor Arg 2"
+```
+
+**Manual Verification** (if auto-verify fails):
+1. Go to Etherscan/Arbiscan
+2. Find contract address
+3. Click "Verify and Publish"
+4. Select compiler version (0.8.3)
+5. Enable optimization (200 runs)
+6. Copy flattened source code
+7. Submit
+
+### 2. Grant Roles
+
+```typescript
+// Script: scripts/grantRoles.ts
+async function main() {
+    const { deployments, getNamedAccounts } = hre;
+    const { deployer } = await getNamedAccounts();
+    
+    const treasury = await ethers.getContract("OperationalTreasury");
+    const coverPool = await ethers.getContract("CoverPool");
+    
+    // Grant OPERATIONAL_TREASURY_ROLE to treasury
+    const OPERATIONAL_TREASURY_ROLE = ethers.utils.keccak256(
+        ethers.utils.toUtf8Bytes("OPERATIONAL_TRESUARY_ROLE")
+    );
+    
+    await coverPool.grantRole(OPERATIONAL_TREASURY_ROLE, treasury.address);
+    console.log("Granted OPERATIONAL_TREASURY_ROLE to", treasury.address);
+    
+    // Grant DEFAULT_ADMIN_ROLE to multisig
+    const multisigAddress = "0x...";
+    await coverPool.grantRole(
+        await coverPool.DEFAULT_ADMIN_ROLE(),
+        multisigAddress
+    );
+    console.log("Granted DEFAULT_ADMIN_ROLE to", multisigAddress);
+    
+    // Renounce deployer admin role
+    await coverPool.renounceRole(
+        await coverPool.DEFAULT_ADMIN_ROLE(),
+        deployer
+    );
+    console.log("Deployer renounced admin role");
+}
+
+main().catch((error) => {
+    console.error(error);
+    process.exit(1);
+});
+```
+
+```bash
+npx hardhat run scripts/grantRoles.ts --network arbitrum
+```
+
+### 3. Connect Strategies
+
+```typescript
+// Script: scripts/connectStrategies.ts
+async function main() {
+    const treasury = await ethers.getContract("OperationalTreasury");
+    
+    const strategies = [
+        "HegicStrategyCall",
+        "HegicStrategyPut",
+        "HegicStrategyStraddle",
+        // ... more strategies
+    ];
+    
+    for (const strategyName of strategies) {
+        const strategy = await ethers.getContract(strategyName);
+        
+        // Check if already connected
+        const accepted = await treasury.acceptedStrategy(strategy.address);
+        
+        if (!accepted) {
+            await treasury.connect(strategy.address);
+            console.log(`Connected ${strategyName}`);
+        } else {
+            console.log(`${strategyName} already connected`);
+        }
+    }
+}
+```
+
+### 4. Initialize Pools
+
+```bash
+# Initialize Cover Pool
+npx hardhat run scripts/initializePools.ts --network arbitrum
+```
+
+```typescript
+async function main() {
+    const coverPool = await ethers.getContract("CoverPool");
+    const hegic = await ethers.getContract("HEGIC");
+    
+    // Admin provides initial liquidity
+    const initialAmount = ethers.utils.parseEther("100000");
+    await hegic.approve(coverPool.address, initialAmount);
+    await coverPool.provide(initialAmount, 0);
+    
+    console.log("Initial liquidity provided");
+    
+    // Set epoch parameters
+    await coverPool.setWindowSize(5 * 24 * 60 * 60); // 5 days
+    await coverPool.setNextEpochChangingPrice(
+        ethers.utils.parseUnits("0.01", 30) // HEGIC/USDC rate
+    );
+    
+    console.log("Epoch parameters set");
+}
+```
+
+### 5. Set Strategy Limits
+
+```typescript
+async function main() {
+    const limitController = await ethers.getContract("LimitController");
+    const strategies = await getDeployedStrategies();
+    
+    for (const strategy of strategies) {
+        const limit = ethers.utils.parseEther("1000000"); // 1M USDC
+        await limitController.setLimit(strategy.address, limit);
+        console.log(`Set limit for ${strategy.name}: ${limit}`);
+    }
+}
+```
+
+## Deployment Checklist
+
+### Pre-Deployment
+- [ ] All tests passing
+- [ ] Code audited (for mainnet)
+- [ ] Environment variables set
+- [ ] Deployer account funded with ETH
+- [ ] Gas price acceptable
+- [ ] Deployment scripts reviewed
+- [ ] Constructor parameters verified
+- [ ] Dependencies deployed
+
+### During Deployment
+- [ ] Monitor gas costs
+- [ ] Save deployment addresses
+- [ ] Save transaction hashes
+- [ ] Check for deployment errors
+- [ ] Verify contracts deployed
+
+### Post-Deployment
+- [ ] Verify contracts on Etherscan
+- [ ] Grant necessary roles
+- [ ] Connect strategies to treasury
+- [ ] Set strategy limits
+- [ ] Initialize pools
+- [ ] Transfer ownership to multisig
+- [ ] Test basic operations
+- [ ] Update frontend with addresses
+- [ ] Document deployment
+- [ ] Announce deployment
+
+## Upgrading Contracts
+
+### Using Transparent Proxy
+
+```typescript
+// Initial deployment
+await deploy("OperationalTreasury", {
+    from: deployer,
+    proxy: {
+        proxyContract: "OpenZeppelinTransparentProxy",
+        execute: {
+            init: {
+                methodName: "initialize",
+                args: []
+            }
+        }
+    },
+    log: true
+});
+
+// Upgrade
+await deploy("OperationalTreasury", {
+    from: deployer,
+    proxy: {
+        proxyContract: "OpenZeppelinTransparentProxy",
+    },
+    log: true
+});
+```
+
+### Manual Upgrade Process
+
+```typescript
+async function upgrade() {
+    // Deploy new implementation
+    const TreasuryV2 = await ethers.getContractFactory("OperationalTreasuryV2");
+    const treasuryV2 = await TreasuryV2.deploy();
+    
+    // Get proxy admin
+    const proxyAdmin = await ethers.getContract("ProxyAdmin");
+    
+    // Upgrade proxy to new implementation
+    await proxyAdmin.upgrade(proxyAddress, treasuryV2.address);
+    
+    console.log("Upgraded to", treasuryV2.address);
+}
+```
+
+## Deployment Gas Costs
+
+### Estimated Gas (Arbitrum)
+
+| Contract | Gas Used | ETH Cost @ 0.1 gwei |
+|----------|----------|---------------------|
+| USDC Mock | ~1,000,000 | ~0.0001 ETH |
+| HEGIC Mock | ~1,000,000 | ~0.0001 ETH |
+| Price Provider Mock | ~500,000 | ~0.00005 ETH |
+| CoverPool | ~3,500,000 | ~0.00035 ETH |
+| OperationalTreasury | ~2,800,000 | ~0.00028 ETH |
+| PositionsManager | ~2,000,000 | ~0.0002 ETH |
+| Strategy (each) | ~2,500,000 | ~0.00025 ETH |
+| **Total (approx)** | **~20M** | **~0.002 ETH** |
+
+### Gas Optimization Tips
+
+1. **Use `immutable` for constants**
+2. **Batch operations** in single transaction
+3. **Deploy during low gas periods**
+4. **Use CREATE2** for deterministic addresses
+5. **Optimize constructor** logic
+
+## Troubleshooting
+
+### Issue: "Insufficient funds"
+**Solution**: Fund deployer account with more ETH
+
+### Issue: "Nonce too low"
+**Solution**: 
+```bash
+# Reset nonce
+npx hardhat clean
+rm -rf deployments/network-name
+```
+
+### Issue: "Contract verification failed"
+**Solution**: Manually verify with flattened source
+
+```bash
+# Flatten contract
+npx hardhat flatten contracts/OperationalTreasury.sol > flattened.sol
+```
+
+### Issue: "Gas estimation failed"
+**Solution**: Check for:
+- Reverts in constructor
+- Invalid parameters
+- Missing dependencies
+
+### Issue: "Deployment hangs"
+**Solution**:
+- Check RPC endpoint
+- Increase timeout in hardhat.config.ts
+- Check transaction on block explorer
+
+## Deployment Records
+
+### Template
+
+```markdown
+## Arbitrum Mainnet Deployment - 2024-01-15
+
+### Contract Addresses
+- USDC: 0xFF970A61A04b1cA14834A43f5dE4533eBDDB5CC8 (existing)
+- HEGIC: 0x...
+- CoverPool: 0x...
+- OperationalTreasury: 0x...
+- PositionsManager: 0x...
+- HegicStrategyCall: 0x...
+- HegicStrategyPut: 0x...
+
+### Transaction Hashes
+- CoverPool: 0x...
+- OperationalTreasury: 0x...
+
+### Parameters Used
+- Initial epoch changing price: 0.01 (1e28)
+- Window size: 5 days
+- Max lockup period: 30 days
+- Benchmark: 50%
+
+### Gas Costs
+- Total gas used: 18,234,567
+- Total cost: 0.0018 ETH
+
+### Post-Deployment Actions
+- [x] Verified all contracts
+- [x] Granted roles
+- [x] Connected strategies
+- [x] Initialized pools
+- [x] Transferred ownership to multisig: 0x...
+
+### Notes
+- Deployment completed successfully
+- All tests passed on mainnet fork
+- Multisig requires 3/5 signatures
+```
+
+## Security Considerations
+
+1. **Use hardware wallet** for mainnet deployments
+2. **Test on testnet** first
+3. **Verify contract code** on Etherscan
+4. **Transfer admin rights** to multisig
+5. **Set time locks** on critical functions
+6. **Monitor contracts** after deployment
+7. **Have emergency pause** mechanism
+8. **Document all** parameters and addresses
+9. **Audit before mainnet** deployment
+10. **Prepare incident** response plan
+
