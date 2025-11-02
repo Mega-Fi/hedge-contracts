@@ -6,3 +6,9 @@ packages/*/artifacts
 packages/*/deployments
 packages/*/abi
 .DS_Store
+.env
+.env.*
+*.env
+**/.env
+**/.env.*
+**/*.env

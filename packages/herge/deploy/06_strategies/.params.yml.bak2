@@ -7,11 +7,11 @@ HegicStrategy_CALL_100_ETH_2:
   window: 0
   limit: 20000
 HegicStrategy_CALL_100_ETH_3:
-  periodLimits: [1, 30]
+  periodLimits: [30, 60]
   window: 0
   limit: 20000
 HegicStrategy_CALL_100_ETH_4:
-  periodLimits: [1, 30]
+  periodLimits: [60, 90]
   window: 0
   limit: 20000
 HegicStrategy_CALL_110_ETH_1:
@@ -23,11 +23,11 @@ HegicStrategy_CALL_110_ETH_2:
   window: 0
   limit: 20000
 HegicStrategy_CALL_110_ETH_3:
-  periodLimits: [1, 30]
+  periodLimits: [30, 60]
   window: 0
   limit: 20000
 HegicStrategy_CALL_110_ETH_4:
-  periodLimits: [1, 30]
+  periodLimits: [60, 90]
   window: 0
   limit: 20000
 HegicStrategy_CALL_120_ETH_1:
@@ -39,11 +39,11 @@ HegicStrategy_CALL_120_ETH_2:
   window: 0
   limit: 20000
 HegicStrategy_CALL_120_ETH_3:
-  periodLimits: [1, 30]
+  periodLimits: [30, 60]
   window: 0
   limit: 20000
 HegicStrategy_CALL_120_ETH_4:
-  periodLimits: [1, 30]
+  periodLimits: [60, 90]
   window: 0
   limit: 20000
 HegicStrategy_CALL_130_ETH_1:
@@ -55,11 +55,11 @@ HegicStrategy_CALL_130_ETH_2:
   window: 0
   limit: 20000
 HegicStrategy_CALL_130_ETH_3:
-  periodLimits: [1, 30]
+  periodLimits: [30, 60]
   window: 0
   limit: 20000
 HegicStrategy_CALL_130_ETH_4:
-  periodLimits: [1, 30]
+  periodLimits: [60, 90]
   window: 0
   limit: 20000
 HegicStrategy_PUT_100_ETH_1:
@@ -71,11 +71,11 @@ HegicStrategy_PUT_100_ETH_2:
   window: 0
   limit: 20000
 HegicStrategy_PUT_100_ETH_3:
-  periodLimits: [1, 30]
+  periodLimits: [30, 60]
   window: 0
   limit: 20000
 HegicStrategy_PUT_100_ETH_4:
-  periodLimits: [1, 30]
+  periodLimits: [60, 90]
   window: 0
   limit: 20000
 HegicStrategy_PUT_90_ETH_1:
@@ -87,11 +87,11 @@ HegicStrategy_PUT_90_ETH_2:
   window: 0
   limit: 20000
 HegicStrategy_PUT_90_ETH_3:
-  periodLimits: [1, 30]
+  periodLimits: [30, 60]
   window: 0
   limit: 20000
 HegicStrategy_PUT_90_ETH_4:
-  periodLimits: [1, 30]
+  periodLimits: [60, 90]
   window: 0
   limit: 20000
 HegicStrategy_PUT_80_ETH_1:
@@ -103,11 +103,11 @@ HegicStrategy_PUT_80_ETH_2:
   window: 0
   limit: 20000
 HegicStrategy_PUT_80_ETH_3:
-  periodLimits: [1, 30]
+  periodLimits: [30, 60]
   window: 0
   limit: 20000
 HegicStrategy_PUT_80_ETH_4:
-  periodLimits: [1, 30]
+  periodLimits: [60, 90]
   window: 0
   limit: 20000
 HegicStrategy_PUT_70_ETH_1:
@@ -119,11 +119,11 @@ HegicStrategy_PUT_70_ETH_2:
   window: 0
   limit: 20000
 HegicStrategy_PUT_70_ETH_3:
-  periodLimits: [1, 30]
+  periodLimits: [30, 60]
   window: 0
   limit: 20000
 HegicStrategy_PUT_70_ETH_4:
-  periodLimits: [1, 30]
+  periodLimits: [60, 90]
   window: 0
   limit: 20000
 HegicStrategy_SPREAD_CALL_10_ETH_1:
@@ -135,11 +135,11 @@ HegicStrategy_SPREAD_CALL_10_ETH_2:
   window: 0
   limit: 20000
 HegicStrategy_SPREAD_CALL_10_ETH_3:
-  periodLimits: [1, 30]
+  periodLimits: [30, 60]
   window: 0
   limit: 20000
 HegicStrategy_SPREAD_CALL_10_ETH_4:
-  periodLimits: [1, 30]
+  periodLimits: [60, 90]
   window: 0
   limit: 20000
 HegicStrategy_SPREAD_CALL_20_ETH_1:
@@ -151,11 +151,11 @@ HegicStrategy_SPREAD_CALL_20_ETH_2:
   window: 0
   limit: 20000
 HegicStrategy_SPREAD_CALL_20_ETH_3:
-  periodLimits: [1, 30]
+  periodLimits: [30, 60]
   window: 0
   limit: 20000
 HegicStrategy_SPREAD_CALL_20_ETH_4:
-  periodLimits: [1, 30]
+  periodLimits: [60, 90]
   window: 0
   limit: 20000
 HegicStrategy_SPREAD_CALL_30_ETH_1:
@@ -167,11 +167,11 @@ HegicStrategy_SPREAD_CALL_30_ETH_2:
   window: 0
   limit: 20000
 HegicStrategy_SPREAD_CALL_30_ETH_3:
-  periodLimits: [1, 30]
+  periodLimits: [30, 60]
   window: 0
   limit: 20000
 HegicStrategy_SPREAD_CALL_30_ETH_4:
-  periodLimits: [1, 30]
+  periodLimits: [60, 90]
   window: 0
   limit: 20000
 HegicStrategy_SPREAD_PUT_10_ETH_1:
@@ -183,11 +183,11 @@ HegicStrategy_SPREAD_PUT_10_ETH_2:
   window: 0
   limit: 20000
 HegicStrategy_SPREAD_PUT_10_ETH_3:
-  periodLimits: [1, 30]
+  periodLimits: [30, 60]
   window: 0
   limit: 20000
 HegicStrategy_SPREAD_PUT_10_ETH_4:
-  periodLimits: [1, 30]
+  periodLimits: [60, 90]
   window: 0
   limit: 20000
 HegicStrategy_SPREAD_PUT_20_ETH_1:
@@ -199,11 +199,11 @@ HegicStrategy_SPREAD_PUT_20_ETH_2:
   window: 0
   limit: 20000
 HegicStrategy_SPREAD_PUT_20_ETH_3:
-  periodLimits: [1, 30]
+  periodLimits: [30, 60]
   window: 0
   limit: 20000
 HegicStrategy_SPREAD_PUT_20_ETH_4:
-  periodLimits: [1, 30]
+  periodLimits: [60, 90]
   window: 0
   limit: 20000
 HegicStrategy_SPREAD_PUT_30_ETH_1:
@@ -215,11 +215,11 @@ HegicStrategy_SPREAD_PUT_30_ETH_2:
   window: 0
   limit: 20000
 HegicStrategy_SPREAD_PUT_30_ETH_3:
-  periodLimits: [1, 30]
+  periodLimits: [30, 60]
   window: 0
   limit: 20000
 HegicStrategy_SPREAD_PUT_30_ETH_4:
-  periodLimits: [1, 30]
+  periodLimits: [60, 90]
   window: 0
   limit: 20000
 HegicStrategy_STRADDLE_ETH_1:
@@ -231,11 +231,11 @@ HegicStrategy_STRADDLE_ETH_2:
   window: 0
   limit: 20000
 HegicStrategy_STRADDLE_ETH_3:
-  periodLimits: [1, 30]
+  periodLimits: [30, 60]
   window: 0
   limit: 20000
 HegicStrategy_STRADDLE_ETH_4:
-  periodLimits: [1, 30]
+  periodLimits: [60, 90]
   window: 0
   limit: 20000
 HegicStrategy_STRAP_ETH_1:
@@ -247,11 +247,11 @@ HegicStrategy_STRAP_ETH_2:
   window: 0
   limit: 20000
 HegicStrategy_STRAP_ETH_3:
-  periodLimits: [1, 30]
+  periodLimits: [30, 60]
   window: 0
   limit: 20000
 HegicStrategy_STRAP_ETH_4:
-  periodLimits: [1, 30]
+  periodLimits: [60, 90]
   window: 0
   limit: 20000
 HegicStrategy_STRIP_ETH_1:
@@ -263,11 +263,11 @@ HegicStrategy_STRIP_ETH_2:
   window: 0
   limit: 20000
 HegicStrategy_STRIP_ETH_3:
-  periodLimits: [1, 30]
+  periodLimits: [30, 60]
   window: 0
   limit: 20000
 HegicStrategy_STRIP_ETH_4:
-  periodLimits: [1, 30]
+  periodLimits: [60, 90]
   window: 0
   limit: 20000
 HegicStrategy_STRANGLE_10_ETH_1:
@@ -279,11 +279,11 @@ HegicStrategy_STRANGLE_10_ETH_2:
   window: 0
   limit: 20000
 HegicStrategy_STRANGLE_10_ETH_3:
-  periodLimits: [1, 30]
+  periodLimits: [30, 60]
   window: 0
   limit: 20000
 HegicStrategy_STRANGLE_10_ETH_4:
-  periodLimits: [1, 30]
+  periodLimits: [60, 90]
   window: 0
   limit: 20000
 HegicStrategy_STRANGLE_20_ETH_1:
@@ -295,11 +295,11 @@ HegicStrategy_STRANGLE_20_ETH_2:
   window: 0
   limit: 20000
 HegicStrategy_STRANGLE_20_ETH_3:
-  periodLimits: [1, 30]
+  periodLimits: [30, 60]
   window: 0
   limit: 20000
 HegicStrategy_STRANGLE_20_ETH_4:
-  periodLimits: [1, 30]
+  periodLimits: [60, 90]
   window: 0
   limit: 20000
 HegicStrategy_STRANGLE_30_ETH_1:
@@ -311,11 +311,11 @@ HegicStrategy_STRANGLE_30_ETH_2:
   window: 0
   limit: 20000
 HegicStrategy_STRANGLE_30_ETH_3:
-  periodLimits: [1, 30]
+  periodLimits: [30, 60]
   window: 0
   limit: 20000
 HegicStrategy_STRANGLE_30_ETH_4:
-  periodLimits: [1, 30]
+  periodLimits: [60, 90]
   window: 0
   limit: 20000
 HegicStrategy_CALL_100_BTC_1:
@@ -327,11 +327,11 @@ HegicStrategy_CALL_100_BTC_2:
   window: 0
   limit: 20000
 HegicStrategy_CALL_100_BTC_3:
-  periodLimits: [1, 30]
+  periodLimits: [30, 60]
   window: 0
   limit: 20000
 HegicStrategy_CALL_100_BTC_4:
-  periodLimits: [1, 30]
+  periodLimits: [60, 90]
   window: 0
   limit: 20000
 HegicStrategy_CALL_110_BTC_1:
@@ -343,11 +343,11 @@ HegicStrategy_CALL_110_BTC_2:
   window: 0
   limit: 20000
 HegicStrategy_CALL_110_BTC_3:
-  periodLimits: [1, 30]
+  periodLimits: [30, 60]
   window: 0
   limit: 20000
 HegicStrategy_CALL_110_BTC_4:
-  periodLimits: [1, 30]
+  periodLimits: [60, 90]
   window: 0
   limit: 20000
 HegicStrategy_CALL_120_BTC_1:
@@ -359,11 +359,11 @@ HegicStrategy_CALL_120_BTC_2:
   window: 0
   limit: 20000
 HegicStrategy_CALL_120_BTC_3:
-  periodLimits: [1, 30]
+  periodLimits: [30, 60]
   window: 0
   limit: 20000
 HegicStrategy_CALL_120_BTC_4:
-  periodLimits: [1, 30]
+  periodLimits: [60, 90]
   window: 0
   limit: 20000
 HegicStrategy_CALL_130_BTC_1:
@@ -375,11 +375,11 @@ HegicStrategy_CALL_130_BTC_2:
   window: 0
   limit: 20000
 HegicStrategy_CALL_130_BTC_3:
-  periodLimits: [1, 30]
+  periodLimits: [30, 60]
   window: 0
   limit: 20000
 HegicStrategy_CALL_130_BTC_4:
-  periodLimits: [1, 30]
+  periodLimits: [60, 90]
   window: 0
   limit: 20000
 HegicStrategy_PUT_100_BTC_1:
@@ -391,11 +391,11 @@ HegicStrategy_PUT_100_BTC_2:
   window: 0
   limit: 20000
 HegicStrategy_PUT_100_BTC_3:
-  periodLimits: [1, 30]
+  periodLimits: [30, 60]
   window: 0
   limit: 20000
 HegicStrategy_PUT_100_BTC_4:
-  periodLimits: [1, 30]
+  periodLimits: [60, 90]
   window: 0
   limit: 20000
 HegicStrategy_PUT_90_BTC_1:
@@ -407,11 +407,11 @@ HegicStrategy_PUT_90_BTC_2:
   window: 0
   limit: 20000
 HegicStrategy_PUT_90_BTC_3:
-  periodLimits: [1, 30]
+  periodLimits: [30, 60]
   window: 0
   limit: 20000
 HegicStrategy_PUT_90_BTC_4:
-  periodLimits: [1, 30]
+  periodLimits: [60, 90]
   window: 0
   limit: 20000
 HegicStrategy_PUT_80_BTC_1:
@@ -423,11 +423,11 @@ HegicStrategy_PUT_80_BTC_2:
   window: 0
   limit: 20000
 HegicStrategy_PUT_80_BTC_3:
-  periodLimits: [1, 30]
+  periodLimits: [30, 60]
   window: 0
   limit: 20000
 HegicStrategy_PUT_80_BTC_4:
-  periodLimits: [1, 30]
+  periodLimits: [60, 90]
   window: 0
   limit: 20000
 HegicStrategy_PUT_70_BTC_1:
@@ -439,11 +439,11 @@ HegicStrategy_PUT_70_BTC_2:
   window: 0
   limit: 20000
 HegicStrategy_PUT_70_BTC_3:
-  periodLimits: [1, 30]
+  periodLimits: [30, 60]
   window: 0
   limit: 20000
 HegicStrategy_PUT_70_BTC_4:
-  periodLimits: [1, 30]
+  periodLimits: [60, 90]
   window: 0
   limit: 20000
 HegicStrategy_SPREAD_CALL_10_BTC_1:
@@ -455,11 +455,11 @@ HegicStrategy_SPREAD_CALL_10_BTC_2:
   window: 0
   limit: 20000
 HegicStrategy_SPREAD_CALL_10_BTC_3:
-  periodLimits: [1, 30]
+  periodLimits: [30, 60]
   window: 0
   limit: 20000
 HegicStrategy_SPREAD_CALL_10_BTC_4:
-  periodLimits: [1, 30]
+  periodLimits: [60, 90]
   window: 0
   limit: 20000
 HegicStrategy_SPREAD_CALL_20_BTC_1:
@@ -471,11 +471,11 @@ HegicStrategy_SPREAD_CALL_20_BTC_2:
   window: 0
   limit: 20000
 HegicStrategy_SPREAD_CALL_20_BTC_3:
-  periodLimits: [1, 30]
+  periodLimits: [30, 60]
   window: 0
   limit: 20000
 HegicStrategy_SPREAD_CALL_20_BTC_4:
-  periodLimits: [1, 30]
+  periodLimits: [60, 90]
   window: 0
   limit: 20000
 HegicStrategy_SPREAD_CALL_30_BTC_1:
@@ -487,11 +487,11 @@ HegicStrategy_SPREAD_CALL_30_BTC_2:
   window: 0
   limit: 20000
 HegicStrategy_SPREAD_CALL_30_BTC_3:
-  periodLimits: [1, 30]
+  periodLimits: [30, 60]
   window: 0
   limit: 20000
 HegicStrategy_SPREAD_CALL_30_BTC_4:
-  periodLimits: [1, 30]
+  periodLimits: [60, 90]
   window: 0
   limit: 20000
 HegicStrategy_SPREAD_PUT_10_BTC_1:
@@ -503,11 +503,11 @@ HegicStrategy_SPREAD_PUT_10_BTC_2:
   window: 0
   limit: 20000
 HegicStrategy_SPREAD_PUT_10_BTC_3:
-  periodLimits: [1, 30]
+  periodLimits: [30, 60]
   window: 0
   limit: 20000
 HegicStrategy_SPREAD_PUT_10_BTC_4:
-  periodLimits: [1, 30]
+  periodLimits: [60, 90]
   window: 0
   limit: 20000
 HegicStrategy_SPREAD_PUT_20_BTC_1:
@@ -519,11 +519,11 @@ HegicStrategy_SPREAD_PUT_20_BTC_2:
   window: 0
   limit: 20000
 HegicStrategy_SPREAD_PUT_20_BTC_3:
-  periodLimits: [1, 30]
+  periodLimits: [30, 60]
   window: 0
   limit: 20000
 HegicStrategy_SPREAD_PUT_20_BTC_4:
-  periodLimits: [1, 30]
+  periodLimits: [60, 90]
   window: 0
   limit: 20000
 HegicStrategy_SPREAD_PUT_30_BTC_1:
@@ -535,11 +535,11 @@ HegicStrategy_SPREAD_PUT_30_BTC_2:
   window: 0
   limit: 20000
 HegicStrategy_SPREAD_PUT_30_BTC_3:
-  periodLimits: [1, 30]
+  periodLimits: [30, 60]
   window: 0
   limit: 20000
 HegicStrategy_SPREAD_PUT_30_BTC_4:
-  periodLimits: [1, 30]
+  periodLimits: [60, 90]
   window: 0
   limit: 20000
 HegicStrategy_STRADDLE_BTC_1:
@@ -551,11 +551,11 @@ HegicStrategy_STRADDLE_BTC_2:
   window: 0
   limit: 20000
 HegicStrategy_STRADDLE_BTC_3:
-  periodLimits: [1, 30]
+  periodLimits: [30, 60]
   window: 0
   limit: 20000
 HegicStrategy_STRADDLE_BTC_4:
-  periodLimits: [1, 30]
+  periodLimits: [60, 90]
   window: 0
   limit: 20000
 HegicStrategy_STRAP_BTC_1:
@@ -567,11 +567,11 @@ HegicStrategy_STRAP_BTC_2:
   window: 0
   limit: 20000
 HegicStrategy_STRAP_BTC_3:
-  periodLimits: [1, 30]
+  periodLimits: [30, 60]
   window: 0
   limit: 20000
 HegicStrategy_STRAP_BTC_4:
-  periodLimits: [1, 30]
+  periodLimits: [60, 90]
   window: 0
   limit: 20000
 HegicStrategy_STRIP_BTC_1:
@@ -583,11 +583,11 @@ HegicStrategy_STRIP_BTC_2:
   window: 0
   limit: 20000
 HegicStrategy_STRIP_BTC_3:
-  periodLimits: [1, 30]
+  periodLimits: [30, 60]
   window: 0
   limit: 20000
 HegicStrategy_STRIP_BTC_4:
-  periodLimits: [1, 30]
+  periodLimits: [60, 90]
   window: 0
   limit: 20000
 HegicStrategy_STRANGLE_10_BTC_1:
@@ -599,11 +599,11 @@ HegicStrategy_STRANGLE_10_BTC_2:
   window: 0
   limit: 20000
 HegicStrategy_STRANGLE_10_BTC_3:
-  periodLimits: [1, 30]
+  periodLimits: [30, 60]
   window: 0
   limit: 20000
 HegicStrategy_STRANGLE_10_BTC_4:
-  periodLimits: [1, 30]
+  periodLimits: [60, 90]
   window: 0
   limit: 20000
 HegicStrategy_STRANGLE_20_BTC_1:
@@ -615,11 +615,11 @@ HegicStrategy_STRANGLE_20_BTC_2:
   window: 0
   limit: 20000
 HegicStrategy_STRANGLE_20_BTC_3:
-  periodLimits: [1, 30]
+  periodLimits: [30, 60]
   window: 0
   limit: 20000
 HegicStrategy_STRANGLE_20_BTC_4:
-  periodLimits: [1, 30]
+  periodLimits: [60, 90]
   window: 0
   limit: 20000
 HegicStrategy_STRANGLE_30_BTC_1:
@@ -631,11 +631,11 @@ HegicStrategy_STRANGLE_30_BTC_2:
   window: 0
   limit: 20000
 HegicStrategy_STRANGLE_30_BTC_3:
-  periodLimits: [1, 30]
+  periodLimits: [30, 60]
   window: 0
   limit: 20000
 HegicStrategy_STRANGLE_30_BTC_4:
-  periodLimits: [1, 30]
+  periodLimits: [60, 90]
   window: 0
   limit: 20000
 

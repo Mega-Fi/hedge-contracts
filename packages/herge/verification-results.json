@@ -1,0 +1,32 @@
+[
+  {
+    "contract": "CoverPool",
+    "success": false,
+    "error": "Request failed with status code 403"
+  },
+  {
+    "contract": "OperationalTreasury",
+    "success": false,
+    "error": "Request failed with status code 404"
+  },
+  {
+    "contract": "PositionsManager",
+    "success": false,
+    "error": "Request failed with status code 403"
+  },
+  {
+    "contract": "ProfitCalculator",
+    "success": false,
+    "error": "Request failed with status code 404"
+  },
+  {
+    "contract": "LimitController",
+    "success": false,
+    "error": "Request failed with status code 403"
+  },
+  {
+    "contract": "ProfitDistributor",
+    "success": false,
+    "error": "Request failed with status code 403"
+  }
+]

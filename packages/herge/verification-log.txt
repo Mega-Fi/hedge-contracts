@@ -1,0 +1,8 @@
+WARNING: You are currently using Node.js v21.6.1, which is not supported by Hardhat. This can lead to unexpected behavior. See https://v2.hardhat.org/nodejs-versions
+
+
+Error HH19: Your project is an ESM project (you have "type": "module" set in your package.json) but your Hardhat config file uses the .js extension.
+
+Rename the file to use the .cjs to fix this problem.
+
+For more info go to https://v2.hardhat.org/HH19 or run Hardhat with --show-stack-traces

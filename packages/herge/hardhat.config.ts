@@ -20,7 +20,7 @@ import {writeFile} from "fs/promises"
 
 dotenv.config()
 
-const {ETHERSCAN_API_KEY, COIN_MARKET_CAP} = process.env
+const {ETHERSCAN_API_KEY, COIN_MARKET_CAP, PRIVATE_KEY, ARBITRUM_SEPOLIA_RPC_URL, ARBISCAN_API_KEY} = process.env
 
 export default {
   dependencyCompiler: {
@@ -56,17 +56,40 @@ export default {
       },
       gasPrice: 100e9,
     },
+    "arbitrum-sepolia": {
+      url: ARBITRUM_SEPOLIA_RPC_URL || "https://sepolia-rollup.arbitrum.io/rpc",
+      accounts: PRIVATE_KEY ? [PRIVATE_KEY] : [],
+      chainId: 421614,
+      gasPrice: 100000000, // 0.1 gwei
+    },
   },
   etherscan: {
-    apiKey: ETHERSCAN_API_KEY,
+    apiKey: {
+      "arbitrum-sepolia": ARBISCAN_API_KEY || "PLACEHOLDER",
+    },
+    customChains: [
+      {
+        network: "arbitrum-sepolia",
+        chainId: 421614,
+        urls: {
+          apiURL: "https://api-sepolia.arbiscan.io/api",
+          browserURL: "https://sepolia.arbiscan.io"
+        }
+      }
+    ]
+  },
+  sourcify: {
+    enabled: false
   },
   namedAccounts: {
     deployer: {
       default: 0,
+      "arbitrum-sepolia": "0x711eE890B41fFbd23Ba3c96975DEBDB1145cbB83",
     },
     payoffPool: {
       default: 9,
       arbitrum: 1,
+      "arbitrum-sepolia": "0x711eE890B41fFbd23Ba3c96975DEBDB1145cbB83",
     },
   },
   mocha: {

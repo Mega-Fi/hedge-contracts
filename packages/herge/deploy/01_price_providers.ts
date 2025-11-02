@@ -22,6 +22,16 @@ async function deployment(hre: HardhatRuntimeEnvironment): Promise<void> {
         abi: PriceProviderAbi.compilerOutput.abi,
       })
       return
+    case "arbitrum-sepolia":
+      save("PriceProviderBTC", {
+        address: "0x56a43EB56Da12C0dc1D972ACb089c06a5dEF8e69",
+        abi: PriceProviderAbi.compilerOutput.abi
+      })
+      save("PriceProviderETH", {
+        address: "0xd30e2101a97dcbAeBCBC04F14C3f624E67A35165",
+        abi: PriceProviderAbi.compilerOutput.abi,
+      })
+      return
     case "hardhat":
     case "hlocal":
     case "localhost":
