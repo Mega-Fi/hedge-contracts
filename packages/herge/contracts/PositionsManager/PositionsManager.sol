@@ -34,7 +34,7 @@ import "@openzeppelin/contracts/token/ERC721/IERC721.sol";
 
 contract PositionsManager is
     AccessControl,
-    ERC721WithURIBuilder("Hegic Herge Options & Strategies", "HEGOPS"),
+    ERC721WithURIBuilder("Hegic Herge Options & Strategies", "HEGOPS"), // TODO: change name
     IPositionsManager
 {
     bytes32 public constant HEGIC_POOL_ROLE = keccak256("HEGIC_POOL_ROLE");
