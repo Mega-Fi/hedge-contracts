@@ -1,251 +1,290 @@
-# Manual Contract Verification Guide for Arbitrum Sepolia
+# Manual Contract Verification Guide - Arbitrum Sepolia
 
-## 🚨 Automated Verification Status: BLOCKED
+## 🚨 Current Status
 
-Arbiscan Sepolia API is protected by Cloudflare and blocks programmatic verification attempts.
-
-**You must verify contracts manually through the web interface.**
-
----
-
-## ✅ Flattened Source Files Ready
-
-All core contracts have been flattened and are ready for manual verification:
-
-```bash
-# Contracts are flattened in the artifacts directory
-# You can manually flatten any contract using:
-npx hardhat flatten contracts/ContractName.sol > ContractName_flat.sol
-```
+**Automated verification is blocked** due to Arbiscan API migration (V1 deprecated, V2 endpoint unavailable).  
+**Solution:** Manual verification via Arbiscan web UI.
 
 ---
 
-## 📋 Step-by-Step Manual Verification
+## 📋 Prerequisites
 
-### For Each Contract:
-
-#### 1. **Flatten the Contract**
-```bash
-cd /Users/kaifahmed/Downloads/Work/MEGAFI/Hedge/hedge-contracts/packages/herge
-
-# Example: Flatten CoverPool
-npx hardhat flatten contracts/CoverPool.sol > CoverPool_flat.sol
-
-# Clean up duplicate SPDX licenses (keep only the first one)
-# Open the file and remove duplicate "// SPDX-License-Identifier" lines
-```
-
-#### 2. **Go to Arbiscan Verification Page**
-Visit: https://sepolia.arbiscan.io/verifyContract
-
-#### 3. **Fill in the Form**
-
-| Field | Value |
-|-------|-------|
-| **Contract Address** | (See table below) |
-| **Compiler Type** | Solidity (Single file) |
-| **Compiler Version** | v0.8.15+commit.e14f2714 |
-| **Open Source License Type** | GNU General Public License v3.0 (GPL-3.0) |
-| **Optimization Enabled** | Yes |
-| **Runs** | 200 |
-
-#### 4. **Paste Flattened Source Code**
-- Copy the contents of the flattened file
-- Remove any duplicate SPDX license identifiers (keep only the first one)
-- Paste into the "Enter the Solidity Contract Code" field
-
-#### 5. **Constructor Arguments (if needed)**
-- Leave empty for most contracts
-- For OperationalTreasury, you may need constructor args (see deployment data)
-
-#### 6. **Submit and Wait**
-Verification usually takes 30-60 seconds.
+1. **Flattened source files** - We'll generate these
+2. **Constructor arguments** - Available in deployment artifacts
+3. **Arbiscan account** - Not required, but helpful for tracking
 
 ---
 
 ## 🎯 Priority Contracts to Verify
 
-### Contract Addresses:
-
-| Contract | Address | Priority |
-|----------|---------|----------|
-| **CoverPool** | `0xAd02465752782893045089396277697Af935dAdB` | ⭐⭐⭐ HIGHEST |
-| **OperationalTreasury** | `0xeD5129B6Fc93C1D9c8278E540c4986dB9DC9D930` | ⭐⭐⭐ HIGHEST |
-| **PositionsManager** | `0x88a2887bD21974ea9a8D23553eeE532B8a8e2AB3` | ⭐⭐ HIGH |
-| **ProfitCalculator** | `0x1c64D2205415C4355Ad6C04250B4bA753758CcDc` | ⭐⭐ HIGH |
-| **LimitController** | `0xb20aBac673Fc2f0Eb44fe911E65B262cDEfeb3e8` | ⭐ MEDIUM |
-| **ProfitDistributor** | `0x2770Ba51F4e1712E7B424c392cf157B42B17C739` | ⭐ MEDIUM |
+| Priority | Contract | Address | Constructor Args |
+|----------|----------|---------|------------------|
+| 🔴 **HIGH** | OperationalTreasury | `0x3B026eD677615aDD2aC32aa5D1D5453051551EfB` | Yes |
+| 🔴 **HIGH** | CoverPool | `0x7174db190fF9D9AD136B39EdeEffBC2451FC1C5b` | Yes |
+| 🟡 **MEDIUM** | PositionsManager | `0x143c34DD579Ea5737284f06f4e4Ad581d4C42662` | Yes |
+| 🟡 **MEDIUM** | ProfitCalculator | `0xDb7D577F1345AD74B125501F4B68240F44ed7e60` | No |
+| 🟡 **MEDIUM** | LimitController | `0x6147765312700A1aaFe4Aee9c6469091C6A3F4Ac` | Yes |
+| 🟡 **MEDIUM** | ProfitDistributor | `0xFF9031382D9cdd44A95FC6e5EbE74BF2C3591069` | Yes |
 
 ---
 
-## 💡 Pro Tips
+## 🔧 Step 1: Flatten Contract Source
 
-### 1. **Cleaning Duplicate SPDX Licenses**
-
-Flattened files may have multiple SPDX license identifiers. Keep only the first one:
-
-```solidity
-// SPDX-License-Identifier: GPL-3.0-or-later  ← KEEP THIS
-pragma solidity ^0.8.3;
-
-// Remove all other instances of:
-// SPDX-License-Identifier: ...
-```
-
-### 2. **Alternative: Use Hardhat Flatten with Cleanup**
+### For Core Contracts:
 
 ```bash
-# Flatten and automatically clean up
-npx hardhat flatten contracts/CoverPool.sol | grep -v "// SPDX-License-Identifier" | head -1 && \
-echo "// SPDX-License-Identifier: GPL-3.0-or-later" && \
-npx hardhat flatten contracts/CoverPool.sol | grep -v "// SPDX-License-Identifier" > CoverPool_flat.sol
-```
-
-### 3. **Verify in Batches**
-- Verify 1-2 contracts at a time to avoid rate limiting
-- Start with the highest priority contracts
-
-### 4. **Constructor Arguments**
-
-For contracts that require constructor arguments, you can extract them from the deployment JSON files:
-
-```bash
-cat deployments/arbitrum-sepolia/CoverPool.json | jq '.args'
-```
-
----
-
-## 🔍 Example: Verifying CoverPool
-
-### Step-by-Step:
-
-```bash
-# 1. Flatten the contract
 cd /Users/kaifahmed/Downloads/Work/MEGAFI/Hedge/hedge-contracts/packages/herge
+
+# Flatten CoverPool
 npx hardhat flatten contracts/CoverPool.sol > CoverPool_flat.sol
 
-# 2. Open the file and remove duplicate SPDX licenses
-# (Keep only the first one at the top)
+# Flatten OperationalTreasury
+npx hardhat flatten contracts/OperationalTreasury.sol > OperationalTreasury_flat.sol
 
-# 3. Go to Arbiscan
-open https://sepolia.arbiscan.io/verifyContract
+# Flatten PositionsManager
+npx hardhat flatten contracts/PositionsManager/PositionsManager.sol > PositionsManager_flat.sol
 
-# 4. Fill in:
-Contract Address: 0xAd02465752782893045089396277697Af935dAdB
-Compiler Type: Solidity (Single file)
-Compiler Version: v0.8.15+commit.e14f2714
-License: GPL-3.0
-Optimization: Yes (200 runs)
+# Flatten ProfitCalculator
+npx hardhat flatten contracts/Strategies/ProfitCalculator.sol > ProfitCalculator_flat.sol
 
-# 5. Paste the cleaned source code
+# Flatten LimitController
+npx hardhat flatten contracts/Strategies/LimitController.sol > LimitController_flat.sol
 
-# 6. Submit!
+# Flatten ProfitDistributor
+npx hardhat flatten contracts/ProfitDistributor.sol > ProfitDistributor_flat.sol
+```
+
+### Clean Up Duplicate SPDX Licenses
+
+After flattening, open each file and:
+1. Find duplicate `// SPDX-License-Identifier: GPL-3.0-or-later` lines
+2. Keep **only the first one** at the top
+3. Remove all other duplicates
+
+**Quick command to check:**
+```bash
+grep -n "SPDX-License-Identifier" CoverPool_flat.sol
+```
+
+---
+
+## 📝 Step 2: Get Constructor Arguments
+
+Constructor arguments are stored in deployment artifacts. Here's how to get them:
+
+### Option A: From Deployment Artifacts
+
+```bash
+# View constructor args for CoverPool
+cat deployments/arbitrum-sepolia/CoverPool.json | grep -A 5 '"args"'
+```
+
+### Option B: Use the Helper Script
+
+```bash
+node -e "
+const artifact = require('./deployments/arbitrum-sepolia/CoverPool.json');
+console.log('Constructor Args:', JSON.stringify(artifact.args, null, 2));
+"
+```
+
+### Constructor Arguments Reference:
+
+**CoverPool:**
+- `_coverToken`: `0x75faf114eafb1BDbe2F0316DF893fd58CE46AA4d` (USDC)
+- `_profitToken`: `0x75faf114eafb1BDbe2F0316DF893fd58CE46AA4d` (USDC)
+- `_payoffPool`: `0x711eE890B41fFbd23Ba3c96975DEBDB1145cbB83`
+- `initialEpochChangingPrice`: `1000000000000000000000000000000`
+
+**OperationalTreasury:**
+- Check deployment artifact for full args
+
+**PositionsManager:**
+- Constructor takes 2 string parameters (name, symbol)
+
+---
+
+## 🌐 Step 3: Verify via Arbiscan UI
+
+### 3.1 Navigate to Verification Page
+
+1. Go to: **https://sepolia.arbiscan.io/verifyContract**
+2. Or go to contract address page and click **"Contract"** tab → **"Verify and Publish"**
+
+### 3.2 Fill Verification Form
+
+| Field | Value |
+|-------|-------|
+| **Contract Address** | `0x7174db190fF9D9AD136B39EdeEffBC2451FC1C5b` (example: CoverPool) |
+| **Compiler Type** | Solidity (Single file) |
+| **Compiler Version** | `v0.8.15+commit.e14f2714` |
+| **Open Source License Type** | GNU General Public License v3.0 (GPL-3.0) |
+| **Optimization Enabled** | ✅ Yes |
+| **Runs** | `200` |
+
+### 3.3 Paste Source Code
+
+1. Open the flattened `.sol` file
+2. Copy **entire contents** (Ctrl+A, Ctrl+C)
+3. Paste into **"Enter the Solidity Contract Code"** field
+
+### 3.4 Enter Constructor Arguments
+
+#### For Contracts WITH Constructor Args:
+
+**Option A: ABI-Encoded (Recommended)**
+
+Use ethers.js to encode:
+```javascript
+const { ethers } = require('ethers');
+
+// For CoverPool
+const args = [
+  '0x75faf114eafb1BDbe2F0316DF893fd58CE46AA4d', // _coverToken
+  '0x75faf114eafb1BDbe2F0316DF893fd58CE46AA4d', // _profitToken
+  '0x711eE890B41fFbd23Ba3c96975DEBDB1145cbB83',   // _payoffPool
+  '1000000000000000000000000000000'               // initialEpochChangingPrice
+];
+
+const types = ['address', 'address', 'address', 'uint256'];
+const encoded = ethers.utils.defaultAbiCoder.encode(types, args);
+console.log('Encoded Args:', encoded); // Remove 0x prefix
+```
+
+**Option B: Manual Encoding**
+
+If you know the types, use an online ABI encoder:
+- https://abi.hashex.org/
+- Enter types: `address, address, address, uint256`
+- Enter values: constructor args array
+- Copy encoded result (without 0x)
+
+#### For Contracts WITHOUT Constructor Args:
+
+Leave the field **empty**.
+
+### 3.5 Submit Verification
+
+1. Click **"Verify and Publish"**
+2. Wait 30-60 seconds
+3. Check status on contract page
+
+---
+
+## ✅ Step 4: Verify Success
+
+After submission:
+
+1. Go to contract address page: `https://sepolia.arbiscan.io/address/[ADDRESS]`
+2. Click **"Contract"** tab
+3. You should see **"Contract Source Code Verified"** ✅
+4. Green checkmark indicates success
+
+---
+
+## 🔄 Quick Verification Script
+
+Create a helper script to automate flattening:
+
+```bash
+#!/bin/bash
+# save as: scripts/flatten-for-verification.sh
+
+CONTRACTS=(
+  "CoverPool:contracts/CoverPool.sol"
+  "OperationalTreasury:contracts/OperationalTreasury.sol"
+  "PositionsManager:contracts/PositionsManager/PositionsManager.sol"
+  "ProfitCalculator:contracts/Strategies/ProfitCalculator.sol"
+  "LimitController:contracts/Strategies/LimitController.sol"
+  "ProfitDistributor:contracts/ProfitDistributor.sol"
+)
+
+for contract in "${CONTRACTS[@]}"; do
+  IFS=':' read -r name path <<< "$contract"
+  echo "Flattening $name..."
+  npx hardhat flatten "$path" > "${name}_flat.sol"
+  echo "✅ Done: ${name}_flat.sol"
+done
+```
+
+Usage:
+```bash
+chmod +x scripts/flatten-for-verification.sh
+./scripts/flatten-for-verification.sh
 ```
 
 ---
 
 ## 📊 Verification Checklist
 
-Use this to track your progress:
-
-- [ ] **CoverPool** - `0xAd02465752782893045089396277697Af935dAdB`
-  - [ ] Flattened
-  - [ ] Cleaned SPDX licenses
-  - [ ] Submitted to Arbiscan
-  - [ ] Verified ✅
-
-- [ ] **OperationalTreasury** - `0xeD5129B6Fc93C1D9c8278E540c4986dB9DC9D930`
-  - [ ] Flattened
-  - [ ] Cleaned SPDX licenses
-  - [ ] Extracted constructor args
-  - [ ] Submitted to Arbiscan
-  - [ ] Verified ✅
-
-- [ ] **PositionsManager** - `0x88a2887bD21974ea9a8D23553eeE532B8a8e2AB3`
-  - [ ] Flattened
-  - [ ] Cleaned SPDX licenses
-  - [ ] Submitted to Arbiscan
-  - [ ] Verified ✅
-
-- [ ] **ProfitCalculator** - `0x1c64D2205415C4355Ad6C04250B4bA753758CcDc`
-  - [ ] Flattened
-  - [ ] Cleaned SPDX licenses
-  - [ ] Submitted to Arbiscan
-  - [ ] Verified ✅
-
-- [ ] **LimitController** - `0xb20aBac673Fc2f0Eb44fe911E65B262cDEfeb3e8`
-  - [ ] Flattened
-  - [ ] Cleaned SPDX licenses
-  - [ ] Submitted to Arbiscan
-  - [ ] Verified ✅
-
-- [ ] **ProfitDistributor** - `0x2770Ba51F4e1712E7B424c392cf157B42B17C739`
-  - [ ] Flattened
-  - [ ] Cleaned SPDX licenses
-  - [ ] Submitted to Arbiscan
-  - [ ] Verified ✅
+- [ ] CoverPool - `0x7174db190fF9D9AD136B39EdeEffBC2451FC1C5b`
+- [ ] OperationalTreasury - `0x3B026eD677615aDD2aC32aa5D1D5453051551EfB`
+- [ ] PositionsManager - `0x143c34DD579Ea5737284f06f4e4Ad581d4C42662`
+- [ ] ProfitCalculator - `0xDb7D577F1345AD74B125501F4B68240F44ed7e60`
+- [ ] LimitController - `0x6147765312700A1aaFe4Aee9c6469091C6A3F4Ac`
+- [ ] ProfitDistributor - `0xFF9031382D9cdd44A95FC6e5EbE74BF2C3591069`
 
 ---
 
-## 🚀 Quick Commands
+## 🚨 Troubleshooting
 
-```bash
-# Flatten all core contracts at once
-cd /Users/kaifahmed/Downloads/Work/MEGAFI/Hedge/hedge-contracts/packages/herge
+### Error: "Contract source code not verified"
 
-npx hardhat flatten contracts/CoverPool.sol > flattened/CoverPool_flat.sol
-npx hardhat flatten contracts/OperationalTreasury.sol > flattened/OperationalTreasury_flat.sol
-npx hardhat flatten contracts/PositionsManager/PositionsManager.sol > flattened/PositionsManager_flat.sol
-npx hardhat flatten contracts/Strategies/ProfitCalculator.sol > flattened/ProfitCalculator_flat.sol
-npx hardhat flatten contracts/Strategies/LimitController.sol > flattened/LimitController_flat.sol
-npx hardhat flatten contracts/ProfitDistributor.sol > flattened/ProfitDistributor_flat.sol
-```
+**Possible causes:**
+1. Constructor args not encoded correctly
+2. Compiler version mismatch
+3. Optimization settings mismatch
+4. Duplicate SPDX licenses in flattened code
 
----
+**Solution:**
+- Double-check constructor args encoding
+- Verify compiler version matches exactly
+- Ensure optimization: Yes, 200 runs
+- Clean flattened file of duplicate licenses
 
-## ⚠️ Common Issues
+### Error: "Invalid source code"
 
-### Issue 1: "Constructor arguments required"
-**Solution**: Extract from deployment JSON:
-```bash
-cat deployments/arbitrum-sepolia/ContractName.json | jq '.args'
-```
-Then encode using ethers:
-```javascript
-const ethers = require('ethers');
-const args = [arg1, arg2, ...];
-const encoded = ethers.utils.defaultAbiCoder.encode(['address', 'uint256', ...], args);
-// Remove 0x prefix and paste into Constructor Arguments field
-```
+**Possible causes:**
+1. Incomplete copy of flattened source
+2. Encoding issues in source file
 
-### Issue 2: "Source code doesn't match bytecode"
-**Solution**: 
-- Ensure you're using the correct compiler version (v0.8.15)
-- Verify optimization is enabled with 200 runs
-- Check that all SPDX licenses are cleaned up
+**Solution:**
+- Copy entire file (check line count)
+- Save flattened file with UTF-8 encoding
 
-### Issue 3: "Contract creation code is different"
-**Solution**: You may have the wrong contract address. Double-check from deployment logs.
+### Error: "Constructor arguments not matching"
+
+**Possible causes:**
+1. Wrong constructor args
+2. Incorrect ABI encoding
+
+**Solution:**
+- Verify args from deployment artifact
+- Use ethers.js ABI encoder
+- Check contract ABI for constructor signature
 
 ---
 
-## 📞 Need Help?
+## 📚 Additional Resources
 
-If you encounter issues:
-
-1. Check the Arbiscan FAQ: https://docs.arbiscan.io/
-2. Ensure you're on the correct network (Arbitrum Sepolia, Chain ID: 421614)
-3. Verify the contract was deployed successfully by checking the address on Arbiscan
+- **Arbiscan Verification Page:** https://sepolia.arbiscan.io/verifyContract
+- **ABI Encoder Tool:** https://abi.hashex.org/
+- **Deployment Artifacts:** `deployments/arbitrum-sepolia/`
+- **Contract Addresses:** `deployments/arbitrum-sepolia/.addresses.json`
+- **Full Deployment Doc:** `DEPLOYED_CONTRACTS_ARBITRUM_SEPOLIA.md`
 
 ---
 
-## ✅ Success!
+## 💡 Tips
 
-Once verified, your contracts will show:
-- ✅ Green checkmark on Arbiscan
-- Source code tab visible
-- Read/Write contract functions available
-- Full transparency for users
+1. **Verify core contracts first** - They're most important
+2. **Save flattened files** - Reuse for future verification
+3. **Test with one contract** - Verify process works before bulk
+4. **Keep constructor args** - Store in a text file for reference
+5. **Check verification status** - Wait a few minutes and refresh
 
-**Good luck with verification!** 🚀
+---
 
+**Good luck with verification! 🚀**
+
+*Last updated: November 5, 2025*

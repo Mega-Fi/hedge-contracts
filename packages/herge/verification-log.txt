@@ -1,8 +1,1716 @@
+🚀 Starting API-based verification for 255 contracts...
+
+⏱️ Estimated time: ~13 minutes
+
+
+[1/255] Verifying CoverPool...
+  📋 Source: contracts/CoverPool.sol, Contract: CoverPool
+  📝 Flattening contracts/CoverPool.sol...
+  ❌ Error: NOTOK
+
+[2/255] Verifying HegicStrategy_CALL_100_BTC_1...
+  📋 Source: contracts/Strategies/HegicStrategyCall.sol, Contract: HegicStrategyCall
+  📝 Flattening contracts/Strategies/HegicStrategyCall.sol...
+  ❌ Error: NOTOK
+
+[3/255] Verifying HegicStrategy_CALL_100_BTC_2...
+  📋 Source: contracts/Strategies/HegicStrategyCall.sol, Contract: HegicStrategyCall
+  ❌ Error: NOTOK
+
+[4/255] Verifying HegicStrategy_CALL_100_BTC_3...
+  📋 Source: contracts/Strategies/HegicStrategyCall.sol, Contract: HegicStrategyCall
+  ❌ Error: NOTOK
+
+[5/255] Verifying HegicStrategy_CALL_100_BTC_4...
+  📋 Source: contracts/Strategies/HegicStrategyCall.sol, Contract: HegicStrategyCall
+  ❌ Error: NOTOK
+
+[6/255] Verifying HegicStrategy_CALL_100_ETH_1...
+  📋 Source: contracts/Strategies/HegicStrategyCall.sol, Contract: HegicStrategyCall
+  ❌ Error: NOTOK
+
+[7/255] Verifying HegicStrategy_CALL_100_ETH_2...
+  📋 Source: contracts/Strategies/HegicStrategyCall.sol, Contract: HegicStrategyCall
+  ❌ Error: NOTOK
+
+[8/255] Verifying HegicStrategy_CALL_100_ETH_3...
+  📋 Source: contracts/Strategies/HegicStrategyCall.sol, Contract: HegicStrategyCall
+  ❌ Error: NOTOK
+
+[9/255] Verifying HegicStrategy_CALL_100_ETH_4...
+  📋 Source: contracts/Strategies/HegicStrategyCall.sol, Contract: HegicStrategyCall
+  ❌ Error: NOTOK
+
+[10/255] Verifying HegicStrategy_CALL_110_BTC_1...
+  📋 Source: contracts/Strategies/HegicStrategyCall.sol, Contract: HegicStrategyCall
+  ❌ Error: NOTOK
+
+💾 Progress saved (10/255 completed)
+
+[11/255] Verifying HegicStrategy_CALL_110_BTC_2...
+  📋 Source: contracts/Strategies/HegicStrategyCall.sol, Contract: HegicStrategyCall
+  ❌ Error: NOTOK
+
+[12/255] Verifying HegicStrategy_CALL_110_BTC_3...
+  📋 Source: contracts/Strategies/HegicStrategyCall.sol, Contract: HegicStrategyCall
+  ❌ Error: NOTOK
+
+[13/255] Verifying HegicStrategy_CALL_110_BTC_4...
+  📋 Source: contracts/Strategies/HegicStrategyCall.sol, Contract: HegicStrategyCall
+  ❌ Error: NOTOK
+
+[14/255] Verifying HegicStrategy_CALL_110_ETH_1...
+  📋 Source: contracts/Strategies/HegicStrategyCall.sol, Contract: HegicStrategyCall
+  ❌ Error: NOTOK
+
+[15/255] Verifying HegicStrategy_CALL_110_ETH_2...
+  📋 Source: contracts/Strategies/HegicStrategyCall.sol, Contract: HegicStrategyCall
+  ❌ Error: NOTOK
+
+[16/255] Verifying HegicStrategy_CALL_110_ETH_3...
+  📋 Source: contracts/Strategies/HegicStrategyCall.sol, Contract: HegicStrategyCall
+  ❌ Error: NOTOK
+
+[17/255] Verifying HegicStrategy_CALL_110_ETH_4...
+  📋 Source: contracts/Strategies/HegicStrategyCall.sol, Contract: HegicStrategyCall
+  ❌ Error: NOTOK
+
+[18/255] Verifying HegicStrategy_CALL_120_BTC_1...
+  📋 Source: contracts/Strategies/HegicStrategyCall.sol, Contract: HegicStrategyCall
+  ❌ Error: NOTOK
+
+[19/255] Verifying HegicStrategy_CALL_120_BTC_2...
+  📋 Source: contracts/Strategies/HegicStrategyCall.sol, Contract: HegicStrategyCall
+  ❌ Error: NOTOK
+
+[20/255] Verifying HegicStrategy_CALL_120_BTC_3...
+  📋 Source: contracts/Strategies/HegicStrategyCall.sol, Contract: HegicStrategyCall
+  ❌ Error: NOTOK
+
+💾 Progress saved (20/255 completed)
+
+[21/255] Verifying HegicStrategy_CALL_120_BTC_4...
+  📋 Source: contracts/Strategies/HegicStrategyCall.sol, Contract: HegicStrategyCall
+  ❌ Error: NOTOK
+
+[22/255] Verifying HegicStrategy_CALL_120_ETH_1...
+  📋 Source: contracts/Strategies/HegicStrategyCall.sol, Contract: HegicStrategyCall
+  ❌ Error: NOTOK
+
+[23/255] Verifying HegicStrategy_CALL_120_ETH_2...
+  📋 Source: contracts/Strategies/HegicStrategyCall.sol, Contract: HegicStrategyCall
+  ❌ Error: NOTOK
+
+[24/255] Verifying HegicStrategy_CALL_120_ETH_3...
+  📋 Source: contracts/Strategies/HegicStrategyCall.sol, Contract: HegicStrategyCall
+  ❌ Error: NOTOK
+
+[25/255] Verifying HegicStrategy_CALL_120_ETH_4...
+  📋 Source: contracts/Strategies/HegicStrategyCall.sol, Contract: HegicStrategyCall
+  ❌ Error: NOTOK
+
+[26/255] Verifying HegicStrategy_CALL_130_BTC_1...
+  📋 Source: contracts/Strategies/HegicStrategyCall.sol, Contract: HegicStrategyCall
+  ❌ Error: NOTOK
+
+[27/255] Verifying HegicStrategy_CALL_130_BTC_2...
+  📋 Source: contracts/Strategies/HegicStrategyCall.sol, Contract: HegicStrategyCall
+  ❌ Error: NOTOK
+
+[28/255] Verifying HegicStrategy_CALL_130_BTC_3...
+  📋 Source: contracts/Strategies/HegicStrategyCall.sol, Contract: HegicStrategyCall
+  ❌ Error: NOTOK
+
+[29/255] Verifying HegicStrategy_CALL_130_BTC_4...
+  📋 Source: contracts/Strategies/HegicStrategyCall.sol, Contract: HegicStrategyCall
+  ❌ Error: NOTOK
+
+[30/255] Verifying HegicStrategy_CALL_130_ETH_1...
+  📋 Source: contracts/Strategies/HegicStrategyCall.sol, Contract: HegicStrategyCall
+  ❌ Error: NOTOK
+
+💾 Progress saved (30/255 completed)
+
+[31/255] Verifying HegicStrategy_CALL_130_ETH_2...
+  📋 Source: contracts/Strategies/HegicStrategyCall.sol, Contract: HegicStrategyCall
+  ❌ Error: NOTOK
+
+[32/255] Verifying HegicStrategy_CALL_130_ETH_3...
+  📋 Source: contracts/Strategies/HegicStrategyCall.sol, Contract: HegicStrategyCall
+  ❌ Error: NOTOK
+
+[33/255] Verifying HegicStrategy_CALL_130_ETH_4...
+  📋 Source: contracts/Strategies/HegicStrategyCall.sol, Contract: HegicStrategyCall
+  ❌ Error: NOTOK
+
+[34/255] Verifying HegicStrategy_INVERSE_BEAR_CALL_SPREAD_10_BTC...
+  📋 Source: contracts/Strategies/HegicStrategyInverseBearCallSpread.sol, Contract: HegicStrategyInverseBearCallSpread
+  📝 Flattening contracts/Strategies/HegicStrategyInverseBearCallSpread.sol...
+  ❌ Error: NOTOK
+
+[35/255] Verifying HegicStrategy_INVERSE_BEAR_CALL_SPREAD_10_ETH...
+  📋 Source: contracts/Strategies/HegicStrategyInverseBearCallSpread.sol, Contract: HegicStrategyInverseBearCallSpread
+  ❌ Error: NOTOK
+
+[36/255] Verifying HegicStrategy_INVERSE_BEAR_CALL_SPREAD_20_BTC...
+  📋 Source: contracts/Strategies/HegicStrategyInverseBearCallSpread.sol, Contract: HegicStrategyInverseBearCallSpread
+  ❌ Error: NOTOK
+
+[37/255] Verifying HegicStrategy_INVERSE_BEAR_CALL_SPREAD_20_ETH...
+  📋 Source: contracts/Strategies/HegicStrategyInverseBearCallSpread.sol, Contract: HegicStrategyInverseBearCallSpread
+  ❌ Error: NOTOK
+
+[38/255] Verifying HegicStrategy_INVERSE_BEAR_CALL_SPREAD_30_BTC...
+  📋 Source: contracts/Strategies/HegicStrategyInverseBearCallSpread.sol, Contract: HegicStrategyInverseBearCallSpread
+  ❌ Error: NOTOK
+
+[39/255] Verifying HegicStrategy_INVERSE_BEAR_CALL_SPREAD_30_ETH...
+  📋 Source: contracts/Strategies/HegicStrategyInverseBearCallSpread.sol, Contract: HegicStrategyInverseBearCallSpread
+  ❌ Error: NOTOK
+
+[40/255] Verifying HegicStrategy_INVERSE_BULL_PUT_SPREAD_10_BTC...
+  📋 Source: contracts/Strategies/HegicStrategyInverseBullPutSpread.sol, Contract: HegicStrategyInverseBullPutSpread
+  📝 Flattening contracts/Strategies/HegicStrategyInverseBullPutSpread.sol...
+  ❌ Error: NOTOK
+
+💾 Progress saved (40/255 completed)
+
+[41/255] Verifying HegicStrategy_INVERSE_BULL_PUT_SPREAD_10_ETH...
+  📋 Source: contracts/Strategies/HegicStrategyInverseBullPutSpread.sol, Contract: HegicStrategyInverseBullPutSpread
+  ❌ Error: NOTOK
+
+[42/255] Verifying HegicStrategy_INVERSE_BULL_PUT_SPREAD_20_BTC...
+  📋 Source: contracts/Strategies/HegicStrategyInverseBullPutSpread.sol, Contract: HegicStrategyInverseBullPutSpread
+  ❌ Error: NOTOK
+
+[43/255] Verifying HegicStrategy_INVERSE_BULL_PUT_SPREAD_20_ETH...
+  📋 Source: contracts/Strategies/HegicStrategyInverseBullPutSpread.sol, Contract: HegicStrategyInverseBullPutSpread
+  ❌ Error: NOTOK
+
+[44/255] Verifying HegicStrategy_INVERSE_BULL_PUT_SPREAD_30_BTC...
+  📋 Source: contracts/Strategies/HegicStrategyInverseBullPutSpread.sol, Contract: HegicStrategyInverseBullPutSpread
+  ❌ Error: NOTOK
+
+[45/255] Verifying HegicStrategy_INVERSE_BULL_PUT_SPREAD_30_ETH...
+  📋 Source: contracts/Strategies/HegicStrategyInverseBullPutSpread.sol, Contract: HegicStrategyInverseBullPutSpread
+  ❌ Error: NOTOK
+
+[46/255] Verifying HegicStrategy_INVERSE_LONG_BUTTERFLY_10_BTC...
+  📋 Source: contracts/Strategies/HegicStrategyInverseLongButterfly.sol, Contract: HegicStrategyInverseLongButterfly
+  📝 Flattening contracts/Strategies/HegicStrategyInverseLongButterfly.sol...
+  ❌ Error: NOTOK
+
+[47/255] Verifying HegicStrategy_INVERSE_LONG_BUTTERFLY_10_ETH...
+  📋 Source: contracts/Strategies/HegicStrategyInverseLongButterfly.sol, Contract: HegicStrategyInverseLongButterfly
+  ❌ Error: NOTOK
+
+[48/255] Verifying HegicStrategy_INVERSE_LONG_BUTTERFLY_20_BTC...
+  📋 Source: contracts/Strategies/HegicStrategyInverseLongButterfly.sol, Contract: HegicStrategyInverseLongButterfly
+  ❌ Error: NOTOK
+
+[49/255] Verifying HegicStrategy_INVERSE_LONG_BUTTERFLY_20_ETH...
+  📋 Source: contracts/Strategies/HegicStrategyInverseLongButterfly.sol, Contract: HegicStrategyInverseLongButterfly
+  ❌ Error: NOTOK
+
+[50/255] Verifying HegicStrategy_INVERSE_LONG_BUTTERFLY_30_BTC...
+  📋 Source: contracts/Strategies/HegicStrategyInverseLongButterfly.sol, Contract: HegicStrategyInverseLongButterfly
+  ❌ Error: NOTOK
+
+💾 Progress saved (50/255 completed)
+
+[51/255] Verifying HegicStrategy_INVERSE_LONG_BUTTERFLY_30_ETH...
+  📋 Source: contracts/Strategies/HegicStrategyInverseLongButterfly.sol, Contract: HegicStrategyInverseLongButterfly
+  ❌ Error: NOTOK
+
+[52/255] Verifying HegicStrategy_INVERSE_LONG_CONDOR_20_BTC...
+  📋 Source: contracts/Strategies/HegicStrategyInverseLongCondor.sol, Contract: HegicStrategyInverseLongCondor
+  📝 Flattening contracts/Strategies/HegicStrategyInverseLongCondor.sol...
+  ❌ Error: NOTOK
+
+[53/255] Verifying HegicStrategy_INVERSE_LONG_CONDOR_20_ETH...
+  📋 Source: contracts/Strategies/HegicStrategyInverseLongCondor.sol, Contract: HegicStrategyInverseLongCondor
+  ❌ Error: NOTOK
+
+[54/255] Verifying HegicStrategy_INVERSE_LONG_CONDOR_30_BTC...
+  📋 Source: contracts/Strategies/HegicStrategyInverseLongCondor.sol, Contract: HegicStrategyInverseLongCondor
+  ❌ Error: NOTOK
+
+[55/255] Verifying HegicStrategy_INVERSE_LONG_CONDOR_30_ETH...
+  📋 Source: contracts/Strategies/HegicStrategyInverseLongCondor.sol, Contract: HegicStrategyInverseLongCondor
+  ❌ Error: NOTOK
+
+[56/255] Verifying HegicStrategy_PUT_100_BTC_1...
+  📋 Source: contracts/Strategies/HegicStrategyPut.sol, Contract: HegicStrategyPut
+  📝 Flattening contracts/Strategies/HegicStrategyPut.sol...
+  ❌ Error: NOTOK
+
+[57/255] Verifying HegicStrategy_PUT_100_BTC_2...
+  📋 Source: contracts/Strategies/HegicStrategyPut.sol, Contract: HegicStrategyPut
+  ❌ Error: NOTOK
+
+[58/255] Verifying HegicStrategy_PUT_100_BTC_3...
+  📋 Source: contracts/Strategies/HegicStrategyPut.sol, Contract: HegicStrategyPut
+  ❌ Error: NOTOK
+
+[59/255] Verifying HegicStrategy_PUT_100_BTC_4...
+  📋 Source: contracts/Strategies/HegicStrategyPut.sol, Contract: HegicStrategyPut
+  ❌ Error: NOTOK
+
+[60/255] Verifying HegicStrategy_PUT_100_ETH_1...
+  📋 Source: contracts/Strategies/HegicStrategyPut.sol, Contract: HegicStrategyPut
+  ❌ Error: NOTOK
+
+💾 Progress saved (60/255 completed)
+
+[61/255] Verifying HegicStrategy_PUT_100_ETH_2...
+  📋 Source: contracts/Strategies/HegicStrategyPut.sol, Contract: HegicStrategyPut
+  ❌ Error: NOTOK
+
+[62/255] Verifying HegicStrategy_PUT_100_ETH_3...
+  📋 Source: contracts/Strategies/HegicStrategyPut.sol, Contract: HegicStrategyPut
+  ❌ Error: NOTOK
+
+[63/255] Verifying HegicStrategy_PUT_100_ETH_4...
+  📋 Source: contracts/Strategies/HegicStrategyPut.sol, Contract: HegicStrategyPut
+  ❌ Error: NOTOK
+
+[64/255] Verifying HegicStrategy_PUT_70_BTC_1...
+  📋 Source: contracts/Strategies/HegicStrategyPut.sol, Contract: HegicStrategyPut
+  ❌ Error: NOTOK
+
+[65/255] Verifying HegicStrategy_PUT_70_BTC_2...
+  📋 Source: contracts/Strategies/HegicStrategyPut.sol, Contract: HegicStrategyPut
+  ❌ Error: NOTOK
+
+[66/255] Verifying HegicStrategy_PUT_70_BTC_3...
+  📋 Source: contracts/Strategies/HegicStrategyPut.sol, Contract: HegicStrategyPut
+  ❌ Error: NOTOK
+
+[67/255] Verifying HegicStrategy_PUT_70_BTC_4...
+  📋 Source: contracts/Strategies/HegicStrategyPut.sol, Contract: HegicStrategyPut
+  ❌ Error: NOTOK
+
+[68/255] Verifying HegicStrategy_PUT_70_ETH_1...
+  📋 Source: contracts/Strategies/HegicStrategyPut.sol, Contract: HegicStrategyPut
+  ❌ Error: NOTOK
+
+[69/255] Verifying HegicStrategy_PUT_70_ETH_2...
+  📋 Source: contracts/Strategies/HegicStrategyPut.sol, Contract: HegicStrategyPut
+  ❌ Error: NOTOK
+
+[70/255] Verifying HegicStrategy_PUT_70_ETH_3...
+  📋 Source: contracts/Strategies/HegicStrategyPut.sol, Contract: HegicStrategyPut
+  ❌ Error: NOTOK
+
+💾 Progress saved (70/255 completed)
+
+[71/255] Verifying HegicStrategy_PUT_70_ETH_4...
+  📋 Source: contracts/Strategies/HegicStrategyPut.sol, Contract: HegicStrategyPut
+  ❌ Error: NOTOK
+
+[72/255] Verifying HegicStrategy_PUT_80_BTC_1...
+  📋 Source: contracts/Strategies/HegicStrategyPut.sol, Contract: HegicStrategyPut
+  ❌ Error: NOTOK
+
+[73/255] Verifying HegicStrategy_PUT_80_BTC_2...
+  📋 Source: contracts/Strategies/HegicStrategyPut.sol, Contract: HegicStrategyPut
+  ❌ Error: NOTOK
+
+[74/255] Verifying HegicStrategy_PUT_80_BTC_3...
+  📋 Source: contracts/Strategies/HegicStrategyPut.sol, Contract: HegicStrategyPut
+  ❌ Error: NOTOK
+
+[75/255] Verifying HegicStrategy_PUT_80_BTC_4...
+  📋 Source: contracts/Strategies/HegicStrategyPut.sol, Contract: HegicStrategyPut
+  ❌ Error: NOTOK
+
+[76/255] Verifying HegicStrategy_PUT_80_ETH_1...
+  📋 Source: contracts/Strategies/HegicStrategyPut.sol, Contract: HegicStrategyPut
+  ❌ Error: NOTOK
+
+[77/255] Verifying HegicStrategy_PUT_80_ETH_2...
+  📋 Source: contracts/Strategies/HegicStrategyPut.sol, Contract: HegicStrategyPut
+  ❌ Error: NOTOK
+
+[78/255] Verifying HegicStrategy_PUT_80_ETH_3...
+  📋 Source: contracts/Strategies/HegicStrategyPut.sol, Contract: HegicStrategyPut
+  ❌ Error: NOTOK
+
+[79/255] Verifying HegicStrategy_PUT_80_ETH_4...
+  📋 Source: contracts/Strategies/HegicStrategyPut.sol, Contract: HegicStrategyPut
+  ❌ Error: NOTOK
+
+[80/255] Verifying HegicStrategy_PUT_90_BTC_1...
+  📋 Source: contracts/Strategies/HegicStrategyPut.sol, Contract: HegicStrategyPut
+  ❌ Error: NOTOK
+
+💾 Progress saved (80/255 completed)
+
+[81/255] Verifying HegicStrategy_PUT_90_BTC_2...
+  📋 Source: contracts/Strategies/HegicStrategyPut.sol, Contract: HegicStrategyPut
+  ❌ Error: NOTOK
+
+[82/255] Verifying HegicStrategy_PUT_90_BTC_3...
+  📋 Source: contracts/Strategies/HegicStrategyPut.sol, Contract: HegicStrategyPut
+  ❌ Error: NOTOK
+
+[83/255] Verifying HegicStrategy_PUT_90_BTC_4...
+  📋 Source: contracts/Strategies/HegicStrategyPut.sol, Contract: HegicStrategyPut
+  ❌ Error: NOTOK
+
+[84/255] Verifying HegicStrategy_PUT_90_ETH_1...
+  📋 Source: contracts/Strategies/HegicStrategyPut.sol, Contract: HegicStrategyPut
+  ❌ Error: NOTOK
+
+[85/255] Verifying HegicStrategy_PUT_90_ETH_2...
+  📋 Source: contracts/Strategies/HegicStrategyPut.sol, Contract: HegicStrategyPut
+  ❌ Error: NOTOK
+
+[86/255] Verifying HegicStrategy_PUT_90_ETH_3...
+  📋 Source: contracts/Strategies/HegicStrategyPut.sol, Contract: HegicStrategyPut
+  ❌ Error: NOTOK
+
+[87/255] Verifying HegicStrategy_PUT_90_ETH_4...
+  📋 Source: contracts/Strategies/HegicStrategyPut.sol, Contract: HegicStrategyPut
+  ❌ Error: NOTOK
+
+[88/255] Verifying HegicStrategy_SPREAD_CALL_10_BTC_1...
+  📋 Source: contracts/Strategies/HegicStrategySpreadCall.sol, Contract: HegicStrategySpreadCall
+  📝 Flattening contracts/Strategies/HegicStrategySpreadCall.sol...
+  ❌ Error: NOTOK
+
+[89/255] Verifying HegicStrategy_SPREAD_CALL_10_BTC_2...
+  📋 Source: contracts/Strategies/HegicStrategySpreadCall.sol, Contract: HegicStrategySpreadCall
+  ❌ Error: NOTOK
+
+[90/255] Verifying HegicStrategy_SPREAD_CALL_10_BTC_3...
+  📋 Source: contracts/Strategies/HegicStrategySpreadCall.sol, Contract: HegicStrategySpreadCall
+  ❌ Error: NOTOK
+
+💾 Progress saved (90/255 completed)
+
+[91/255] Verifying HegicStrategy_SPREAD_CALL_10_BTC_4...
+  📋 Source: contracts/Strategies/HegicStrategySpreadCall.sol, Contract: HegicStrategySpreadCall
+  ❌ Error: NOTOK
+
+[92/255] Verifying HegicStrategy_SPREAD_CALL_10_ETH_1...
+  📋 Source: contracts/Strategies/HegicStrategySpreadCall.sol, Contract: HegicStrategySpreadCall
+  ❌ Error: NOTOK
+
+[93/255] Verifying HegicStrategy_SPREAD_CALL_10_ETH_2...
+  📋 Source: contracts/Strategies/HegicStrategySpreadCall.sol, Contract: HegicStrategySpreadCall
+  ❌ Error: NOTOK
+
+[94/255] Verifying HegicStrategy_SPREAD_CALL_10_ETH_3...
+  📋 Source: contracts/Strategies/HegicStrategySpreadCall.sol, Contract: HegicStrategySpreadCall
+  ❌ Error: NOTOK
+
+[95/255] Verifying HegicStrategy_SPREAD_CALL_10_ETH_4...
+  📋 Source: contracts/Strategies/HegicStrategySpreadCall.sol, Contract: HegicStrategySpreadCall
+  ❌ Error: NOTOK
+
+[96/255] Verifying HegicStrategy_SPREAD_CALL_20_BTC_1...
+  📋 Source: contracts/Strategies/HegicStrategySpreadCall.sol, Contract: HegicStrategySpreadCall
+  ❌ Error: NOTOK
+
+[97/255] Verifying HegicStrategy_SPREAD_CALL_20_BTC_2...
+  📋 Source: contracts/Strategies/HegicStrategySpreadCall.sol, Contract: HegicStrategySpreadCall
+  ❌ Error: NOTOK
+
+[98/255] Verifying HegicStrategy_SPREAD_CALL_20_BTC_3...
+  📋 Source: contracts/Strategies/HegicStrategySpreadCall.sol, Contract: HegicStrategySpreadCall
+  ❌ Error: NOTOK
+
+[99/255] Verifying HegicStrategy_SPREAD_CALL_20_BTC_4...
+  📋 Source: contracts/Strategies/HegicStrategySpreadCall.sol, Contract: HegicStrategySpreadCall
+  ❌ Error: NOTOK
+
+[100/255] Verifying HegicStrategy_SPREAD_CALL_20_ETH_1...
+  📋 Source: contracts/Strategies/HegicStrategySpreadCall.sol, Contract: HegicStrategySpreadCall
+  ❌ Error: NOTOK
+
+💾 Progress saved (100/255 completed)
+
+[101/255] Verifying HegicStrategy_SPREAD_CALL_20_ETH_2...
+  📋 Source: contracts/Strategies/HegicStrategySpreadCall.sol, Contract: HegicStrategySpreadCall
+  ❌ Error: NOTOK
+
+[102/255] Verifying HegicStrategy_SPREAD_CALL_20_ETH_3...
+  📋 Source: contracts/Strategies/HegicStrategySpreadCall.sol, Contract: HegicStrategySpreadCall
+  ❌ Error: NOTOK
+
+[103/255] Verifying HegicStrategy_SPREAD_CALL_20_ETH_4...
+  📋 Source: contracts/Strategies/HegicStrategySpreadCall.sol, Contract: HegicStrategySpreadCall
+  ❌ Error: NOTOK
+
+[104/255] Verifying HegicStrategy_SPREAD_CALL_30_BTC_1...
+  📋 Source: contracts/Strategies/HegicStrategySpreadCall.sol, Contract: HegicStrategySpreadCall
+  ❌ Error: NOTOK
+
+[105/255] Verifying HegicStrategy_SPREAD_CALL_30_BTC_2...
+  📋 Source: contracts/Strategies/HegicStrategySpreadCall.sol, Contract: HegicStrategySpreadCall
+  ❌ Error: NOTOK
+
+[106/255] Verifying HegicStrategy_SPREAD_CALL_30_BTC_3...
+  📋 Source: contracts/Strategies/HegicStrategySpreadCall.sol, Contract: HegicStrategySpreadCall
+  ❌ Error: NOTOK
+
+[107/255] Verifying HegicStrategy_SPREAD_CALL_30_BTC_4...
+  📋 Source: contracts/Strategies/HegicStrategySpreadCall.sol, Contract: HegicStrategySpreadCall
+  ❌ Error: NOTOK
+
+[108/255] Verifying HegicStrategy_SPREAD_CALL_30_ETH_1...
+  📋 Source: contracts/Strategies/HegicStrategySpreadCall.sol, Contract: HegicStrategySpreadCall
+  ❌ Error: NOTOK
+
+[109/255] Verifying HegicStrategy_SPREAD_CALL_30_ETH_2...
+  📋 Source: contracts/Strategies/HegicStrategySpreadCall.sol, Contract: HegicStrategySpreadCall
+  ❌ Error: NOTOK
+
+[110/255] Verifying HegicStrategy_SPREAD_CALL_30_ETH_3...
+  📋 Source: contracts/Strategies/HegicStrategySpreadCall.sol, Contract: HegicStrategySpreadCall
+  ❌ Error: NOTOK
+
+💾 Progress saved (110/255 completed)
+
+[111/255] Verifying HegicStrategy_SPREAD_CALL_30_ETH_4...
+  📋 Source: contracts/Strategies/HegicStrategySpreadCall.sol, Contract: HegicStrategySpreadCall
+  ❌ Error: NOTOK
+
+[112/255] Verifying HegicStrategy_SPREAD_PUT_10_BTC_1...
+  📋 Source: contracts/Strategies/HegicStrategySpreadPut.sol, Contract: HegicStrategySpreadPut
+  📝 Flattening contracts/Strategies/HegicStrategySpreadPut.sol...
+  ❌ Error: NOTOK
+
+[113/255] Verifying HegicStrategy_SPREAD_PUT_10_BTC_2...
+  📋 Source: contracts/Strategies/HegicStrategySpreadPut.sol, Contract: HegicStrategySpreadPut
+  ❌ Error: NOTOK
+
+[114/255] Verifying HegicStrategy_SPREAD_PUT_10_BTC_3...
+  📋 Source: contracts/Strategies/HegicStrategySpreadPut.sol, Contract: HegicStrategySpreadPut
+  ❌ Error: NOTOK
+
+[115/255] Verifying HegicStrategy_SPREAD_PUT_10_BTC_4...
+  📋 Source: contracts/Strategies/HegicStrategySpreadPut.sol, Contract: HegicStrategySpreadPut
+  ❌ Error: NOTOK
+
+[116/255] Verifying HegicStrategy_SPREAD_PUT_10_ETH_1...
+  📋 Source: contracts/Strategies/HegicStrategySpreadPut.sol, Contract: HegicStrategySpreadPut
+  ❌ Error: NOTOK
+
+[117/255] Verifying HegicStrategy_SPREAD_PUT_10_ETH_2...
+  📋 Source: contracts/Strategies/HegicStrategySpreadPut.sol, Contract: HegicStrategySpreadPut
+  ❌ Error: NOTOK
+
+[118/255] Verifying HegicStrategy_SPREAD_PUT_10_ETH_3...
+  📋 Source: contracts/Strategies/HegicStrategySpreadPut.sol, Contract: HegicStrategySpreadPut
+  ❌ Error: NOTOK
+
+[119/255] Verifying HegicStrategy_SPREAD_PUT_10_ETH_4...
+  📋 Source: contracts/Strategies/HegicStrategySpreadPut.sol, Contract: HegicStrategySpreadPut
+  ❌ Error: NOTOK
+
+[120/255] Verifying HegicStrategy_SPREAD_PUT_20_BTC_1...
+  📋 Source: contracts/Strategies/HegicStrategySpreadPut.sol, Contract: HegicStrategySpreadPut
+  ❌ Exception: read EADDRNOTAVAIL
+
+💾 Progress saved (120/255 completed)
+
+[121/255] Verifying HegicStrategy_SPREAD_PUT_20_BTC_2...
+  📋 Source: contracts/Strategies/HegicStrategySpreadPut.sol, Contract: HegicStrategySpreadPut
+  ❌ Error: NOTOK
+
+[122/255] Verifying HegicStrategy_SPREAD_PUT_20_BTC_3...
+  📋 Source: contracts/Strategies/HegicStrategySpreadPut.sol, Contract: HegicStrategySpreadPut
+  ❌ Error: NOTOK
+
+[123/255] Verifying HegicStrategy_SPREAD_PUT_20_BTC_4...
+  📋 Source: contracts/Strategies/HegicStrategySpreadPut.sol, Contract: HegicStrategySpreadPut
+  ❌ Error: NOTOK
+
+[124/255] Verifying HegicStrategy_SPREAD_PUT_20_ETH_1...
+  📋 Source: contracts/Strategies/HegicStrategySpreadPut.sol, Contract: HegicStrategySpreadPut
+  ❌ Error: NOTOK
+
+[125/255] Verifying HegicStrategy_SPREAD_PUT_20_ETH_2...
+  📋 Source: contracts/Strategies/HegicStrategySpreadPut.sol, Contract: HegicStrategySpreadPut
+  ❌ Error: NOTOK
+
+[126/255] Verifying HegicStrategy_SPREAD_PUT_20_ETH_3...
+  📋 Source: contracts/Strategies/HegicStrategySpreadPut.sol, Contract: HegicStrategySpreadPut
+  ❌ Error: NOTOK
+
+[127/255] Verifying HegicStrategy_SPREAD_PUT_20_ETH_4...
+  📋 Source: contracts/Strategies/HegicStrategySpreadPut.sol, Contract: HegicStrategySpreadPut
+  ❌ Error: NOTOK
+
+[128/255] Verifying HegicStrategy_SPREAD_PUT_30_BTC_1...
+  📋 Source: contracts/Strategies/HegicStrategySpreadPut.sol, Contract: HegicStrategySpreadPut
+  ❌ Error: NOTOK
+
+[129/255] Verifying HegicStrategy_SPREAD_PUT_30_BTC_2...
+  📋 Source: contracts/Strategies/HegicStrategySpreadPut.sol, Contract: HegicStrategySpreadPut
+  ❌ Error: NOTOK
+
+[130/255] Verifying HegicStrategy_SPREAD_PUT_30_BTC_3...
+  📋 Source: contracts/Strategies/HegicStrategySpreadPut.sol, Contract: HegicStrategySpreadPut
+  ❌ Error: NOTOK
+
+💾 Progress saved (130/255 completed)
+
+[131/255] Verifying HegicStrategy_SPREAD_PUT_30_BTC_4...
+  📋 Source: contracts/Strategies/HegicStrategySpreadPut.sol, Contract: HegicStrategySpreadPut
+  ❌ Error: NOTOK
+
+[132/255] Verifying HegicStrategy_SPREAD_PUT_30_ETH_1...
+  📋 Source: contracts/Strategies/HegicStrategySpreadPut.sol, Contract: HegicStrategySpreadPut
+  ❌ Error: NOTOK
+
+[133/255] Verifying HegicStrategy_SPREAD_PUT_30_ETH_2...
+  📋 Source: contracts/Strategies/HegicStrategySpreadPut.sol, Contract: HegicStrategySpreadPut
+  ❌ Error: NOTOK
+
+[134/255] Verifying HegicStrategy_SPREAD_PUT_30_ETH_3...
+  📋 Source: contracts/Strategies/HegicStrategySpreadPut.sol, Contract: HegicStrategySpreadPut
+  ❌ Error: NOTOK
+
+[135/255] Verifying HegicStrategy_SPREAD_PUT_30_ETH_4...
+  📋 Source: contracts/Strategies/HegicStrategySpreadPut.sol, Contract: HegicStrategySpreadPut
+  ❌ Error: NOTOK
+
+[136/255] Verifying HegicStrategy_STRADDLE_BTC_1...
+  📋 Source: contracts/Strategies/HegicStrategyStraddle.sol, Contract: HegicStrategyStraddle
+  📝 Flattening contracts/Strategies/HegicStrategyStraddle.sol...
+  ❌ Error: NOTOK
+
+[137/255] Verifying HegicStrategy_STRADDLE_BTC_2...
+  📋 Source: contracts/Strategies/HegicStrategyStraddle.sol, Contract: HegicStrategyStraddle
+  ❌ Error: NOTOK
+
+[138/255] Verifying HegicStrategy_STRADDLE_BTC_3...
+  📋 Source: contracts/Strategies/HegicStrategyStraddle.sol, Contract: HegicStrategyStraddle
+  ❌ Error: NOTOK
+
+[139/255] Verifying HegicStrategy_STRADDLE_BTC_4...
+  📋 Source: contracts/Strategies/HegicStrategyStraddle.sol, Contract: HegicStrategyStraddle
+  ❌ Error: NOTOK
+
+[140/255] Verifying HegicStrategy_STRADDLE_ETH_1...
+  📋 Source: contracts/Strategies/HegicStrategyStraddle.sol, Contract: HegicStrategyStraddle
+  ❌ Error: NOTOK
+
+💾 Progress saved (140/255 completed)
+
+[141/255] Verifying HegicStrategy_STRADDLE_ETH_2...
+  📋 Source: contracts/Strategies/HegicStrategyStraddle.sol, Contract: HegicStrategyStraddle
+  ❌ Error: NOTOK
+
+[142/255] Verifying HegicStrategy_STRADDLE_ETH_3...
+  📋 Source: contracts/Strategies/HegicStrategyStraddle.sol, Contract: HegicStrategyStraddle
+  ❌ Error: NOTOK
+
+[143/255] Verifying HegicStrategy_STRADDLE_ETH_4...
+  📋 Source: contracts/Strategies/HegicStrategyStraddle.sol, Contract: HegicStrategyStraddle
+  ❌ Error: NOTOK
+
+[144/255] Verifying HegicStrategy_STRANGLE_10_BTC_1...
+  📋 Source: contracts/Strategies/HegicStrategyStrangle.sol, Contract: HegicStrategyStrangle
+  📝 Flattening contracts/Strategies/HegicStrategyStrangle.sol...
+  ❌ Error: NOTOK
+
+[145/255] Verifying HegicStrategy_STRANGLE_10_BTC_2...
+  📋 Source: contracts/Strategies/HegicStrategyStrangle.sol, Contract: HegicStrategyStrangle
+  ❌ Error: NOTOK
+
+[146/255] Verifying HegicStrategy_STRANGLE_10_BTC_3...
+  📋 Source: contracts/Strategies/HegicStrategyStrangle.sol, Contract: HegicStrategyStrangle
+  ❌ Error: NOTOK
+
+[147/255] Verifying HegicStrategy_STRANGLE_10_BTC_4...
+  📋 Source: contracts/Strategies/HegicStrategyStrangle.sol, Contract: HegicStrategyStrangle
+  ❌ Error: NOTOK
+
+[148/255] Verifying HegicStrategy_STRANGLE_10_ETH_1...
+  📋 Source: contracts/Strategies/HegicStrategyStrangle.sol, Contract: HegicStrategyStrangle
+  ❌ Error: NOTOK
+
+[149/255] Verifying HegicStrategy_STRANGLE_10_ETH_2...
+  📋 Source: contracts/Strategies/HegicStrategyStrangle.sol, Contract: HegicStrategyStrangle
+  ❌ Error: NOTOK
+
+[150/255] Verifying HegicStrategy_STRANGLE_10_ETH_3...
+  📋 Source: contracts/Strategies/HegicStrategyStrangle.sol, Contract: HegicStrategyStrangle
+  ❌ Error: NOTOK
+
+💾 Progress saved (150/255 completed)
+
+[151/255] Verifying HegicStrategy_STRANGLE_10_ETH_4...
+  📋 Source: contracts/Strategies/HegicStrategyStrangle.sol, Contract: HegicStrategyStrangle
+  ❌ Error: NOTOK
+
+[152/255] Verifying HegicStrategy_STRANGLE_20_BTC_1...
+  📋 Source: contracts/Strategies/HegicStrategyStrangle.sol, Contract: HegicStrategyStrangle
+  ❌ Error: NOTOK
+
+[153/255] Verifying HegicStrategy_STRANGLE_20_BTC_2...
+  📋 Source: contracts/Strategies/HegicStrategyStrangle.sol, Contract: HegicStrategyStrangle
+  ❌ Error: NOTOK
+
+[154/255] Verifying HegicStrategy_STRANGLE_20_BTC_3...
+  📋 Source: contracts/Strategies/HegicStrategyStrangle.sol, Contract: HegicStrategyStrangle
+  ❌ Error: NOTOK
+
+[155/255] Verifying HegicStrategy_STRANGLE_20_BTC_4...
+  📋 Source: contracts/Strategies/HegicStrategyStrangle.sol, Contract: HegicStrategyStrangle
+  ❌ Error: NOTOK
+
+[156/255] Verifying HegicStrategy_STRANGLE_20_ETH_1...
+  📋 Source: contracts/Strategies/HegicStrategyStrangle.sol, Contract: HegicStrategyStrangle
+  ❌ Error: NOTOK
+
+[157/255] Verifying HegicStrategy_STRANGLE_20_ETH_2...
+  📋 Source: contracts/Strategies/HegicStrategyStrangle.sol, Contract: HegicStrategyStrangle
+  ❌ Error: NOTOK
+
+[158/255] Verifying HegicStrategy_STRANGLE_20_ETH_3...
+  📋 Source: contracts/Strategies/HegicStrategyStrangle.sol, Contract: HegicStrategyStrangle
+  ❌ Error: NOTOK
+
+[159/255] Verifying HegicStrategy_STRANGLE_20_ETH_4...
+  📋 Source: contracts/Strategies/HegicStrategyStrangle.sol, Contract: HegicStrategyStrangle
+  ❌ Error: NOTOK
+
+[160/255] Verifying HegicStrategy_STRANGLE_30_BTC_1...
+  📋 Source: contracts/Strategies/HegicStrategyStrangle.sol, Contract: HegicStrategyStrangle
+  ❌ Error: NOTOK
+
+💾 Progress saved (160/255 completed)
+
+[161/255] Verifying HegicStrategy_STRANGLE_30_BTC_2...
+  📋 Source: contracts/Strategies/HegicStrategyStrangle.sol, Contract: HegicStrategyStrangle
+  ❌ Error: NOTOK
+
+[162/255] Verifying HegicStrategy_STRANGLE_30_BTC_3...
+  📋 Source: contracts/Strategies/HegicStrategyStrangle.sol, Contract: HegicStrategyStrangle
+  ❌ Error: NOTOK
+
+[163/255] Verifying HegicStrategy_STRANGLE_30_BTC_4...
+  📋 Source: contracts/Strategies/HegicStrategyStrangle.sol, Contract: HegicStrategyStrangle
+  ❌ Error: NOTOK
+
+[164/255] Verifying HegicStrategy_STRANGLE_30_ETH_1...
+  📋 Source: contracts/Strategies/HegicStrategyStrangle.sol, Contract: HegicStrategyStrangle
+  ❌ Error: NOTOK
+
+[165/255] Verifying HegicStrategy_STRANGLE_30_ETH_2...
+  📋 Source: contracts/Strategies/HegicStrategyStrangle.sol, Contract: HegicStrategyStrangle
+  ❌ Error: NOTOK
+
+[166/255] Verifying HegicStrategy_STRANGLE_30_ETH_3...
+  📋 Source: contracts/Strategies/HegicStrategyStrangle.sol, Contract: HegicStrategyStrangle
+  ❌ Error: NOTOK
+
+[167/255] Verifying HegicStrategy_STRANGLE_30_ETH_4...
+  📋 Source: contracts/Strategies/HegicStrategyStrangle.sol, Contract: HegicStrategyStrangle
+  ❌ Error: NOTOK
+
+[168/255] Verifying HegicStrategy_STRAP_BTC_1...
+  📋 Source: contracts/Strategies/HegicStrategyStrap.sol, Contract: HegicStrategyStrap
+  📝 Flattening contracts/Strategies/HegicStrategyStrap.sol...
+  ❌ Error: NOTOK
+
+[169/255] Verifying HegicStrategy_STRAP_BTC_2...
+  📋 Source: contracts/Strategies/HegicStrategyStrap.sol, Contract: HegicStrategyStrap
+  ❌ Error: NOTOK
+
+[170/255] Verifying HegicStrategy_STRAP_BTC_3...
+  📋 Source: contracts/Strategies/HegicStrategyStrap.sol, Contract: HegicStrategyStrap
+  ❌ Error: NOTOK
+
+💾 Progress saved (170/255 completed)
+
+[171/255] Verifying HegicStrategy_STRAP_BTC_4...
+  📋 Source: contracts/Strategies/HegicStrategyStrap.sol, Contract: HegicStrategyStrap
+  ❌ Error: NOTOK
+
+[172/255] Verifying HegicStrategy_STRAP_ETH_1...
+  📋 Source: contracts/Strategies/HegicStrategyStrap.sol, Contract: HegicStrategyStrap
+  ❌ Error: NOTOK
+
+[173/255] Verifying HegicStrategy_STRAP_ETH_2...
+  📋 Source: contracts/Strategies/HegicStrategyStrap.sol, Contract: HegicStrategyStrap
+  ❌ Error: NOTOK
+
+[174/255] Verifying HegicStrategy_STRAP_ETH_3...
+  📋 Source: contracts/Strategies/HegicStrategyStrap.sol, Contract: HegicStrategyStrap
+  ❌ Error: NOTOK
+
+[175/255] Verifying HegicStrategy_STRAP_ETH_4...
+  📋 Source: contracts/Strategies/HegicStrategyStrap.sol, Contract: HegicStrategyStrap
+  ❌ Error: NOTOK
+
+[176/255] Verifying HegicStrategy_STRIP_BTC_1...
+  📋 Source: contracts/Strategies/HegicStrategyStrip.sol, Contract: HegicStrategyStrip
+  📝 Flattening contracts/Strategies/HegicStrategyStrip.sol...
+  ❌ Error: NOTOK
+
+[177/255] Verifying HegicStrategy_STRIP_ETH_1...
+  📋 Source: contracts/Strategies/HegicStrategyStrip.sol, Contract: HegicStrategyStrip
+  ❌ Error: NOTOK
+
+[178/255] Verifying HegicStrategy_STRIP_ETH_2...
+  📋 Source: contracts/Strategies/HegicStrategyStrip.sol, Contract: HegicStrategyStrip
+  ❌ Error: NOTOK
+
+[179/255] Verifying HegicStrategy_STRIP_ETH_3...
+  📋 Source: contracts/Strategies/HegicStrategyStrip.sol, Contract: HegicStrategyStrip
+  ❌ Error: NOTOK
+
+[180/255] Verifying HegicStrategy_STRIP_ETH_4...
+  📋 Source: contracts/Strategies/HegicStrategyStrip.sol, Contract: HegicStrategyStrip
+  ❌ Error: NOTOK
+
+💾 Progress saved (180/255 completed)
+
+[181/255] Verifying LimitController...
+  📋 Source: contracts/Strategies/LimitController.sol, Contract: LimitController
+  📝 Flattening contracts/Strategies/LimitController.sol...
+  ❌ Error: NOTOK
+
+[182/255] Verifying PositionsManager...
+  📋 Source: contracts/PositionsManager/PositionsManager.sol, Contract: PositionsManager
+  📝 Flattening contracts/PositionsManager/PositionsManager.sol...
+  ❌ Error: NOTOK
+
+[183/255] Verifying PriceCalculator_CALL_100_BTC...
+  📋 Source: @hegic/v8888/contracts/PriceCalculators/PolynomialPriceCalculator.sol, Contract: PolynomialPriceCalculator
+  📝 Flattening @hegic/v8888/contracts/PriceCalculators/PolynomialPriceCalculator.sol...
+  ❌ Error flattening @hegic/v8888/contracts/PriceCalculators/PolynomialPriceCalculator.sol: Command failed: cd /Users/kaifahmed/Downloads/Work/MEGAFI/Hedge/hedge-contracts/packages/herge && npx hardhat flatten @hegic/v8888/contracts/PriceCalculators/PolynomialPriceCalculator.sol
 WARNING: You are currently using Node.js v21.6.1, which is not supported by Hardhat. This can lead to unexpected behavior. See https://v2.hardhat.org/nodejs-versions
+Error HH302: Invalid argument files: File @hegic/v8888/contracts/PriceCalculators/PolynomialPriceCalculator.sol doesn't exist or is not a readable file.
+For more info go to https://v2.hardhat.org/HH302 or run Hardhat with --show-stack-traces
+
+  ❌ Exception: Command failed: cd /Users/kaifahmed/Downloads/Work/MEGAFI/Hedge/hedge-contracts/packages/herge && npx hardhat flatten @hegic/v8888/contracts/PriceCalculators/PolynomialPriceCalculator.sol
+WARNING: You are currently using Node.js v21.6.1, which is not supported by Hardhat. This can lead to unexpected behavior. See https://v2.hardhat.org/nodejs-versions
+Error HH302: Invalid argument files: File @hegic/v8888/contracts/PriceCalculators/PolynomialPriceCalculator.sol doesn't exist or is not a readable file.
+For more info go to https://v2.hardhat.org/HH302 or run Hardhat with --show-stack-traces
 
 
-Error HH19: Your project is an ESM project (you have "type": "module" set in your package.json) but your Hardhat config file uses the .js extension.
+[184/255] Verifying PriceCalculator_CALL_100_ETH...
+  📋 Source: @hegic/v8888/contracts/PriceCalculators/PolynomialPriceCalculator.sol, Contract: PolynomialPriceCalculator
+  📝 Flattening @hegic/v8888/contracts/PriceCalculators/PolynomialPriceCalculator.sol...
+  ❌ Error flattening @hegic/v8888/contracts/PriceCalculators/PolynomialPriceCalculator.sol: Command failed: cd /Users/kaifahmed/Downloads/Work/MEGAFI/Hedge/hedge-contracts/packages/herge && npx hardhat flatten @hegic/v8888/contracts/PriceCalculators/PolynomialPriceCalculator.sol
+WARNING: You are currently using Node.js v21.6.1, which is not supported by Hardhat. This can lead to unexpected behavior. See https://v2.hardhat.org/nodejs-versions
+Error HH302: Invalid argument files: File @hegic/v8888/contracts/PriceCalculators/PolynomialPriceCalculator.sol doesn't exist or is not a readable file.
+For more info go to https://v2.hardhat.org/HH302 or run Hardhat with --show-stack-traces
 
-Rename the file to use the .cjs to fix this problem.
+  ❌ Exception: Command failed: cd /Users/kaifahmed/Downloads/Work/MEGAFI/Hedge/hedge-contracts/packages/herge && npx hardhat flatten @hegic/v8888/contracts/PriceCalculators/PolynomialPriceCalculator.sol
+WARNING: You are currently using Node.js v21.6.1, which is not supported by Hardhat. This can lead to unexpected behavior. See https://v2.hardhat.org/nodejs-versions
+Error HH302: Invalid argument files: File @hegic/v8888/contracts/PriceCalculators/PolynomialPriceCalculator.sol doesn't exist or is not a readable file.
+For more info go to https://v2.hardhat.org/HH302 or run Hardhat with --show-stack-traces
 
-For more info go to https://v2.hardhat.org/HH19 or run Hardhat with --show-stack-traces
+
+[185/255] Verifying PriceCalculator_CALL_110_BTC...
+  📋 Source: @hegic/v8888/contracts/PriceCalculators/PolynomialPriceCalculator.sol, Contract: PolynomialPriceCalculator
+  📝 Flattening @hegic/v8888/contracts/PriceCalculators/PolynomialPriceCalculator.sol...
+  ❌ Error flattening @hegic/v8888/contracts/PriceCalculators/PolynomialPriceCalculator.sol: Command failed: cd /Users/kaifahmed/Downloads/Work/MEGAFI/Hedge/hedge-contracts/packages/herge && npx hardhat flatten @hegic/v8888/contracts/PriceCalculators/PolynomialPriceCalculator.sol
+WARNING: You are currently using Node.js v21.6.1, which is not supported by Hardhat. This can lead to unexpected behavior. See https://v2.hardhat.org/nodejs-versions
+Error HH302: Invalid argument files: File @hegic/v8888/contracts/PriceCalculators/PolynomialPriceCalculator.sol doesn't exist or is not a readable file.
+For more info go to https://v2.hardhat.org/HH302 or run Hardhat with --show-stack-traces
+
+  ❌ Exception: Command failed: cd /Users/kaifahmed/Downloads/Work/MEGAFI/Hedge/hedge-contracts/packages/herge && npx hardhat flatten @hegic/v8888/contracts/PriceCalculators/PolynomialPriceCalculator.sol
+WARNING: You are currently using Node.js v21.6.1, which is not supported by Hardhat. This can lead to unexpected behavior. See https://v2.hardhat.org/nodejs-versions
+Error HH302: Invalid argument files: File @hegic/v8888/contracts/PriceCalculators/PolynomialPriceCalculator.sol doesn't exist or is not a readable file.
+For more info go to https://v2.hardhat.org/HH302 or run Hardhat with --show-stack-traces
+
+
+[186/255] Verifying PriceCalculator_CALL_110_ETH...
+  📋 Source: @hegic/v8888/contracts/PriceCalculators/PolynomialPriceCalculator.sol, Contract: PolynomialPriceCalculator
+  📝 Flattening @hegic/v8888/contracts/PriceCalculators/PolynomialPriceCalculator.sol...
+  ❌ Error flattening @hegic/v8888/contracts/PriceCalculators/PolynomialPriceCalculator.sol: Command failed: cd /Users/kaifahmed/Downloads/Work/MEGAFI/Hedge/hedge-contracts/packages/herge && npx hardhat flatten @hegic/v8888/contracts/PriceCalculators/PolynomialPriceCalculator.sol
+WARNING: You are currently using Node.js v21.6.1, which is not supported by Hardhat. This can lead to unexpected behavior. See https://v2.hardhat.org/nodejs-versions
+Error HH302: Invalid argument files: File @hegic/v8888/contracts/PriceCalculators/PolynomialPriceCalculator.sol doesn't exist or is not a readable file.
+For more info go to https://v2.hardhat.org/HH302 or run Hardhat with --show-stack-traces
+
+  ❌ Exception: Command failed: cd /Users/kaifahmed/Downloads/Work/MEGAFI/Hedge/hedge-contracts/packages/herge && npx hardhat flatten @hegic/v8888/contracts/PriceCalculators/PolynomialPriceCalculator.sol
+WARNING: You are currently using Node.js v21.6.1, which is not supported by Hardhat. This can lead to unexpected behavior. See https://v2.hardhat.org/nodejs-versions
+Error HH302: Invalid argument files: File @hegic/v8888/contracts/PriceCalculators/PolynomialPriceCalculator.sol doesn't exist or is not a readable file.
+For more info go to https://v2.hardhat.org/HH302 or run Hardhat with --show-stack-traces
+
+
+[187/255] Verifying PriceCalculator_CALL_120_BTC...
+  📋 Source: @hegic/v8888/contracts/PriceCalculators/PolynomialPriceCalculator.sol, Contract: PolynomialPriceCalculator
+  📝 Flattening @hegic/v8888/contracts/PriceCalculators/PolynomialPriceCalculator.sol...
+  ❌ Error flattening @hegic/v8888/contracts/PriceCalculators/PolynomialPriceCalculator.sol: Command failed: cd /Users/kaifahmed/Downloads/Work/MEGAFI/Hedge/hedge-contracts/packages/herge && npx hardhat flatten @hegic/v8888/contracts/PriceCalculators/PolynomialPriceCalculator.sol
+WARNING: You are currently using Node.js v21.6.1, which is not supported by Hardhat. This can lead to unexpected behavior. See https://v2.hardhat.org/nodejs-versions
+Error HH302: Invalid argument files: File @hegic/v8888/contracts/PriceCalculators/PolynomialPriceCalculator.sol doesn't exist or is not a readable file.
+For more info go to https://v2.hardhat.org/HH302 or run Hardhat with --show-stack-traces
+
+  ❌ Exception: Command failed: cd /Users/kaifahmed/Downloads/Work/MEGAFI/Hedge/hedge-contracts/packages/herge && npx hardhat flatten @hegic/v8888/contracts/PriceCalculators/PolynomialPriceCalculator.sol
+WARNING: You are currently using Node.js v21.6.1, which is not supported by Hardhat. This can lead to unexpected behavior. See https://v2.hardhat.org/nodejs-versions
+Error HH302: Invalid argument files: File @hegic/v8888/contracts/PriceCalculators/PolynomialPriceCalculator.sol doesn't exist or is not a readable file.
+For more info go to https://v2.hardhat.org/HH302 or run Hardhat with --show-stack-traces
+
+
+[188/255] Verifying PriceCalculator_CALL_120_ETH...
+  📋 Source: @hegic/v8888/contracts/PriceCalculators/PolynomialPriceCalculator.sol, Contract: PolynomialPriceCalculator
+  📝 Flattening @hegic/v8888/contracts/PriceCalculators/PolynomialPriceCalculator.sol...
+  ❌ Error flattening @hegic/v8888/contracts/PriceCalculators/PolynomialPriceCalculator.sol: Command failed: cd /Users/kaifahmed/Downloads/Work/MEGAFI/Hedge/hedge-contracts/packages/herge && npx hardhat flatten @hegic/v8888/contracts/PriceCalculators/PolynomialPriceCalculator.sol
+WARNING: You are currently using Node.js v21.6.1, which is not supported by Hardhat. This can lead to unexpected behavior. See https://v2.hardhat.org/nodejs-versions
+Error HH302: Invalid argument files: File @hegic/v8888/contracts/PriceCalculators/PolynomialPriceCalculator.sol doesn't exist or is not a readable file.
+For more info go to https://v2.hardhat.org/HH302 or run Hardhat with --show-stack-traces
+
+  ❌ Exception: Command failed: cd /Users/kaifahmed/Downloads/Work/MEGAFI/Hedge/hedge-contracts/packages/herge && npx hardhat flatten @hegic/v8888/contracts/PriceCalculators/PolynomialPriceCalculator.sol
+WARNING: You are currently using Node.js v21.6.1, which is not supported by Hardhat. This can lead to unexpected behavior. See https://v2.hardhat.org/nodejs-versions
+Error HH302: Invalid argument files: File @hegic/v8888/contracts/PriceCalculators/PolynomialPriceCalculator.sol doesn't exist or is not a readable file.
+For more info go to https://v2.hardhat.org/HH302 or run Hardhat with --show-stack-traces
+
+
+[189/255] Verifying PriceCalculator_CALL_130_BTC...
+  📋 Source: @hegic/v8888/contracts/PriceCalculators/PolynomialPriceCalculator.sol, Contract: PolynomialPriceCalculator
+  📝 Flattening @hegic/v8888/contracts/PriceCalculators/PolynomialPriceCalculator.sol...
+  ❌ Error flattening @hegic/v8888/contracts/PriceCalculators/PolynomialPriceCalculator.sol: Command failed: cd /Users/kaifahmed/Downloads/Work/MEGAFI/Hedge/hedge-contracts/packages/herge && npx hardhat flatten @hegic/v8888/contracts/PriceCalculators/PolynomialPriceCalculator.sol
+WARNING: You are currently using Node.js v21.6.1, which is not supported by Hardhat. This can lead to unexpected behavior. See https://v2.hardhat.org/nodejs-versions
+Error HH302: Invalid argument files: File @hegic/v8888/contracts/PriceCalculators/PolynomialPriceCalculator.sol doesn't exist or is not a readable file.
+For more info go to https://v2.hardhat.org/HH302 or run Hardhat with --show-stack-traces
+
+  ❌ Exception: Command failed: cd /Users/kaifahmed/Downloads/Work/MEGAFI/Hedge/hedge-contracts/packages/herge && npx hardhat flatten @hegic/v8888/contracts/PriceCalculators/PolynomialPriceCalculator.sol
+WARNING: You are currently using Node.js v21.6.1, which is not supported by Hardhat. This can lead to unexpected behavior. See https://v2.hardhat.org/nodejs-versions
+Error HH302: Invalid argument files: File @hegic/v8888/contracts/PriceCalculators/PolynomialPriceCalculator.sol doesn't exist or is not a readable file.
+For more info go to https://v2.hardhat.org/HH302 or run Hardhat with --show-stack-traces
+
+
+[190/255] Verifying PriceCalculator_CALL_130_ETH...
+  📋 Source: @hegic/v8888/contracts/PriceCalculators/PolynomialPriceCalculator.sol, Contract: PolynomialPriceCalculator
+  📝 Flattening @hegic/v8888/contracts/PriceCalculators/PolynomialPriceCalculator.sol...
+  ❌ Error flattening @hegic/v8888/contracts/PriceCalculators/PolynomialPriceCalculator.sol: Command failed: cd /Users/kaifahmed/Downloads/Work/MEGAFI/Hedge/hedge-contracts/packages/herge && npx hardhat flatten @hegic/v8888/contracts/PriceCalculators/PolynomialPriceCalculator.sol
+WARNING: You are currently using Node.js v21.6.1, which is not supported by Hardhat. This can lead to unexpected behavior. See https://v2.hardhat.org/nodejs-versions
+Error HH302: Invalid argument files: File @hegic/v8888/contracts/PriceCalculators/PolynomialPriceCalculator.sol doesn't exist or is not a readable file.
+For more info go to https://v2.hardhat.org/HH302 or run Hardhat with --show-stack-traces
+
+  ❌ Exception: Command failed: cd /Users/kaifahmed/Downloads/Work/MEGAFI/Hedge/hedge-contracts/packages/herge && npx hardhat flatten @hegic/v8888/contracts/PriceCalculators/PolynomialPriceCalculator.sol
+WARNING: You are currently using Node.js v21.6.1, which is not supported by Hardhat. This can lead to unexpected behavior. See https://v2.hardhat.org/nodejs-versions
+Error HH302: Invalid argument files: File @hegic/v8888/contracts/PriceCalculators/PolynomialPriceCalculator.sol doesn't exist or is not a readable file.
+For more info go to https://v2.hardhat.org/HH302 or run Hardhat with --show-stack-traces
+
+
+💾 Progress saved (190/255 completed)
+
+[191/255] Verifying PriceCalculator_INVERSE_BEAR_CALL_SPREAD_10_BTC...
+  📋 Source: @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol, Contract: CombinePriceCalculator
+  📝 Flattening @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol...
+  ❌ Error flattening @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol: Command failed: cd /Users/kaifahmed/Downloads/Work/MEGAFI/Hedge/hedge-contracts/packages/herge && npx hardhat flatten @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol
+WARNING: You are currently using Node.js v21.6.1, which is not supported by Hardhat. This can lead to unexpected behavior. See https://v2.hardhat.org/nodejs-versions
+Error HH302: Invalid argument files: File @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol doesn't exist or is not a readable file.
+For more info go to https://v2.hardhat.org/HH302 or run Hardhat with --show-stack-traces
+
+  ❌ Exception: Command failed: cd /Users/kaifahmed/Downloads/Work/MEGAFI/Hedge/hedge-contracts/packages/herge && npx hardhat flatten @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol
+WARNING: You are currently using Node.js v21.6.1, which is not supported by Hardhat. This can lead to unexpected behavior. See https://v2.hardhat.org/nodejs-versions
+Error HH302: Invalid argument files: File @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol doesn't exist or is not a readable file.
+For more info go to https://v2.hardhat.org/HH302 or run Hardhat with --show-stack-traces
+
+
+[192/255] Verifying PriceCalculator_INVERSE_BEAR_CALL_SPREAD_10_ETH...
+  📋 Source: @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol, Contract: CombinePriceCalculator
+  📝 Flattening @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol...
+  ❌ Error flattening @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol: Command failed: cd /Users/kaifahmed/Downloads/Work/MEGAFI/Hedge/hedge-contracts/packages/herge && npx hardhat flatten @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol
+WARNING: You are currently using Node.js v21.6.1, which is not supported by Hardhat. This can lead to unexpected behavior. See https://v2.hardhat.org/nodejs-versions
+Error HH302: Invalid argument files: File @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol doesn't exist or is not a readable file.
+For more info go to https://v2.hardhat.org/HH302 or run Hardhat with --show-stack-traces
+
+  ❌ Exception: Command failed: cd /Users/kaifahmed/Downloads/Work/MEGAFI/Hedge/hedge-contracts/packages/herge && npx hardhat flatten @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol
+WARNING: You are currently using Node.js v21.6.1, which is not supported by Hardhat. This can lead to unexpected behavior. See https://v2.hardhat.org/nodejs-versions
+Error HH302: Invalid argument files: File @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol doesn't exist or is not a readable file.
+For more info go to https://v2.hardhat.org/HH302 or run Hardhat with --show-stack-traces
+
+
+[193/255] Verifying PriceCalculator_INVERSE_BEAR_CALL_SPREAD_20_BTC...
+  📋 Source: @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol, Contract: CombinePriceCalculator
+  📝 Flattening @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol...
+  ❌ Error flattening @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol: Command failed: cd /Users/kaifahmed/Downloads/Work/MEGAFI/Hedge/hedge-contracts/packages/herge && npx hardhat flatten @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol
+WARNING: You are currently using Node.js v21.6.1, which is not supported by Hardhat. This can lead to unexpected behavior. See https://v2.hardhat.org/nodejs-versions
+Error HH302: Invalid argument files: File @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol doesn't exist or is not a readable file.
+For more info go to https://v2.hardhat.org/HH302 or run Hardhat with --show-stack-traces
+
+  ❌ Exception: Command failed: cd /Users/kaifahmed/Downloads/Work/MEGAFI/Hedge/hedge-contracts/packages/herge && npx hardhat flatten @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol
+WARNING: You are currently using Node.js v21.6.1, which is not supported by Hardhat. This can lead to unexpected behavior. See https://v2.hardhat.org/nodejs-versions
+Error HH302: Invalid argument files: File @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol doesn't exist or is not a readable file.
+For more info go to https://v2.hardhat.org/HH302 or run Hardhat with --show-stack-traces
+
+
+[194/255] Verifying PriceCalculator_INVERSE_BEAR_CALL_SPREAD_20_ETH...
+  📋 Source: @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol, Contract: CombinePriceCalculator
+  📝 Flattening @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol...
+  ❌ Error flattening @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol: Command failed: cd /Users/kaifahmed/Downloads/Work/MEGAFI/Hedge/hedge-contracts/packages/herge && npx hardhat flatten @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol
+WARNING: You are currently using Node.js v21.6.1, which is not supported by Hardhat. This can lead to unexpected behavior. See https://v2.hardhat.org/nodejs-versions
+Error HH302: Invalid argument files: File @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol doesn't exist or is not a readable file.
+For more info go to https://v2.hardhat.org/HH302 or run Hardhat with --show-stack-traces
+
+  ❌ Exception: Command failed: cd /Users/kaifahmed/Downloads/Work/MEGAFI/Hedge/hedge-contracts/packages/herge && npx hardhat flatten @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol
+WARNING: You are currently using Node.js v21.6.1, which is not supported by Hardhat. This can lead to unexpected behavior. See https://v2.hardhat.org/nodejs-versions
+Error HH302: Invalid argument files: File @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol doesn't exist or is not a readable file.
+For more info go to https://v2.hardhat.org/HH302 or run Hardhat with --show-stack-traces
+
+
+[195/255] Verifying PriceCalculator_INVERSE_BEAR_CALL_SPREAD_30_BTC...
+  📋 Source: @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol, Contract: CombinePriceCalculator
+  📝 Flattening @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol...
+  ❌ Error flattening @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol: Command failed: cd /Users/kaifahmed/Downloads/Work/MEGAFI/Hedge/hedge-contracts/packages/herge && npx hardhat flatten @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol
+WARNING: You are currently using Node.js v21.6.1, which is not supported by Hardhat. This can lead to unexpected behavior. See https://v2.hardhat.org/nodejs-versions
+Error HH302: Invalid argument files: File @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol doesn't exist or is not a readable file.
+For more info go to https://v2.hardhat.org/HH302 or run Hardhat with --show-stack-traces
+
+  ❌ Exception: Command failed: cd /Users/kaifahmed/Downloads/Work/MEGAFI/Hedge/hedge-contracts/packages/herge && npx hardhat flatten @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol
+WARNING: You are currently using Node.js v21.6.1, which is not supported by Hardhat. This can lead to unexpected behavior. See https://v2.hardhat.org/nodejs-versions
+Error HH302: Invalid argument files: File @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol doesn't exist or is not a readable file.
+For more info go to https://v2.hardhat.org/HH302 or run Hardhat with --show-stack-traces
+
+
+[196/255] Verifying PriceCalculator_INVERSE_BEAR_CALL_SPREAD_30_ETH...
+  📋 Source: @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol, Contract: CombinePriceCalculator
+  📝 Flattening @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol...
+  ❌ Error flattening @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol: Command failed: cd /Users/kaifahmed/Downloads/Work/MEGAFI/Hedge/hedge-contracts/packages/herge && npx hardhat flatten @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol
+WARNING: You are currently using Node.js v21.6.1, which is not supported by Hardhat. This can lead to unexpected behavior. See https://v2.hardhat.org/nodejs-versions
+Error HH302: Invalid argument files: File @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol doesn't exist or is not a readable file.
+For more info go to https://v2.hardhat.org/HH302 or run Hardhat with --show-stack-traces
+
+  ❌ Exception: Command failed: cd /Users/kaifahmed/Downloads/Work/MEGAFI/Hedge/hedge-contracts/packages/herge && npx hardhat flatten @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol
+WARNING: You are currently using Node.js v21.6.1, which is not supported by Hardhat. This can lead to unexpected behavior. See https://v2.hardhat.org/nodejs-versions
+Error HH302: Invalid argument files: File @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol doesn't exist or is not a readable file.
+For more info go to https://v2.hardhat.org/HH302 or run Hardhat with --show-stack-traces
+
+
+[197/255] Verifying PriceCalculator_INVERSE_BULL_PUT_SPREAD_10_BTC...
+  📋 Source: @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol, Contract: CombinePriceCalculator
+  📝 Flattening @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol...
+  ❌ Error flattening @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol: Command failed: cd /Users/kaifahmed/Downloads/Work/MEGAFI/Hedge/hedge-contracts/packages/herge && npx hardhat flatten @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol
+WARNING: You are currently using Node.js v21.6.1, which is not supported by Hardhat. This can lead to unexpected behavior. See https://v2.hardhat.org/nodejs-versions
+Error HH302: Invalid argument files: File @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol doesn't exist or is not a readable file.
+For more info go to https://v2.hardhat.org/HH302 or run Hardhat with --show-stack-traces
+
+  ❌ Exception: Command failed: cd /Users/kaifahmed/Downloads/Work/MEGAFI/Hedge/hedge-contracts/packages/herge && npx hardhat flatten @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol
+WARNING: You are currently using Node.js v21.6.1, which is not supported by Hardhat. This can lead to unexpected behavior. See https://v2.hardhat.org/nodejs-versions
+Error HH302: Invalid argument files: File @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol doesn't exist or is not a readable file.
+For more info go to https://v2.hardhat.org/HH302 or run Hardhat with --show-stack-traces
+
+
+[198/255] Verifying PriceCalculator_INVERSE_BULL_PUT_SPREAD_10_ETH...
+  📋 Source: @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol, Contract: CombinePriceCalculator
+  📝 Flattening @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol...
+  ❌ Error flattening @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol: Command failed: cd /Users/kaifahmed/Downloads/Work/MEGAFI/Hedge/hedge-contracts/packages/herge && npx hardhat flatten @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol
+WARNING: You are currently using Node.js v21.6.1, which is not supported by Hardhat. This can lead to unexpected behavior. See https://v2.hardhat.org/nodejs-versions
+Error HH302: Invalid argument files: File @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol doesn't exist or is not a readable file.
+For more info go to https://v2.hardhat.org/HH302 or run Hardhat with --show-stack-traces
+
+  ❌ Exception: Command failed: cd /Users/kaifahmed/Downloads/Work/MEGAFI/Hedge/hedge-contracts/packages/herge && npx hardhat flatten @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol
+WARNING: You are currently using Node.js v21.6.1, which is not supported by Hardhat. This can lead to unexpected behavior. See https://v2.hardhat.org/nodejs-versions
+Error HH302: Invalid argument files: File @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol doesn't exist or is not a readable file.
+For more info go to https://v2.hardhat.org/HH302 or run Hardhat with --show-stack-traces
+
+
+[199/255] Verifying PriceCalculator_INVERSE_BULL_PUT_SPREAD_20_BTC...
+  📋 Source: @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol, Contract: CombinePriceCalculator
+  📝 Flattening @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol...
+  ❌ Error flattening @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol: Command failed: cd /Users/kaifahmed/Downloads/Work/MEGAFI/Hedge/hedge-contracts/packages/herge && npx hardhat flatten @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol
+WARNING: You are currently using Node.js v21.6.1, which is not supported by Hardhat. This can lead to unexpected behavior. See https://v2.hardhat.org/nodejs-versions
+Error HH302: Invalid argument files: File @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol doesn't exist or is not a readable file.
+For more info go to https://v2.hardhat.org/HH302 or run Hardhat with --show-stack-traces
+
+  ❌ Exception: Command failed: cd /Users/kaifahmed/Downloads/Work/MEGAFI/Hedge/hedge-contracts/packages/herge && npx hardhat flatten @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol
+WARNING: You are currently using Node.js v21.6.1, which is not supported by Hardhat. This can lead to unexpected behavior. See https://v2.hardhat.org/nodejs-versions
+Error HH302: Invalid argument files: File @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol doesn't exist or is not a readable file.
+For more info go to https://v2.hardhat.org/HH302 or run Hardhat with --show-stack-traces
+
+
+[200/255] Verifying PriceCalculator_INVERSE_BULL_PUT_SPREAD_20_ETH...
+  📋 Source: @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol, Contract: CombinePriceCalculator
+  📝 Flattening @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol...
+  ❌ Error flattening @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol: Command failed: cd /Users/kaifahmed/Downloads/Work/MEGAFI/Hedge/hedge-contracts/packages/herge && npx hardhat flatten @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol
+WARNING: You are currently using Node.js v21.6.1, which is not supported by Hardhat. This can lead to unexpected behavior. See https://v2.hardhat.org/nodejs-versions
+Error HH302: Invalid argument files: File @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol doesn't exist or is not a readable file.
+For more info go to https://v2.hardhat.org/HH302 or run Hardhat with --show-stack-traces
+
+  ❌ Exception: Command failed: cd /Users/kaifahmed/Downloads/Work/MEGAFI/Hedge/hedge-contracts/packages/herge && npx hardhat flatten @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol
+WARNING: You are currently using Node.js v21.6.1, which is not supported by Hardhat. This can lead to unexpected behavior. See https://v2.hardhat.org/nodejs-versions
+Error HH302: Invalid argument files: File @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol doesn't exist or is not a readable file.
+For more info go to https://v2.hardhat.org/HH302 or run Hardhat with --show-stack-traces
+
+
+💾 Progress saved (200/255 completed)
+
+[201/255] Verifying PriceCalculator_INVERSE_BULL_PUT_SPREAD_30_BTC...
+  📋 Source: @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol, Contract: CombinePriceCalculator
+  📝 Flattening @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol...
+  ❌ Error flattening @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol: Command failed: cd /Users/kaifahmed/Downloads/Work/MEGAFI/Hedge/hedge-contracts/packages/herge && npx hardhat flatten @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol
+WARNING: You are currently using Node.js v21.6.1, which is not supported by Hardhat. This can lead to unexpected behavior. See https://v2.hardhat.org/nodejs-versions
+Error HH302: Invalid argument files: File @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol doesn't exist or is not a readable file.
+For more info go to https://v2.hardhat.org/HH302 or run Hardhat with --show-stack-traces
+
+  ❌ Exception: Command failed: cd /Users/kaifahmed/Downloads/Work/MEGAFI/Hedge/hedge-contracts/packages/herge && npx hardhat flatten @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol
+WARNING: You are currently using Node.js v21.6.1, which is not supported by Hardhat. This can lead to unexpected behavior. See https://v2.hardhat.org/nodejs-versions
+Error HH302: Invalid argument files: File @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol doesn't exist or is not a readable file.
+For more info go to https://v2.hardhat.org/HH302 or run Hardhat with --show-stack-traces
+
+
+[202/255] Verifying PriceCalculator_INVERSE_BULL_PUT_SPREAD_30_ETH...
+  📋 Source: @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol, Contract: CombinePriceCalculator
+  📝 Flattening @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol...
+  ❌ Error flattening @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol: Command failed: cd /Users/kaifahmed/Downloads/Work/MEGAFI/Hedge/hedge-contracts/packages/herge && npx hardhat flatten @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol
+WARNING: You are currently using Node.js v21.6.1, which is not supported by Hardhat. This can lead to unexpected behavior. See https://v2.hardhat.org/nodejs-versions
+Error HH302: Invalid argument files: File @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol doesn't exist or is not a readable file.
+For more info go to https://v2.hardhat.org/HH302 or run Hardhat with --show-stack-traces
+
+  ❌ Exception: Command failed: cd /Users/kaifahmed/Downloads/Work/MEGAFI/Hedge/hedge-contracts/packages/herge && npx hardhat flatten @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol
+WARNING: You are currently using Node.js v21.6.1, which is not supported by Hardhat. This can lead to unexpected behavior. See https://v2.hardhat.org/nodejs-versions
+Error HH302: Invalid argument files: File @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol doesn't exist or is not a readable file.
+For more info go to https://v2.hardhat.org/HH302 or run Hardhat with --show-stack-traces
+
+
+[203/255] Verifying PriceCalculator_INVERSE_LONG_BUTTERFLY_10_BTC...
+  📋 Source: @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol, Contract: CombinePriceCalculator
+  📝 Flattening @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol...
+  ❌ Error flattening @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol: Command failed: cd /Users/kaifahmed/Downloads/Work/MEGAFI/Hedge/hedge-contracts/packages/herge && npx hardhat flatten @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol
+WARNING: You are currently using Node.js v21.6.1, which is not supported by Hardhat. This can lead to unexpected behavior. See https://v2.hardhat.org/nodejs-versions
+Error HH302: Invalid argument files: File @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol doesn't exist or is not a readable file.
+For more info go to https://v2.hardhat.org/HH302 or run Hardhat with --show-stack-traces
+
+  ❌ Exception: Command failed: cd /Users/kaifahmed/Downloads/Work/MEGAFI/Hedge/hedge-contracts/packages/herge && npx hardhat flatten @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol
+WARNING: You are currently using Node.js v21.6.1, which is not supported by Hardhat. This can lead to unexpected behavior. See https://v2.hardhat.org/nodejs-versions
+Error HH302: Invalid argument files: File @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol doesn't exist or is not a readable file.
+For more info go to https://v2.hardhat.org/HH302 or run Hardhat with --show-stack-traces
+
+
+[204/255] Verifying PriceCalculator_INVERSE_LONG_BUTTERFLY_10_ETH...
+  📋 Source: @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol, Contract: CombinePriceCalculator
+  📝 Flattening @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol...
+  ❌ Error flattening @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol: Command failed: cd /Users/kaifahmed/Downloads/Work/MEGAFI/Hedge/hedge-contracts/packages/herge && npx hardhat flatten @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol
+WARNING: You are currently using Node.js v21.6.1, which is not supported by Hardhat. This can lead to unexpected behavior. See https://v2.hardhat.org/nodejs-versions
+Error HH302: Invalid argument files: File @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol doesn't exist or is not a readable file.
+For more info go to https://v2.hardhat.org/HH302 or run Hardhat with --show-stack-traces
+
+  ❌ Exception: Command failed: cd /Users/kaifahmed/Downloads/Work/MEGAFI/Hedge/hedge-contracts/packages/herge && npx hardhat flatten @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol
+WARNING: You are currently using Node.js v21.6.1, which is not supported by Hardhat. This can lead to unexpected behavior. See https://v2.hardhat.org/nodejs-versions
+Error HH302: Invalid argument files: File @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol doesn't exist or is not a readable file.
+For more info go to https://v2.hardhat.org/HH302 or run Hardhat with --show-stack-traces
+
+
+[205/255] Verifying PriceCalculator_INVERSE_LONG_BUTTERFLY_20_BTC...
+  📋 Source: @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol, Contract: CombinePriceCalculator
+  📝 Flattening @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol...
+  ❌ Error flattening @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol: Command failed: cd /Users/kaifahmed/Downloads/Work/MEGAFI/Hedge/hedge-contracts/packages/herge && npx hardhat flatten @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol
+WARNING: You are currently using Node.js v21.6.1, which is not supported by Hardhat. This can lead to unexpected behavior. See https://v2.hardhat.org/nodejs-versions
+Error HH302: Invalid argument files: File @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol doesn't exist or is not a readable file.
+For more info go to https://v2.hardhat.org/HH302 or run Hardhat with --show-stack-traces
+
+  ❌ Exception: Command failed: cd /Users/kaifahmed/Downloads/Work/MEGAFI/Hedge/hedge-contracts/packages/herge && npx hardhat flatten @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol
+WARNING: You are currently using Node.js v21.6.1, which is not supported by Hardhat. This can lead to unexpected behavior. See https://v2.hardhat.org/nodejs-versions
+Error HH302: Invalid argument files: File @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol doesn't exist or is not a readable file.
+For more info go to https://v2.hardhat.org/HH302 or run Hardhat with --show-stack-traces
+
+
+[206/255] Verifying PriceCalculator_INVERSE_LONG_BUTTERFLY_20_ETH...
+  📋 Source: @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol, Contract: CombinePriceCalculator
+  📝 Flattening @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol...
+  ❌ Error flattening @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol: Command failed: cd /Users/kaifahmed/Downloads/Work/MEGAFI/Hedge/hedge-contracts/packages/herge && npx hardhat flatten @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol
+WARNING: You are currently using Node.js v21.6.1, which is not supported by Hardhat. This can lead to unexpected behavior. See https://v2.hardhat.org/nodejs-versions
+Error HH302: Invalid argument files: File @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol doesn't exist or is not a readable file.
+For more info go to https://v2.hardhat.org/HH302 or run Hardhat with --show-stack-traces
+
+  ❌ Exception: Command failed: cd /Users/kaifahmed/Downloads/Work/MEGAFI/Hedge/hedge-contracts/packages/herge && npx hardhat flatten @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol
+WARNING: You are currently using Node.js v21.6.1, which is not supported by Hardhat. This can lead to unexpected behavior. See https://v2.hardhat.org/nodejs-versions
+Error HH302: Invalid argument files: File @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol doesn't exist or is not a readable file.
+For more info go to https://v2.hardhat.org/HH302 or run Hardhat with --show-stack-traces
+
+
+[207/255] Verifying PriceCalculator_INVERSE_LONG_BUTTERFLY_30_BTC...
+  📋 Source: @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol, Contract: CombinePriceCalculator
+  📝 Flattening @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol...
+  ❌ Error flattening @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol: Command failed: cd /Users/kaifahmed/Downloads/Work/MEGAFI/Hedge/hedge-contracts/packages/herge && npx hardhat flatten @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol
+WARNING: You are currently using Node.js v21.6.1, which is not supported by Hardhat. This can lead to unexpected behavior. See https://v2.hardhat.org/nodejs-versions
+Error HH302: Invalid argument files: File @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol doesn't exist or is not a readable file.
+For more info go to https://v2.hardhat.org/HH302 or run Hardhat with --show-stack-traces
+
+  ❌ Exception: Command failed: cd /Users/kaifahmed/Downloads/Work/MEGAFI/Hedge/hedge-contracts/packages/herge && npx hardhat flatten @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol
+WARNING: You are currently using Node.js v21.6.1, which is not supported by Hardhat. This can lead to unexpected behavior. See https://v2.hardhat.org/nodejs-versions
+Error HH302: Invalid argument files: File @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol doesn't exist or is not a readable file.
+For more info go to https://v2.hardhat.org/HH302 or run Hardhat with --show-stack-traces
+
+
+[208/255] Verifying PriceCalculator_INVERSE_LONG_BUTTERFLY_30_ETH...
+  📋 Source: @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol, Contract: CombinePriceCalculator
+  📝 Flattening @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol...
+  ❌ Error flattening @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol: Command failed: cd /Users/kaifahmed/Downloads/Work/MEGAFI/Hedge/hedge-contracts/packages/herge && npx hardhat flatten @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol
+WARNING: You are currently using Node.js v21.6.1, which is not supported by Hardhat. This can lead to unexpected behavior. See https://v2.hardhat.org/nodejs-versions
+Error HH302: Invalid argument files: File @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol doesn't exist or is not a readable file.
+For more info go to https://v2.hardhat.org/HH302 or run Hardhat with --show-stack-traces
+
+  ❌ Exception: Command failed: cd /Users/kaifahmed/Downloads/Work/MEGAFI/Hedge/hedge-contracts/packages/herge && npx hardhat flatten @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol
+WARNING: You are currently using Node.js v21.6.1, which is not supported by Hardhat. This can lead to unexpected behavior. See https://v2.hardhat.org/nodejs-versions
+Error HH302: Invalid argument files: File @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol doesn't exist or is not a readable file.
+For more info go to https://v2.hardhat.org/HH302 or run Hardhat with --show-stack-traces
+
+
+[209/255] Verifying PriceCalculator_INVERSE_LONG_CONDOR_20_BTC...
+  📋 Source: @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol, Contract: CombinePriceCalculator
+  📝 Flattening @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol...
+  ❌ Error flattening @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol: Command failed: cd /Users/kaifahmed/Downloads/Work/MEGAFI/Hedge/hedge-contracts/packages/herge && npx hardhat flatten @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol
+WARNING: You are currently using Node.js v21.6.1, which is not supported by Hardhat. This can lead to unexpected behavior. See https://v2.hardhat.org/nodejs-versions
+Error HH302: Invalid argument files: File @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol doesn't exist or is not a readable file.
+For more info go to https://v2.hardhat.org/HH302 or run Hardhat with --show-stack-traces
+
+  ❌ Exception: Command failed: cd /Users/kaifahmed/Downloads/Work/MEGAFI/Hedge/hedge-contracts/packages/herge && npx hardhat flatten @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol
+WARNING: You are currently using Node.js v21.6.1, which is not supported by Hardhat. This can lead to unexpected behavior. See https://v2.hardhat.org/nodejs-versions
+Error HH302: Invalid argument files: File @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol doesn't exist or is not a readable file.
+For more info go to https://v2.hardhat.org/HH302 or run Hardhat with --show-stack-traces
+
+
+[210/255] Verifying PriceCalculator_INVERSE_LONG_CONDOR_20_ETH...
+  📋 Source: @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol, Contract: CombinePriceCalculator
+  📝 Flattening @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol...
+  ❌ Error flattening @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol: Command failed: cd /Users/kaifahmed/Downloads/Work/MEGAFI/Hedge/hedge-contracts/packages/herge && npx hardhat flatten @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol
+WARNING: You are currently using Node.js v21.6.1, which is not supported by Hardhat. This can lead to unexpected behavior. See https://v2.hardhat.org/nodejs-versions
+Error HH302: Invalid argument files: File @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol doesn't exist or is not a readable file.
+For more info go to https://v2.hardhat.org/HH302 or run Hardhat with --show-stack-traces
+
+  ❌ Exception: Command failed: cd /Users/kaifahmed/Downloads/Work/MEGAFI/Hedge/hedge-contracts/packages/herge && npx hardhat flatten @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol
+WARNING: You are currently using Node.js v21.6.1, which is not supported by Hardhat. This can lead to unexpected behavior. See https://v2.hardhat.org/nodejs-versions
+Error HH302: Invalid argument files: File @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol doesn't exist or is not a readable file.
+For more info go to https://v2.hardhat.org/HH302 or run Hardhat with --show-stack-traces
+
+
+💾 Progress saved (210/255 completed)
+
+[211/255] Verifying PriceCalculator_INVERSE_LONG_CONDOR_30_BTC...
+  📋 Source: @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol, Contract: CombinePriceCalculator
+  📝 Flattening @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol...
+  ❌ Error flattening @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol: Command failed: cd /Users/kaifahmed/Downloads/Work/MEGAFI/Hedge/hedge-contracts/packages/herge && npx hardhat flatten @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol
+WARNING: You are currently using Node.js v21.6.1, which is not supported by Hardhat. This can lead to unexpected behavior. See https://v2.hardhat.org/nodejs-versions
+Error HH302: Invalid argument files: File @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol doesn't exist or is not a readable file.
+For more info go to https://v2.hardhat.org/HH302 or run Hardhat with --show-stack-traces
+
+  ❌ Exception: Command failed: cd /Users/kaifahmed/Downloads/Work/MEGAFI/Hedge/hedge-contracts/packages/herge && npx hardhat flatten @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol
+WARNING: You are currently using Node.js v21.6.1, which is not supported by Hardhat. This can lead to unexpected behavior. See https://v2.hardhat.org/nodejs-versions
+Error HH302: Invalid argument files: File @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol doesn't exist or is not a readable file.
+For more info go to https://v2.hardhat.org/HH302 or run Hardhat with --show-stack-traces
+
+
+[212/255] Verifying PriceCalculator_INVERSE_LONG_CONDOR_30_ETH...
+  📋 Source: @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol, Contract: CombinePriceCalculator
+  📝 Flattening @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol...
+  ❌ Error flattening @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol: Command failed: cd /Users/kaifahmed/Downloads/Work/MEGAFI/Hedge/hedge-contracts/packages/herge && npx hardhat flatten @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol
+WARNING: You are currently using Node.js v21.6.1, which is not supported by Hardhat. This can lead to unexpected behavior. See https://v2.hardhat.org/nodejs-versions
+Error HH302: Invalid argument files: File @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol doesn't exist or is not a readable file.
+For more info go to https://v2.hardhat.org/HH302 or run Hardhat with --show-stack-traces
+
+  ❌ Exception: Command failed: cd /Users/kaifahmed/Downloads/Work/MEGAFI/Hedge/hedge-contracts/packages/herge && npx hardhat flatten @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol
+WARNING: You are currently using Node.js v21.6.1, which is not supported by Hardhat. This can lead to unexpected behavior. See https://v2.hardhat.org/nodejs-versions
+Error HH302: Invalid argument files: File @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol doesn't exist or is not a readable file.
+For more info go to https://v2.hardhat.org/HH302 or run Hardhat with --show-stack-traces
+
+
+[213/255] Verifying PriceCalculator_PUT_100_BTC...
+  📋 Source: @hegic/v8888/contracts/PriceCalculators/PolynomialPriceCalculator.sol, Contract: PolynomialPriceCalculator
+  📝 Flattening @hegic/v8888/contracts/PriceCalculators/PolynomialPriceCalculator.sol...
+  ❌ Error flattening @hegic/v8888/contracts/PriceCalculators/PolynomialPriceCalculator.sol: Command failed: cd /Users/kaifahmed/Downloads/Work/MEGAFI/Hedge/hedge-contracts/packages/herge && npx hardhat flatten @hegic/v8888/contracts/PriceCalculators/PolynomialPriceCalculator.sol
+WARNING: You are currently using Node.js v21.6.1, which is not supported by Hardhat. This can lead to unexpected behavior. See https://v2.hardhat.org/nodejs-versions
+Error HH302: Invalid argument files: File @hegic/v8888/contracts/PriceCalculators/PolynomialPriceCalculator.sol doesn't exist or is not a readable file.
+For more info go to https://v2.hardhat.org/HH302 or run Hardhat with --show-stack-traces
+
+  ❌ Exception: Command failed: cd /Users/kaifahmed/Downloads/Work/MEGAFI/Hedge/hedge-contracts/packages/herge && npx hardhat flatten @hegic/v8888/contracts/PriceCalculators/PolynomialPriceCalculator.sol
+WARNING: You are currently using Node.js v21.6.1, which is not supported by Hardhat. This can lead to unexpected behavior. See https://v2.hardhat.org/nodejs-versions
+Error HH302: Invalid argument files: File @hegic/v8888/contracts/PriceCalculators/PolynomialPriceCalculator.sol doesn't exist or is not a readable file.
+For more info go to https://v2.hardhat.org/HH302 or run Hardhat with --show-stack-traces
+
+
+[214/255] Verifying PriceCalculator_PUT_100_ETH...
+  📋 Source: @hegic/v8888/contracts/PriceCalculators/PolynomialPriceCalculator.sol, Contract: PolynomialPriceCalculator
+  📝 Flattening @hegic/v8888/contracts/PriceCalculators/PolynomialPriceCalculator.sol...
+  ❌ Error flattening @hegic/v8888/contracts/PriceCalculators/PolynomialPriceCalculator.sol: Command failed: cd /Users/kaifahmed/Downloads/Work/MEGAFI/Hedge/hedge-contracts/packages/herge && npx hardhat flatten @hegic/v8888/contracts/PriceCalculators/PolynomialPriceCalculator.sol
+WARNING: You are currently using Node.js v21.6.1, which is not supported by Hardhat. This can lead to unexpected behavior. See https://v2.hardhat.org/nodejs-versions
+Error HH302: Invalid argument files: File @hegic/v8888/contracts/PriceCalculators/PolynomialPriceCalculator.sol doesn't exist or is not a readable file.
+For more info go to https://v2.hardhat.org/HH302 or run Hardhat with --show-stack-traces
+
+  ❌ Exception: Command failed: cd /Users/kaifahmed/Downloads/Work/MEGAFI/Hedge/hedge-contracts/packages/herge && npx hardhat flatten @hegic/v8888/contracts/PriceCalculators/PolynomialPriceCalculator.sol
+WARNING: You are currently using Node.js v21.6.1, which is not supported by Hardhat. This can lead to unexpected behavior. See https://v2.hardhat.org/nodejs-versions
+Error HH302: Invalid argument files: File @hegic/v8888/contracts/PriceCalculators/PolynomialPriceCalculator.sol doesn't exist or is not a readable file.
+For more info go to https://v2.hardhat.org/HH302 or run Hardhat with --show-stack-traces
+
+
+[215/255] Verifying PriceCalculator_PUT_70_BTC...
+  📋 Source: @hegic/v8888/contracts/PriceCalculators/PolynomialPriceCalculator.sol, Contract: PolynomialPriceCalculator
+  📝 Flattening @hegic/v8888/contracts/PriceCalculators/PolynomialPriceCalculator.sol...
+  ❌ Error flattening @hegic/v8888/contracts/PriceCalculators/PolynomialPriceCalculator.sol: Command failed: cd /Users/kaifahmed/Downloads/Work/MEGAFI/Hedge/hedge-contracts/packages/herge && npx hardhat flatten @hegic/v8888/contracts/PriceCalculators/PolynomialPriceCalculator.sol
+WARNING: You are currently using Node.js v21.6.1, which is not supported by Hardhat. This can lead to unexpected behavior. See https://v2.hardhat.org/nodejs-versions
+Error HH302: Invalid argument files: File @hegic/v8888/contracts/PriceCalculators/PolynomialPriceCalculator.sol doesn't exist or is not a readable file.
+For more info go to https://v2.hardhat.org/HH302 or run Hardhat with --show-stack-traces
+
+  ❌ Exception: Command failed: cd /Users/kaifahmed/Downloads/Work/MEGAFI/Hedge/hedge-contracts/packages/herge && npx hardhat flatten @hegic/v8888/contracts/PriceCalculators/PolynomialPriceCalculator.sol
+WARNING: You are currently using Node.js v21.6.1, which is not supported by Hardhat. This can lead to unexpected behavior. See https://v2.hardhat.org/nodejs-versions
+Error HH302: Invalid argument files: File @hegic/v8888/contracts/PriceCalculators/PolynomialPriceCalculator.sol doesn't exist or is not a readable file.
+For more info go to https://v2.hardhat.org/HH302 or run Hardhat with --show-stack-traces
+
+
+[216/255] Verifying PriceCalculator_PUT_70_ETH...
+  📋 Source: @hegic/v8888/contracts/PriceCalculators/PolynomialPriceCalculator.sol, Contract: PolynomialPriceCalculator
+  📝 Flattening @hegic/v8888/contracts/PriceCalculators/PolynomialPriceCalculator.sol...
+  ❌ Error flattening @hegic/v8888/contracts/PriceCalculators/PolynomialPriceCalculator.sol: Command failed: cd /Users/kaifahmed/Downloads/Work/MEGAFI/Hedge/hedge-contracts/packages/herge && npx hardhat flatten @hegic/v8888/contracts/PriceCalculators/PolynomialPriceCalculator.sol
+WARNING: You are currently using Node.js v21.6.1, which is not supported by Hardhat. This can lead to unexpected behavior. See https://v2.hardhat.org/nodejs-versions
+Error HH302: Invalid argument files: File @hegic/v8888/contracts/PriceCalculators/PolynomialPriceCalculator.sol doesn't exist or is not a readable file.
+For more info go to https://v2.hardhat.org/HH302 or run Hardhat with --show-stack-traces
+
+  ❌ Exception: Command failed: cd /Users/kaifahmed/Downloads/Work/MEGAFI/Hedge/hedge-contracts/packages/herge && npx hardhat flatten @hegic/v8888/contracts/PriceCalculators/PolynomialPriceCalculator.sol
+WARNING: You are currently using Node.js v21.6.1, which is not supported by Hardhat. This can lead to unexpected behavior. See https://v2.hardhat.org/nodejs-versions
+Error HH302: Invalid argument files: File @hegic/v8888/contracts/PriceCalculators/PolynomialPriceCalculator.sol doesn't exist or is not a readable file.
+For more info go to https://v2.hardhat.org/HH302 or run Hardhat with --show-stack-traces
+
+
+[217/255] Verifying PriceCalculator_PUT_80_BTC...
+  📋 Source: @hegic/v8888/contracts/PriceCalculators/PolynomialPriceCalculator.sol, Contract: PolynomialPriceCalculator
+  📝 Flattening @hegic/v8888/contracts/PriceCalculators/PolynomialPriceCalculator.sol...
+  ❌ Error flattening @hegic/v8888/contracts/PriceCalculators/PolynomialPriceCalculator.sol: Command failed: cd /Users/kaifahmed/Downloads/Work/MEGAFI/Hedge/hedge-contracts/packages/herge && npx hardhat flatten @hegic/v8888/contracts/PriceCalculators/PolynomialPriceCalculator.sol
+WARNING: You are currently using Node.js v21.6.1, which is not supported by Hardhat. This can lead to unexpected behavior. See https://v2.hardhat.org/nodejs-versions
+Error HH302: Invalid argument files: File @hegic/v8888/contracts/PriceCalculators/PolynomialPriceCalculator.sol doesn't exist or is not a readable file.
+For more info go to https://v2.hardhat.org/HH302 or run Hardhat with --show-stack-traces
+
+  ❌ Exception: Command failed: cd /Users/kaifahmed/Downloads/Work/MEGAFI/Hedge/hedge-contracts/packages/herge && npx hardhat flatten @hegic/v8888/contracts/PriceCalculators/PolynomialPriceCalculator.sol
+WARNING: You are currently using Node.js v21.6.1, which is not supported by Hardhat. This can lead to unexpected behavior. See https://v2.hardhat.org/nodejs-versions
+Error HH302: Invalid argument files: File @hegic/v8888/contracts/PriceCalculators/PolynomialPriceCalculator.sol doesn't exist or is not a readable file.
+For more info go to https://v2.hardhat.org/HH302 or run Hardhat with --show-stack-traces
+
+
+[218/255] Verifying PriceCalculator_PUT_80_ETH...
+  📋 Source: @hegic/v8888/contracts/PriceCalculators/PolynomialPriceCalculator.sol, Contract: PolynomialPriceCalculator
+  📝 Flattening @hegic/v8888/contracts/PriceCalculators/PolynomialPriceCalculator.sol...
+  ❌ Error flattening @hegic/v8888/contracts/PriceCalculators/PolynomialPriceCalculator.sol: Command failed: cd /Users/kaifahmed/Downloads/Work/MEGAFI/Hedge/hedge-contracts/packages/herge && npx hardhat flatten @hegic/v8888/contracts/PriceCalculators/PolynomialPriceCalculator.sol
+WARNING: You are currently using Node.js v21.6.1, which is not supported by Hardhat. This can lead to unexpected behavior. See https://v2.hardhat.org/nodejs-versions
+Error HH302: Invalid argument files: File @hegic/v8888/contracts/PriceCalculators/PolynomialPriceCalculator.sol doesn't exist or is not a readable file.
+For more info go to https://v2.hardhat.org/HH302 or run Hardhat with --show-stack-traces
+
+  ❌ Exception: Command failed: cd /Users/kaifahmed/Downloads/Work/MEGAFI/Hedge/hedge-contracts/packages/herge && npx hardhat flatten @hegic/v8888/contracts/PriceCalculators/PolynomialPriceCalculator.sol
+WARNING: You are currently using Node.js v21.6.1, which is not supported by Hardhat. This can lead to unexpected behavior. See https://v2.hardhat.org/nodejs-versions
+Error HH302: Invalid argument files: File @hegic/v8888/contracts/PriceCalculators/PolynomialPriceCalculator.sol doesn't exist or is not a readable file.
+For more info go to https://v2.hardhat.org/HH302 or run Hardhat with --show-stack-traces
+
+
+[219/255] Verifying PriceCalculator_PUT_90_BTC...
+  📋 Source: @hegic/v8888/contracts/PriceCalculators/PolynomialPriceCalculator.sol, Contract: PolynomialPriceCalculator
+  📝 Flattening @hegic/v8888/contracts/PriceCalculators/PolynomialPriceCalculator.sol...
+  ❌ Error flattening @hegic/v8888/contracts/PriceCalculators/PolynomialPriceCalculator.sol: Command failed: cd /Users/kaifahmed/Downloads/Work/MEGAFI/Hedge/hedge-contracts/packages/herge && npx hardhat flatten @hegic/v8888/contracts/PriceCalculators/PolynomialPriceCalculator.sol
+WARNING: You are currently using Node.js v21.6.1, which is not supported by Hardhat. This can lead to unexpected behavior. See https://v2.hardhat.org/nodejs-versions
+Error HH302: Invalid argument files: File @hegic/v8888/contracts/PriceCalculators/PolynomialPriceCalculator.sol doesn't exist or is not a readable file.
+For more info go to https://v2.hardhat.org/HH302 or run Hardhat with --show-stack-traces
+
+  ❌ Exception: Command failed: cd /Users/kaifahmed/Downloads/Work/MEGAFI/Hedge/hedge-contracts/packages/herge && npx hardhat flatten @hegic/v8888/contracts/PriceCalculators/PolynomialPriceCalculator.sol
+WARNING: You are currently using Node.js v21.6.1, which is not supported by Hardhat. This can lead to unexpected behavior. See https://v2.hardhat.org/nodejs-versions
+Error HH302: Invalid argument files: File @hegic/v8888/contracts/PriceCalculators/PolynomialPriceCalculator.sol doesn't exist or is not a readable file.
+For more info go to https://v2.hardhat.org/HH302 or run Hardhat with --show-stack-traces
+
+
+[220/255] Verifying PriceCalculator_PUT_90_ETH...
+  📋 Source: @hegic/v8888/contracts/PriceCalculators/PolynomialPriceCalculator.sol, Contract: PolynomialPriceCalculator
+  📝 Flattening @hegic/v8888/contracts/PriceCalculators/PolynomialPriceCalculator.sol...
+  ❌ Error flattening @hegic/v8888/contracts/PriceCalculators/PolynomialPriceCalculator.sol: Command failed: cd /Users/kaifahmed/Downloads/Work/MEGAFI/Hedge/hedge-contracts/packages/herge && npx hardhat flatten @hegic/v8888/contracts/PriceCalculators/PolynomialPriceCalculator.sol
+WARNING: You are currently using Node.js v21.6.1, which is not supported by Hardhat. This can lead to unexpected behavior. See https://v2.hardhat.org/nodejs-versions
+Error HH302: Invalid argument files: File @hegic/v8888/contracts/PriceCalculators/PolynomialPriceCalculator.sol doesn't exist or is not a readable file.
+For more info go to https://v2.hardhat.org/HH302 or run Hardhat with --show-stack-traces
+
+  ❌ Exception: Command failed: cd /Users/kaifahmed/Downloads/Work/MEGAFI/Hedge/hedge-contracts/packages/herge && npx hardhat flatten @hegic/v8888/contracts/PriceCalculators/PolynomialPriceCalculator.sol
+WARNING: You are currently using Node.js v21.6.1, which is not supported by Hardhat. This can lead to unexpected behavior. See https://v2.hardhat.org/nodejs-versions
+Error HH302: Invalid argument files: File @hegic/v8888/contracts/PriceCalculators/PolynomialPriceCalculator.sol doesn't exist or is not a readable file.
+For more info go to https://v2.hardhat.org/HH302 or run Hardhat with --show-stack-traces
+
+
+💾 Progress saved (220/255 completed)
+
+[221/255] Verifying PriceCalculator_SPREAD_CALL_10_BTC...
+  📋 Source: @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol, Contract: CombinePriceCalculator
+  📝 Flattening @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol...
+  ❌ Error flattening @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol: Command failed: cd /Users/kaifahmed/Downloads/Work/MEGAFI/Hedge/hedge-contracts/packages/herge && npx hardhat flatten @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol
+WARNING: You are currently using Node.js v21.6.1, which is not supported by Hardhat. This can lead to unexpected behavior. See https://v2.hardhat.org/nodejs-versions
+Error HH302: Invalid argument files: File @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol doesn't exist or is not a readable file.
+For more info go to https://v2.hardhat.org/HH302 or run Hardhat with --show-stack-traces
+
+  ❌ Exception: Command failed: cd /Users/kaifahmed/Downloads/Work/MEGAFI/Hedge/hedge-contracts/packages/herge && npx hardhat flatten @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol
+WARNING: You are currently using Node.js v21.6.1, which is not supported by Hardhat. This can lead to unexpected behavior. See https://v2.hardhat.org/nodejs-versions
+Error HH302: Invalid argument files: File @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol doesn't exist or is not a readable file.
+For more info go to https://v2.hardhat.org/HH302 or run Hardhat with --show-stack-traces
+
+
+[222/255] Verifying PriceCalculator_SPREAD_CALL_10_ETH...
+  📋 Source: @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol, Contract: CombinePriceCalculator
+  📝 Flattening @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol...
+  ❌ Error flattening @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol: Command failed: cd /Users/kaifahmed/Downloads/Work/MEGAFI/Hedge/hedge-contracts/packages/herge && npx hardhat flatten @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol
+WARNING: You are currently using Node.js v21.6.1, which is not supported by Hardhat. This can lead to unexpected behavior. See https://v2.hardhat.org/nodejs-versions
+Error HH302: Invalid argument files: File @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol doesn't exist or is not a readable file.
+For more info go to https://v2.hardhat.org/HH302 or run Hardhat with --show-stack-traces
+
+  ❌ Exception: Command failed: cd /Users/kaifahmed/Downloads/Work/MEGAFI/Hedge/hedge-contracts/packages/herge && npx hardhat flatten @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol
+WARNING: You are currently using Node.js v21.6.1, which is not supported by Hardhat. This can lead to unexpected behavior. See https://v2.hardhat.org/nodejs-versions
+Error HH302: Invalid argument files: File @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol doesn't exist or is not a readable file.
+For more info go to https://v2.hardhat.org/HH302 or run Hardhat with --show-stack-traces
+
+
+[223/255] Verifying PriceCalculator_SPREAD_CALL_20_BTC...
+  📋 Source: @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol, Contract: CombinePriceCalculator
+  📝 Flattening @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol...
+  ❌ Error flattening @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol: Command failed: cd /Users/kaifahmed/Downloads/Work/MEGAFI/Hedge/hedge-contracts/packages/herge && npx hardhat flatten @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol
+WARNING: You are currently using Node.js v21.6.1, which is not supported by Hardhat. This can lead to unexpected behavior. See https://v2.hardhat.org/nodejs-versions
+Error HH302: Invalid argument files: File @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol doesn't exist or is not a readable file.
+For more info go to https://v2.hardhat.org/HH302 or run Hardhat with --show-stack-traces
+
+  ❌ Exception: Command failed: cd /Users/kaifahmed/Downloads/Work/MEGAFI/Hedge/hedge-contracts/packages/herge && npx hardhat flatten @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol
+WARNING: You are currently using Node.js v21.6.1, which is not supported by Hardhat. This can lead to unexpected behavior. See https://v2.hardhat.org/nodejs-versions
+Error HH302: Invalid argument files: File @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol doesn't exist or is not a readable file.
+For more info go to https://v2.hardhat.org/HH302 or run Hardhat with --show-stack-traces
+
+
+[224/255] Verifying PriceCalculator_SPREAD_CALL_20_ETH...
+  📋 Source: @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol, Contract: CombinePriceCalculator
+  📝 Flattening @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol...
+  ❌ Error flattening @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol: Command failed: cd /Users/kaifahmed/Downloads/Work/MEGAFI/Hedge/hedge-contracts/packages/herge && npx hardhat flatten @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol
+WARNING: You are currently using Node.js v21.6.1, which is not supported by Hardhat. This can lead to unexpected behavior. See https://v2.hardhat.org/nodejs-versions
+Error HH302: Invalid argument files: File @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol doesn't exist or is not a readable file.
+For more info go to https://v2.hardhat.org/HH302 or run Hardhat with --show-stack-traces
+
+  ❌ Exception: Command failed: cd /Users/kaifahmed/Downloads/Work/MEGAFI/Hedge/hedge-contracts/packages/herge && npx hardhat flatten @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol
+WARNING: You are currently using Node.js v21.6.1, which is not supported by Hardhat. This can lead to unexpected behavior. See https://v2.hardhat.org/nodejs-versions
+Error HH302: Invalid argument files: File @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol doesn't exist or is not a readable file.
+For more info go to https://v2.hardhat.org/HH302 or run Hardhat with --show-stack-traces
+
+
+[225/255] Verifying PriceCalculator_SPREAD_CALL_30_BTC...
+  📋 Source: @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol, Contract: CombinePriceCalculator
+  📝 Flattening @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol...
+  ❌ Error flattening @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol: Command failed: cd /Users/kaifahmed/Downloads/Work/MEGAFI/Hedge/hedge-contracts/packages/herge && npx hardhat flatten @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol
+WARNING: You are currently using Node.js v21.6.1, which is not supported by Hardhat. This can lead to unexpected behavior. See https://v2.hardhat.org/nodejs-versions
+Error HH302: Invalid argument files: File @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol doesn't exist or is not a readable file.
+For more info go to https://v2.hardhat.org/HH302 or run Hardhat with --show-stack-traces
+
+  ❌ Exception: Command failed: cd /Users/kaifahmed/Downloads/Work/MEGAFI/Hedge/hedge-contracts/packages/herge && npx hardhat flatten @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol
+WARNING: You are currently using Node.js v21.6.1, which is not supported by Hardhat. This can lead to unexpected behavior. See https://v2.hardhat.org/nodejs-versions
+Error HH302: Invalid argument files: File @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol doesn't exist or is not a readable file.
+For more info go to https://v2.hardhat.org/HH302 or run Hardhat with --show-stack-traces
+
+
+[226/255] Verifying PriceCalculator_SPREAD_CALL_30_ETH...
+  📋 Source: @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol, Contract: CombinePriceCalculator
+  📝 Flattening @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol...
+  ❌ Error flattening @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol: Command failed: cd /Users/kaifahmed/Downloads/Work/MEGAFI/Hedge/hedge-contracts/packages/herge && npx hardhat flatten @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol
+WARNING: You are currently using Node.js v21.6.1, which is not supported by Hardhat. This can lead to unexpected behavior. See https://v2.hardhat.org/nodejs-versions
+Error HH302: Invalid argument files: File @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol doesn't exist or is not a readable file.
+For more info go to https://v2.hardhat.org/HH302 or run Hardhat with --show-stack-traces
+
+  ❌ Exception: Command failed: cd /Users/kaifahmed/Downloads/Work/MEGAFI/Hedge/hedge-contracts/packages/herge && npx hardhat flatten @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol
+WARNING: You are currently using Node.js v21.6.1, which is not supported by Hardhat. This can lead to unexpected behavior. See https://v2.hardhat.org/nodejs-versions
+Error HH302: Invalid argument files: File @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol doesn't exist or is not a readable file.
+For more info go to https://v2.hardhat.org/HH302 or run Hardhat with --show-stack-traces
+
+
+[227/255] Verifying PriceCalculator_SPREAD_PUT_10_BTC...
+  📋 Source: @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol, Contract: CombinePriceCalculator
+  📝 Flattening @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol...
+  ❌ Error flattening @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol: Command failed: cd /Users/kaifahmed/Downloads/Work/MEGAFI/Hedge/hedge-contracts/packages/herge && npx hardhat flatten @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol
+WARNING: You are currently using Node.js v21.6.1, which is not supported by Hardhat. This can lead to unexpected behavior. See https://v2.hardhat.org/nodejs-versions
+Error HH302: Invalid argument files: File @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol doesn't exist or is not a readable file.
+For more info go to https://v2.hardhat.org/HH302 or run Hardhat with --show-stack-traces
+
+  ❌ Exception: Command failed: cd /Users/kaifahmed/Downloads/Work/MEGAFI/Hedge/hedge-contracts/packages/herge && npx hardhat flatten @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol
+WARNING: You are currently using Node.js v21.6.1, which is not supported by Hardhat. This can lead to unexpected behavior. See https://v2.hardhat.org/nodejs-versions
+Error HH302: Invalid argument files: File @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol doesn't exist or is not a readable file.
+For more info go to https://v2.hardhat.org/HH302 or run Hardhat with --show-stack-traces
+
+
+[228/255] Verifying PriceCalculator_SPREAD_PUT_10_ETH...
+  📋 Source: @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol, Contract: CombinePriceCalculator
+  📝 Flattening @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol...
+  ❌ Error flattening @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol: Command failed: cd /Users/kaifahmed/Downloads/Work/MEGAFI/Hedge/hedge-contracts/packages/herge && npx hardhat flatten @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol
+WARNING: You are currently using Node.js v21.6.1, which is not supported by Hardhat. This can lead to unexpected behavior. See https://v2.hardhat.org/nodejs-versions
+Error HH302: Invalid argument files: File @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol doesn't exist or is not a readable file.
+For more info go to https://v2.hardhat.org/HH302 or run Hardhat with --show-stack-traces
+
+  ❌ Exception: Command failed: cd /Users/kaifahmed/Downloads/Work/MEGAFI/Hedge/hedge-contracts/packages/herge && npx hardhat flatten @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol
+WARNING: You are currently using Node.js v21.6.1, which is not supported by Hardhat. This can lead to unexpected behavior. See https://v2.hardhat.org/nodejs-versions
+Error HH302: Invalid argument files: File @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol doesn't exist or is not a readable file.
+For more info go to https://v2.hardhat.org/HH302 or run Hardhat with --show-stack-traces
+
+
+[229/255] Verifying PriceCalculator_SPREAD_PUT_20_BTC...
+  📋 Source: @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol, Contract: CombinePriceCalculator
+  📝 Flattening @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol...
+  ❌ Error flattening @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol: Command failed: cd /Users/kaifahmed/Downloads/Work/MEGAFI/Hedge/hedge-contracts/packages/herge && npx hardhat flatten @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol
+WARNING: You are currently using Node.js v21.6.1, which is not supported by Hardhat. This can lead to unexpected behavior. See https://v2.hardhat.org/nodejs-versions
+Error HH302: Invalid argument files: File @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol doesn't exist or is not a readable file.
+For more info go to https://v2.hardhat.org/HH302 or run Hardhat with --show-stack-traces
+
+  ❌ Exception: Command failed: cd /Users/kaifahmed/Downloads/Work/MEGAFI/Hedge/hedge-contracts/packages/herge && npx hardhat flatten @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol
+WARNING: You are currently using Node.js v21.6.1, which is not supported by Hardhat. This can lead to unexpected behavior. See https://v2.hardhat.org/nodejs-versions
+Error HH302: Invalid argument files: File @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol doesn't exist or is not a readable file.
+For more info go to https://v2.hardhat.org/HH302 or run Hardhat with --show-stack-traces
+
+
+[230/255] Verifying PriceCalculator_SPREAD_PUT_20_ETH...
+  📋 Source: @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol, Contract: CombinePriceCalculator
+  📝 Flattening @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol...
+  ❌ Error flattening @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol: Command failed: cd /Users/kaifahmed/Downloads/Work/MEGAFI/Hedge/hedge-contracts/packages/herge && npx hardhat flatten @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol
+WARNING: You are currently using Node.js v21.6.1, which is not supported by Hardhat. This can lead to unexpected behavior. See https://v2.hardhat.org/nodejs-versions
+Error HH302: Invalid argument files: File @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol doesn't exist or is not a readable file.
+For more info go to https://v2.hardhat.org/HH302 or run Hardhat with --show-stack-traces
+
+  ❌ Exception: Command failed: cd /Users/kaifahmed/Downloads/Work/MEGAFI/Hedge/hedge-contracts/packages/herge && npx hardhat flatten @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol
+WARNING: You are currently using Node.js v21.6.1, which is not supported by Hardhat. This can lead to unexpected behavior. See https://v2.hardhat.org/nodejs-versions
+Error HH302: Invalid argument files: File @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol doesn't exist or is not a readable file.
+For more info go to https://v2.hardhat.org/HH302 or run Hardhat with --show-stack-traces
+
+
+💾 Progress saved (230/255 completed)
+
+[231/255] Verifying PriceCalculator_SPREAD_PUT_30_BTC...
+  📋 Source: @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol, Contract: CombinePriceCalculator
+  📝 Flattening @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol...
+  ❌ Error flattening @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol: Command failed: cd /Users/kaifahmed/Downloads/Work/MEGAFI/Hedge/hedge-contracts/packages/herge && npx hardhat flatten @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol
+WARNING: You are currently using Node.js v21.6.1, which is not supported by Hardhat. This can lead to unexpected behavior. See https://v2.hardhat.org/nodejs-versions
+Error HH302: Invalid argument files: File @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol doesn't exist or is not a readable file.
+For more info go to https://v2.hardhat.org/HH302 or run Hardhat with --show-stack-traces
+
+  ❌ Exception: Command failed: cd /Users/kaifahmed/Downloads/Work/MEGAFI/Hedge/hedge-contracts/packages/herge && npx hardhat flatten @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol
+WARNING: You are currently using Node.js v21.6.1, which is not supported by Hardhat. This can lead to unexpected behavior. See https://v2.hardhat.org/nodejs-versions
+Error HH302: Invalid argument files: File @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol doesn't exist or is not a readable file.
+For more info go to https://v2.hardhat.org/HH302 or run Hardhat with --show-stack-traces
+
+
+[232/255] Verifying PriceCalculator_SPREAD_PUT_30_ETH...
+  📋 Source: @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol, Contract: CombinePriceCalculator
+  📝 Flattening @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol...
+  ❌ Error flattening @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol: Command failed: cd /Users/kaifahmed/Downloads/Work/MEGAFI/Hedge/hedge-contracts/packages/herge && npx hardhat flatten @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol
+WARNING: You are currently using Node.js v21.6.1, which is not supported by Hardhat. This can lead to unexpected behavior. See https://v2.hardhat.org/nodejs-versions
+Error HH302: Invalid argument files: File @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol doesn't exist or is not a readable file.
+For more info go to https://v2.hardhat.org/HH302 or run Hardhat with --show-stack-traces
+
+  ❌ Exception: Command failed: cd /Users/kaifahmed/Downloads/Work/MEGAFI/Hedge/hedge-contracts/packages/herge && npx hardhat flatten @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol
+WARNING: You are currently using Node.js v21.6.1, which is not supported by Hardhat. This can lead to unexpected behavior. See https://v2.hardhat.org/nodejs-versions
+Error HH302: Invalid argument files: File @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol doesn't exist or is not a readable file.
+For more info go to https://v2.hardhat.org/HH302 or run Hardhat with --show-stack-traces
+
+
+[233/255] Verifying PriceCalculator_STRADDLE_BTC...
+  📋 Source: @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol, Contract: CombinePriceCalculator
+  📝 Flattening @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol...
+  ❌ Error flattening @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol: Command failed: cd /Users/kaifahmed/Downloads/Work/MEGAFI/Hedge/hedge-contracts/packages/herge && npx hardhat flatten @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol
+WARNING: You are currently using Node.js v21.6.1, which is not supported by Hardhat. This can lead to unexpected behavior. See https://v2.hardhat.org/nodejs-versions
+Error HH302: Invalid argument files: File @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol doesn't exist or is not a readable file.
+For more info go to https://v2.hardhat.org/HH302 or run Hardhat with --show-stack-traces
+
+  ❌ Exception: Command failed: cd /Users/kaifahmed/Downloads/Work/MEGAFI/Hedge/hedge-contracts/packages/herge && npx hardhat flatten @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol
+WARNING: You are currently using Node.js v21.6.1, which is not supported by Hardhat. This can lead to unexpected behavior. See https://v2.hardhat.org/nodejs-versions
+Error HH302: Invalid argument files: File @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol doesn't exist or is not a readable file.
+For more info go to https://v2.hardhat.org/HH302 or run Hardhat with --show-stack-traces
+
+
+[234/255] Verifying PriceCalculator_STRADDLE_ETH...
+  📋 Source: @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol, Contract: CombinePriceCalculator
+  📝 Flattening @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol...
+  ❌ Error flattening @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol: Command failed: cd /Users/kaifahmed/Downloads/Work/MEGAFI/Hedge/hedge-contracts/packages/herge && npx hardhat flatten @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol
+WARNING: You are currently using Node.js v21.6.1, which is not supported by Hardhat. This can lead to unexpected behavior. See https://v2.hardhat.org/nodejs-versions
+Error HH302: Invalid argument files: File @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol doesn't exist or is not a readable file.
+For more info go to https://v2.hardhat.org/HH302 or run Hardhat with --show-stack-traces
+
+  ❌ Exception: Command failed: cd /Users/kaifahmed/Downloads/Work/MEGAFI/Hedge/hedge-contracts/packages/herge && npx hardhat flatten @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol
+WARNING: You are currently using Node.js v21.6.1, which is not supported by Hardhat. This can lead to unexpected behavior. See https://v2.hardhat.org/nodejs-versions
+Error HH302: Invalid argument files: File @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol doesn't exist or is not a readable file.
+For more info go to https://v2.hardhat.org/HH302 or run Hardhat with --show-stack-traces
+
+
+[235/255] Verifying PriceCalculator_STRANGLE_10_BTC...
+  📋 Source: @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol, Contract: CombinePriceCalculator
+  📝 Flattening @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol...
+  ❌ Error flattening @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol: Command failed: cd /Users/kaifahmed/Downloads/Work/MEGAFI/Hedge/hedge-contracts/packages/herge && npx hardhat flatten @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol
+WARNING: You are currently using Node.js v21.6.1, which is not supported by Hardhat. This can lead to unexpected behavior. See https://v2.hardhat.org/nodejs-versions
+Error HH302: Invalid argument files: File @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol doesn't exist or is not a readable file.
+For more info go to https://v2.hardhat.org/HH302 or run Hardhat with --show-stack-traces
+
+  ❌ Exception: Command failed: cd /Users/kaifahmed/Downloads/Work/MEGAFI/Hedge/hedge-contracts/packages/herge && npx hardhat flatten @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol
+WARNING: You are currently using Node.js v21.6.1, which is not supported by Hardhat. This can lead to unexpected behavior. See https://v2.hardhat.org/nodejs-versions
+Error HH302: Invalid argument files: File @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol doesn't exist or is not a readable file.
+For more info go to https://v2.hardhat.org/HH302 or run Hardhat with --show-stack-traces
+
+
+[236/255] Verifying PriceCalculator_STRANGLE_10_ETH...
+  📋 Source: @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol, Contract: CombinePriceCalculator
+  📝 Flattening @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol...
+  ❌ Error flattening @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol: Command failed: cd /Users/kaifahmed/Downloads/Work/MEGAFI/Hedge/hedge-contracts/packages/herge && npx hardhat flatten @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol
+WARNING: You are currently using Node.js v21.6.1, which is not supported by Hardhat. This can lead to unexpected behavior. See https://v2.hardhat.org/nodejs-versions
+Error HH302: Invalid argument files: File @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol doesn't exist or is not a readable file.
+For more info go to https://v2.hardhat.org/HH302 or run Hardhat with --show-stack-traces
+
+  ❌ Exception: Command failed: cd /Users/kaifahmed/Downloads/Work/MEGAFI/Hedge/hedge-contracts/packages/herge && npx hardhat flatten @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol
+WARNING: You are currently using Node.js v21.6.1, which is not supported by Hardhat. This can lead to unexpected behavior. See https://v2.hardhat.org/nodejs-versions
+Error HH302: Invalid argument files: File @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol doesn't exist or is not a readable file.
+For more info go to https://v2.hardhat.org/HH302 or run Hardhat with --show-stack-traces
+
+
+[237/255] Verifying PriceCalculator_STRANGLE_20_BTC...
+  📋 Source: @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol, Contract: CombinePriceCalculator
+  📝 Flattening @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol...
+  ❌ Error flattening @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol: Command failed: cd /Users/kaifahmed/Downloads/Work/MEGAFI/Hedge/hedge-contracts/packages/herge && npx hardhat flatten @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol
+WARNING: You are currently using Node.js v21.6.1, which is not supported by Hardhat. This can lead to unexpected behavior. See https://v2.hardhat.org/nodejs-versions
+Error HH302: Invalid argument files: File @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol doesn't exist or is not a readable file.
+For more info go to https://v2.hardhat.org/HH302 or run Hardhat with --show-stack-traces
+
+  ❌ Exception: Command failed: cd /Users/kaifahmed/Downloads/Work/MEGAFI/Hedge/hedge-contracts/packages/herge && npx hardhat flatten @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol
+WARNING: You are currently using Node.js v21.6.1, which is not supported by Hardhat. This can lead to unexpected behavior. See https://v2.hardhat.org/nodejs-versions
+Error HH302: Invalid argument files: File @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol doesn't exist or is not a readable file.
+For more info go to https://v2.hardhat.org/HH302 or run Hardhat with --show-stack-traces
+
+
+[238/255] Verifying PriceCalculator_STRANGLE_20_ETH...
+  📋 Source: @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol, Contract: CombinePriceCalculator
+  📝 Flattening @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol...
+  ❌ Error flattening @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol: Command failed: cd /Users/kaifahmed/Downloads/Work/MEGAFI/Hedge/hedge-contracts/packages/herge && npx hardhat flatten @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol
+WARNING: You are currently using Node.js v21.6.1, which is not supported by Hardhat. This can lead to unexpected behavior. See https://v2.hardhat.org/nodejs-versions
+Error HH302: Invalid argument files: File @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol doesn't exist or is not a readable file.
+For more info go to https://v2.hardhat.org/HH302 or run Hardhat with --show-stack-traces
+
+  ❌ Exception: Command failed: cd /Users/kaifahmed/Downloads/Work/MEGAFI/Hedge/hedge-contracts/packages/herge && npx hardhat flatten @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol
+WARNING: You are currently using Node.js v21.6.1, which is not supported by Hardhat. This can lead to unexpected behavior. See https://v2.hardhat.org/nodejs-versions
+Error HH302: Invalid argument files: File @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol doesn't exist or is not a readable file.
+For more info go to https://v2.hardhat.org/HH302 or run Hardhat with --show-stack-traces
+
+
+[239/255] Verifying PriceCalculator_STRANGLE_30_BTC...
+  📋 Source: @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol, Contract: CombinePriceCalculator
+  📝 Flattening @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol...
+  ❌ Error flattening @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol: Command failed: cd /Users/kaifahmed/Downloads/Work/MEGAFI/Hedge/hedge-contracts/packages/herge && npx hardhat flatten @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol
+WARNING: You are currently using Node.js v21.6.1, which is not supported by Hardhat. This can lead to unexpected behavior. See https://v2.hardhat.org/nodejs-versions
+Error HH302: Invalid argument files: File @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol doesn't exist or is not a readable file.
+For more info go to https://v2.hardhat.org/HH302 or run Hardhat with --show-stack-traces
+
+  ❌ Exception: Command failed: cd /Users/kaifahmed/Downloads/Work/MEGAFI/Hedge/hedge-contracts/packages/herge && npx hardhat flatten @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol
+WARNING: You are currently using Node.js v21.6.1, which is not supported by Hardhat. This can lead to unexpected behavior. See https://v2.hardhat.org/nodejs-versions
+Error HH302: Invalid argument files: File @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol doesn't exist or is not a readable file.
+For more info go to https://v2.hardhat.org/HH302 or run Hardhat with --show-stack-traces
+
+
+[240/255] Verifying PriceCalculator_STRANGLE_30_ETH...
+  📋 Source: @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol, Contract: CombinePriceCalculator
+  📝 Flattening @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol...
+  ❌ Error flattening @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol: Command failed: cd /Users/kaifahmed/Downloads/Work/MEGAFI/Hedge/hedge-contracts/packages/herge && npx hardhat flatten @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol
+WARNING: You are currently using Node.js v21.6.1, which is not supported by Hardhat. This can lead to unexpected behavior. See https://v2.hardhat.org/nodejs-versions
+Error HH302: Invalid argument files: File @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol doesn't exist or is not a readable file.
+For more info go to https://v2.hardhat.org/HH302 or run Hardhat with --show-stack-traces
+
+  ❌ Exception: Command failed: cd /Users/kaifahmed/Downloads/Work/MEGAFI/Hedge/hedge-contracts/packages/herge && npx hardhat flatten @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol
+WARNING: You are currently using Node.js v21.6.1, which is not supported by Hardhat. This can lead to unexpected behavior. See https://v2.hardhat.org/nodejs-versions
+Error HH302: Invalid argument files: File @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol doesn't exist or is not a readable file.
+For more info go to https://v2.hardhat.org/HH302 or run Hardhat with --show-stack-traces
+
+
+💾 Progress saved (240/255 completed)
+
+[241/255] Verifying PriceCalculator_STRAP_BTC...
+  📋 Source: @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol, Contract: CombinePriceCalculator
+  📝 Flattening @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol...
+  ❌ Error flattening @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol: Command failed: cd /Users/kaifahmed/Downloads/Work/MEGAFI/Hedge/hedge-contracts/packages/herge && npx hardhat flatten @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol
+WARNING: You are currently using Node.js v21.6.1, which is not supported by Hardhat. This can lead to unexpected behavior. See https://v2.hardhat.org/nodejs-versions
+Error HH302: Invalid argument files: File @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol doesn't exist or is not a readable file.
+For more info go to https://v2.hardhat.org/HH302 or run Hardhat with --show-stack-traces
+
+  ❌ Exception: Command failed: cd /Users/kaifahmed/Downloads/Work/MEGAFI/Hedge/hedge-contracts/packages/herge && npx hardhat flatten @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol
+WARNING: You are currently using Node.js v21.6.1, which is not supported by Hardhat. This can lead to unexpected behavior. See https://v2.hardhat.org/nodejs-versions
+Error HH302: Invalid argument files: File @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol doesn't exist or is not a readable file.
+For more info go to https://v2.hardhat.org/HH302 or run Hardhat with --show-stack-traces
+
+
+[242/255] Verifying PriceCalculator_STRAP_ETH...
+  📋 Source: @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol, Contract: CombinePriceCalculator
+  📝 Flattening @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol...
+  ❌ Error flattening @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol: Command failed: cd /Users/kaifahmed/Downloads/Work/MEGAFI/Hedge/hedge-contracts/packages/herge && npx hardhat flatten @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol
+WARNING: You are currently using Node.js v21.6.1, which is not supported by Hardhat. This can lead to unexpected behavior. See https://v2.hardhat.org/nodejs-versions
+Error HH302: Invalid argument files: File @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol doesn't exist or is not a readable file.
+For more info go to https://v2.hardhat.org/HH302 or run Hardhat with --show-stack-traces
+
+  ❌ Exception: Command failed: cd /Users/kaifahmed/Downloads/Work/MEGAFI/Hedge/hedge-contracts/packages/herge && npx hardhat flatten @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol
+WARNING: You are currently using Node.js v21.6.1, which is not supported by Hardhat. This can lead to unexpected behavior. See https://v2.hardhat.org/nodejs-versions
+Error HH302: Invalid argument files: File @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol doesn't exist or is not a readable file.
+For more info go to https://v2.hardhat.org/HH302 or run Hardhat with --show-stack-traces
+
+
+[243/255] Verifying PriceCalculator_STRIP_BTC...
+  📋 Source: @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol, Contract: CombinePriceCalculator
+  📝 Flattening @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol...
+  ❌ Error flattening @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol: Command failed: cd /Users/kaifahmed/Downloads/Work/MEGAFI/Hedge/hedge-contracts/packages/herge && npx hardhat flatten @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol
+WARNING: You are currently using Node.js v21.6.1, which is not supported by Hardhat. This can lead to unexpected behavior. See https://v2.hardhat.org/nodejs-versions
+Error HH302: Invalid argument files: File @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol doesn't exist or is not a readable file.
+For more info go to https://v2.hardhat.org/HH302 or run Hardhat with --show-stack-traces
+
+  ❌ Exception: Command failed: cd /Users/kaifahmed/Downloads/Work/MEGAFI/Hedge/hedge-contracts/packages/herge && npx hardhat flatten @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol
+WARNING: You are currently using Node.js v21.6.1, which is not supported by Hardhat. This can lead to unexpected behavior. See https://v2.hardhat.org/nodejs-versions
+Error HH302: Invalid argument files: File @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol doesn't exist or is not a readable file.
+For more info go to https://v2.hardhat.org/HH302 or run Hardhat with --show-stack-traces
+
+
+[244/255] Verifying PriceCalculator_STRIP_ETH...
+  📋 Source: @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol, Contract: CombinePriceCalculator
+  📝 Flattening @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol...
+  ❌ Error flattening @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol: Command failed: cd /Users/kaifahmed/Downloads/Work/MEGAFI/Hedge/hedge-contracts/packages/herge && npx hardhat flatten @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol
+WARNING: You are currently using Node.js v21.6.1, which is not supported by Hardhat. This can lead to unexpected behavior. See https://v2.hardhat.org/nodejs-versions
+Error HH302: Invalid argument files: File @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol doesn't exist or is not a readable file.
+For more info go to https://v2.hardhat.org/HH302 or run Hardhat with --show-stack-traces
+
+  ❌ Exception: Command failed: cd /Users/kaifahmed/Downloads/Work/MEGAFI/Hedge/hedge-contracts/packages/herge && npx hardhat flatten @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol
+WARNING: You are currently using Node.js v21.6.1, which is not supported by Hardhat. This can lead to unexpected behavior. See https://v2.hardhat.org/nodejs-versions
+Error HH302: Invalid argument files: File @hegic/v8888/contracts/PriceCalculators/CombinedPriceCalculator.sol doesn't exist or is not a readable file.
+For more info go to https://v2.hardhat.org/HH302 or run Hardhat with --show-stack-traces
+
+
+[245/255] Verifying PriceProviderBTC...
+  ⚠️ Could not extract contract info for PriceProviderBTC
+
+[246/255] Verifying PriceProviderETH...
+  ⚠️ Could not extract contract info for PriceProviderETH
+
+[247/255] Verifying ProfitCalculator...
+  📋 Source: contracts/Strategies/ProfitCalculator.sol, Contract: ProfitCalculator
+  📝 Flattening contracts/Strategies/ProfitCalculator.sol...
+  ❌ Error: NOTOK
+
+[248/255] Verifying ProfitDistributor...
+  📋 Source: contracts/ProfitDistributor.sol, Contract: ProfitDistributor
+  📝 Flattening contracts/ProfitDistributor.sol...
+  ❌ Error: NOTOK
+
+[249/255] Verifying USDC...
+  ⚠️ Could not extract contract info for USDC
+
+[250/255] Verifying WBTC...
+  ⚠️ Could not extract contract info for WBTC
+
+💾 Progress saved (250/255 completed)
+
+[251/255] Verifying WETH...
+  ⚠️ Could not extract contract info for WETH
+
+[252/255] Verifying HegicStrategy_STRIP_BTC_2...
+  📋 Source: contracts/Strategies/HegicStrategyStrip.sol, Contract: HegicStrategyStrip
+  ❌ Error: NOTOK
+
+[253/255] Verifying HegicStrategy_STRIP_BTC_3...
+  📋 Source: contracts/Strategies/HegicStrategyStrip.sol, Contract: HegicStrategyStrip
+  ❌ Error: NOTOK
+
+[254/255] Verifying HegicStrategy_STRIP_BTC_4...
+  📋 Source: contracts/Strategies/HegicStrategyStrip.sol, Contract: HegicStrategyStrip
+  ❌ Error: NOTOK
+
+[255/255] Verifying OperationalTreasury...
+  📋 Source: contracts/OperationalTreasury.sol, Contract: OperationalTreasury
+  📝 Flattening contracts/OperationalTreasury.sol...
+  ❌ Error: NOTOK
+
+
+📊 VERIFICATION SUMMARY
+================================
+✅ Submitted: 0
+❌ Failed: 255
+Total: 255
+
+💾 Results saved to: /Users/kaifahmed/Downloads/Work/MEGAFI/Hedge/hedge-contracts/packages/herge/verification-api-results.json

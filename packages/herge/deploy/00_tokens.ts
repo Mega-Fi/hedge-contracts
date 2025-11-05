@@ -20,11 +20,15 @@ async function deployment(hre: HardhatRuntimeEnvironment): Promise<void> {
       // })
       return
     case "arbitrum-sepolia":
-      // USDC - Main token for cover pool and profits (Arbitrum Sepolia)
-      save("USDC", {
-        address: "0xf3C3351D6Bd0098EEb33ca8f830FAf2a141Ea2E1",
-        abi: await getArtifact("ERC20").then((x) => x.abi),
+      // Deploy new USDC mock - Main token for USDC-only model (Arbitrum Sepolia)
+      await deploy("USDC", {
+        contract: "ERC20Mock",
+        from: deployer,
+        log: true,
+        args: ["USDC (Mock)", "USDC", 6],
       })
+      
+      // Keep WETH and WBTC as saved addresses (existing tokens)
       save("WETH", {
         address: "0x980B62Da83eFf3D4576C647993b0c1D7faf17c73",
         abi: await getArtifact("ERC20").then((x) => x.abi),
@@ -33,7 +37,7 @@ async function deployment(hre: HardhatRuntimeEnvironment): Promise<void> {
         address: "0x806D0637Fbbfb4EB9efD5119B0895A5C7Cbc66e7",
         abi: await getArtifact("ERC20").then((x) => x.abi),
       })
-      return
+      break
     case "hardhat":
     case "localhost":
     case "hlocal":
