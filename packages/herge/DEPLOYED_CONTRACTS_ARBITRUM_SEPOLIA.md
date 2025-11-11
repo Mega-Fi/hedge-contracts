@@ -18,6 +18,20 @@
 
 ---
 
+## 🛠️ Post-Deployment Actions (Must Run Before Production)
+
+- **Seed the CoverPool (Position 0)**  
+  - Only the contract owner/admin (`0x711eE890B41fFbd23Ba3c96975DEBDB1145cbB83`) can create position ID `0`.  
+  - Run `npx hardhat --network arbitrum-sepolia run scripts/initialize-coverpool.js` (or replicate on mainnet) to deposit the first 10 USDC and keep the entry window open for LPs.
+
+- **Grant `HEGIC_POOL_ROLE` to OperationalTreasury**  
+  - `PositionsManager` and every deployed strategy expect the treasury (`0x3B026eD677615aDD2aC32aa5D1D5453051551EfB`) to hold the `HEGIC_POOL_ROLE` (`0x985c…be6f`).  
+  - After each deployment, run `npx hardhat --network arbitrum-sepolia run scripts/grant-role.js` (or the mainnet equivalent) so option purchases don’t revert with `AccessControl` errors.
+
+> ✅ These steps have been executed on Arbitrum Sepolia (tx hashes logged in the deployment scripts). Repeat them during any future/mainnet deployment.
+
+---
+
 ## 🔑 Core Contracts (Chronological Order)
 
 | # | Contract Name | Address | Purpose |

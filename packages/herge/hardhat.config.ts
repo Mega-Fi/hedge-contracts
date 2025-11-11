@@ -64,9 +64,7 @@ export default {
     },
   },
   etherscan: {
-    apiKey: {
-      "arbitrum-sepolia": ARBISCAN_API_KEY || ETHERSCAN_API_KEY || "PLACEHOLDER",
-    },
+    apiKey: ARBISCAN_API_KEY || ETHERSCAN_API_KEY || "PLACEHOLDER",
     customChains: [
       {
         network: "arbitrum-sepolia",

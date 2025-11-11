@@ -28,7 +28,7 @@ import "./ICoverPool.sol";
 
 contract CoverPool is
     AccessControl,
-    ERC721WithURIBuilder("Hegic Herge Stake & Cover", "HEGSC"),
+    ERC721WithURIBuilder("MegaFi Mega Stake & Cover", "MEFSC"),
     ICoverPool
 {
     using SafeERC20 for IERC20;
