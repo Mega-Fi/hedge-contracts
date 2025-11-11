@@ -5,10 +5,11 @@ packages/*/typechain
 packages/*/artifacts
 packages/*/deployments
 packages/*/abi
+!packages/herge/abi/
 .DS_Store
 .env
 .env.*
 *.env
 **/.env
 **/.env.*
-**/*.env
+**/*.envpackages/herge/abi/all-core-abis.json

@@ -1,0 +1,90 @@
+[
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "strike",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "currentPrice",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "tokenDen",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "spotDen",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "priceDen",
+        "type": "uint256"
+      }
+    ],
+    "name": "calculateCallProfit",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "pure",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "strike",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "currentPrice",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "tokenDen",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "spotDen",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "priceDen",
+        "type": "uint256"
+      }
+    ],
+    "name": "calculatePutProfit",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "pure",
+    "type": "function"
+  }
+]
